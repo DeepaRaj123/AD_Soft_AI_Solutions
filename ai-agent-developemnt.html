@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/responsive.css" />
     <link rel="stylesheet" href="demos/marketing/marketing.css" />
+    <link rel="stylesheet" href="css/ai-hero-cards.css" />
     <style>
         :root {
             --g: #559643;
@@ -1033,6 +1034,207 @@
                 left: -4px
             }
         }
+
+        .ai-opportunities {
+            padding: clamp(55px, 7vw, 90px) 0 80px
+        }
+
+        .ai-opportunities .ai-opportunities-intro {
+            max-width: 760px;
+            margin: 0 auto 30px
+        }
+
+        .ai-opportunities .ai-opportunities-cards {
+            display: flex;
+            align-items: stretch;
+            gap: 14px;
+            min-height: 440px
+        }
+
+        .ai-opportunities .ai-opportunity {
+            position: relative;
+            display: flex;
+            flex: 1 1 0;
+            flex-direction: column;
+            justify-content: space-between;
+            min-width: 0;
+            padding: 24px;
+            overflow: hidden;
+            cursor: pointer;
+            background: #fff;
+            border: 1px solid #dbe8d2;
+            border-radius: 24px;
+            box-shadow: 0 12px 30px rgba(60, 90, 20, .08);
+            transition: flex .7s cubic-bezier(.2, .8, .2, 1), background .5s, box-shadow .5s
+        }
+
+        .ai-opportunities .ai-opportunity.is-active {
+            flex-grow: 4.2;
+            background: linear-gradient(145deg, #94b92f, var(--g));
+            border-color: transparent;
+            box-shadow: 0 24px 50px rgba(85, 150, 67, .3)
+        }
+
+        .ai-opportunity-header {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 14px
+        }
+
+        .ai-opportunity.is-active .ai-opportunity-header {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        .ai-opportunity-number {
+            color: var(--g);
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 1px
+        }
+
+        .ai-opportunity.is-active .ai-opportunity-number {
+            color: #e3f2b0;
+            font-size: 44px;
+            opacity: .8
+        }
+
+        .ai-opportunity-icon {
+            display: flex;
+            width: 52px;
+            height: 52px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            background: #eef6e4;
+            color: var(--g);
+            font-size: 24px;
+            transition: .5s
+        }
+
+        .ai-opportunity.is-active .ai-opportunity-icon {
+            background: rgba(255, 255, 255, .22);
+            color: #fff;
+            transform: rotate(-8deg) scale(1.08)
+        }
+
+        .ai-opportunity-title {
+            margin: 0;
+            color: #232323;
+            font-size: 17px;
+            font-weight: 700;
+            line-height: 1.25;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            white-space: nowrap
+        }
+
+        .ai-opportunity.is-active .ai-opportunity-title {
+            color: #fff;
+            font-size: 26px;
+            writing-mode: horizontal-tb;
+            transform: none;
+            white-space: normal
+        }
+
+        .ai-opportunity-description {
+            max-height: 0;
+            margin: 10px 0 0;
+            overflow: hidden;
+            color: #fff;
+            opacity: 0;
+            transition: opacity .4s .1s, max-height .5s
+        }
+
+        .ai-opportunity.is-active .ai-opportunity-description {
+            max-height: 160px;
+            opacity: 1
+        }
+
+        .ai-opportunity:focus-visible {
+            outline: 3px solid var(--g-d);
+            outline-offset: 3px
+        }
+
+        @media(max-width:1399px) {
+            .ai-opportunities .ai-opportunities-cards {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                min-height: 0
+            }
+
+            .ai-opportunities .ai-opportunity,
+            .ai-opportunities .ai-opportunity.is-active {
+                display: grid;
+                grid-template-columns: 1fr;
+                flex: none;
+                gap: 24px;
+                min-height: 220px;
+                padding: 22px;
+                background: #fff;
+                border-color: #dbe8d2;
+                box-shadow: 0 12px 30px rgba(60, 90, 20, .08)
+            }
+
+            .ai-opportunities .ai-opportunity.is-active {
+                background: linear-gradient(145deg, #94b92f, var(--g));
+                border-color: transparent
+            }
+
+            .ai-opportunities .ai-opportunity-header,
+            .ai-opportunities .ai-opportunity.is-active .ai-opportunity-header {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between
+            }
+
+            .ai-opportunities .ai-opportunity-number,
+            .ai-opportunities .ai-opportunity.is-active .ai-opportunity-number {
+                font-size: 22px
+            }
+
+            .ai-opportunities .ai-opportunity-title,
+            .ai-opportunities .ai-opportunity.is-active .ai-opportunity-title {
+                color: #232323;
+                font-size: 20px;
+                writing-mode: horizontal-tb;
+                transform: none;
+                white-space: normal
+            }
+
+            .ai-opportunities .ai-opportunity.is-active .ai-opportunity-title {
+                color: #fff
+            }
+
+            .ai-opportunities .ai-opportunity-description,
+            .ai-opportunities .ai-opportunity.is-active .ai-opportunity-description {
+                max-height: none;
+                margin: 8px 0 0;
+                color: #6b7a63;
+                opacity: 1
+            }
+
+            .ai-opportunities .ai-opportunity.is-active .ai-opportunity-description {
+                color: #fff
+            }
+        }
+
+        @media(max-width:575px) {
+            .ai-opportunities .ai-opportunities-cards {
+                grid-template-columns: 1fr;
+                gap: 12px
+            }
+
+            .ai-opportunities .ai-opportunity,
+            .ai-opportunities .ai-opportunity.is-active {
+                min-height: 0;
+                gap: 14px;
+                padding: 18px
+            }
+        }
+
         html,
         body {
             width: 100%;
@@ -1112,11 +1314,11 @@
       <li class="nav-item dropdown simple-dropdown"><a href="#" class="nav-link text-nowrap">Software
                   Development</a><i class="fa-solid fa-angle-down dropdown-toggle" id="dSW" role="button"
                   data-bs-toggle="dropdown" aria-expanded="false"></i>
-                <ul class="dropdown-menu" aria-labelledby="dSW" style="min-width:330px;">
-                  <li><a href="website-development.html">Website Development</a></li>
-                                        <li><a href="mobile-app-development.html">Mobile App Development</a></li>
-                                        <li><a href="custom-software-development.html">Custom Software Development</a></li>
-                                        <li><a href="#">Software Modification & Modernization</a></li>
+                <ul class="dropdown-menu ai-dropdown software-dropdown" aria-labelledby="dSW">
+                  <li><a href="website-development.html"><i class="fa-solid fa-globe"></i>Website Development</a></li>
+                  <li><a href="mobile-app-development.html"><i class="fa-solid fa-mobile-screen-button"></i>Mobile App Development</a></li>
+                  <li><a href="custom-software-development.html"><i class="fa-solid fa-code"></i>Custom Software Development</a></li>
+                  <li><a href="#"><i class="fa-solid fa-arrows-rotate"></i>Software Modification &amp; Modernization</a></li>
                 </ul>
               </li>                            <li class="nav-item"><a href="#" class="nav-link text-nowrap">Business Solutions</a></li>
                             <li class="nav-item"><a href="demo-marketing-case-studies.html"
@@ -1250,6 +1452,97 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+    <section class="ai-opportunities bg-very-light-gray" aria-labelledby="ai-opportunities-title">
+        <div class="container">
+            <div class="text-center mb-40px rv">
+                <span class="fs-15 text-uppercase text-base-color fw-600 d-block ls-1px mb-10px">Hover to explore</span>
+                <h2 id="ai-opportunities-title" class="fw-800 text-dark-gray ls-minus-1px">How Can AI Help Your Business?</h2>
+            </div>
+            <p class="ai-opportunities-intro text-center fs-18">AI opportunities can exist across different parts of an organization.</p>
+            <div class="ai-opportunities-cards rv">
+                <article class="ai-opportunity is-active" tabindex="0" role="button" aria-pressed="true">
+                    <div class="ai-opportunity-header">
+                        <span class="ai-opportunity-number">01</span>
+                        <span class="ai-opportunity-icon"><i class="bi bi-headset" aria-hidden="true"></i></span>
+                    </div>
+                    <div>
+                        <h3 class="ai-opportunity-title">Customer Experience</h3>
+                        <p class="ai-opportunity-description">AI can help businesses respond to customer questions, provide information and improve digital interactions.</p>
+                    </div>
+                </article>
+                <article class="ai-opportunity" tabindex="0" role="button" aria-pressed="false">
+                    <div class="ai-opportunity-header">
+                        <span class="ai-opportunity-number">02</span>
+                        <span class="ai-opportunity-icon"><i class="bi bi-graph-up-arrow" aria-hidden="true"></i></span>
+                    </div>
+                    <div>
+                        <h3 class="ai-opportunity-title">Sales &amp; Marketing</h3>
+                        <p class="ai-opportunity-description">AI can assist with lead qualification, content workflows, customer communication and sales-support processes.</p>
+                    </div>
+                </article>
+                <article class="ai-opportunity" tabindex="0" role="button" aria-pressed="false">
+                    <div class="ai-opportunity-header">
+                        <span class="ai-opportunity-number">03</span>
+                        <span class="ai-opportunity-icon"><i class="bi bi-gear-wide-connected" aria-hidden="true"></i></span>
+                    </div>
+                    <div>
+                        <h3 class="ai-opportunity-title">Operations</h3>
+                        <p class="ai-opportunity-description">AI automation can reduce repetitive administrative work and improve workflow efficiency.</p>
+                    </div>
+                </article>
+                <article class="ai-opportunity" tabindex="0" role="button" aria-pressed="false">
+                    <div class="ai-opportunity-header">
+                        <span class="ai-opportunity-number">04</span>
+                        <span class="ai-opportunity-icon"><i class="bi bi-chat-dots" aria-hidden="true"></i></span>
+                    </div>
+                    <div>
+                        <h3 class="ai-opportunity-title">Customer Support</h3>
+                        <p class="ai-opportunity-description">AI chatbots and assistants can handle suitable enquiries and provide information around the clock.</p>
+                    </div>
+                </article>
+                <article class="ai-opportunity" tabindex="0" role="button" aria-pressed="false">
+                    <div class="ai-opportunity-header">
+                        <span class="ai-opportunity-number">05</span>
+                        <span class="ai-opportunity-icon"><i class="bi bi-journal-bookmark" aria-hidden="true"></i></span>
+                    </div>
+                    <div>
+                        <h3 class="ai-opportunity-title">Internal Knowledge</h3>
+                        <p class="ai-opportunity-description">AI assistants can help employees access approved business information more efficiently.</p>
+                    </div>
+                </article>
+                <article class="ai-opportunity" tabindex="0" role="button" aria-pressed="false">
+                    <div class="ai-opportunity-header">
+                        <span class="ai-opportunity-number">06</span>
+                        <span class="ai-opportunity-icon"><i class="bi bi-file-earmark-text" aria-hidden="true"></i></span>
+                    </div>
+                    <div>
+                        <h3 class="ai-opportunity-title">Document Processing</h3>
+                        <p class="ai-opportunity-description">AI can help extract, classify, summarize and process information from documents where appropriate.</p>
+                    </div>
+                </article>
+                <article class="ai-opportunity" tabindex="0" role="button" aria-pressed="false">
+                    <div class="ai-opportunity-header">
+                        <span class="ai-opportunity-number">07</span>
+                        <span class="ai-opportunity-icon"><i class="bi bi-phone" aria-hidden="true"></i></span>
+                    </div>
+                    <div>
+                        <h3 class="ai-opportunity-title">Digital Products</h3>
+                        <p class="ai-opportunity-description">AI can be incorporated into websites, mobile apps and software products to create intelligent features.</p>
+                    </div>
+                </article>
+                <article class="ai-opportunity" tabindex="0" role="button" aria-pressed="false">
+                    <div class="ai-opportunity-header">
+                        <span class="ai-opportunity-number">08</span>
+                        <span class="ai-opportunity-icon"><i class="bi bi-diagram-3" aria-hidden="true"></i></span>
+                    </div>
+                    <div>
+                        <h3 class="ai-opportunity-title">Business Automation</h3>
+                        <p class="ai-opportunity-description">AI can work alongside existing workflows, APIs and software to automate information-heavy processes.</p>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
@@ -2047,6 +2340,31 @@
             var hub = document.getElementById('hub'); if (hub) { var n = hub.querySelectorAll('.hub-n'); n.forEach(function (e, i) { var a = (i / n.length) * 2 * Math.PI - Math.PI / 2; e.style.left = (50 + 39 * Math.cos(a)) + '%'; e.style.top = (50 + 43 * Math.sin(a)) + '%' }) }
         })();</script>
     <script>(function () { var v = document.getElementById('igVis'), s = document.getElementById('igStage'); if (!v || matchMedia('(max-width:991px)').matches) return; v.addEventListener('mousemove', function (e) { var r = v.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5; s.style.setProperty('--ry', x * 14 + 'deg'); s.style.setProperty('--rx', -y * 10 + 'deg') }); v.addEventListener('mouseleave', function () { s.style.removeProperty('--rx'); s.style.removeProperty('--ry') }) })();</script>
+    <script>(function () {
+            var cards = document.querySelectorAll('.ai-opportunity');
+            function activate(card) {
+                cards.forEach(function (item) {
+                    var active = item === card;
+                    item.classList.toggle('is-active', active);
+                    item.setAttribute('aria-pressed', active ? 'true' : 'false');
+                });
+            }
+            cards.forEach(function (card) {
+                card.addEventListener('mouseenter', function () {
+                    if (matchMedia('(min-width:1400px)').matches) activate(card);
+                });
+                card.addEventListener('focus', function () {
+                    if (matchMedia('(min-width:1400px)').matches) activate(card);
+                });
+                card.addEventListener('click', function () { activate(card); });
+                card.addEventListener('keydown', function (event) {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        activate(card);
+                    }
+                });
+            });
+        })();</script>
 </body>
 
 </html>
