@@ -4047,3 +4047,16 @@ document.addEventListener("DOMContentLoaded", function() {
                 
                 setTimeout(typeWriter, 500); 
             });
+(function () {
+  var nav = document.querySelector('header .navbar');
+  if (!nav) return;
+  function toggleNav() {
+    if (window.scrollY > 20) {
+      nav.classList.add('nav-scrolled');
+    } else {
+      nav.classList.remove('nav-scrolled');
+    }
+  }
+  window.addEventListener('scroll', toggleNav, { passive: true });
+  toggleNav();
+})();
