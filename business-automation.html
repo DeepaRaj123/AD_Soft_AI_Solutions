@@ -91,8 +91,9 @@ html,body{width:100%;max-width:100%;overflow-x:clip}
 @media(max-width:991px){.intro-grid{grid-template-columns:1fr}.lead-card{padding:36px 28px}.lead-card p{font-size:18px}}
 @media(max-width:575px){.story{padding-left:28px}.story:before{left:8px}.story:after{left:2px}.sc{flex-direction:column;padding:24px 20px;gap:16px}.sc .dot{left:-28px;width:20px;height:20px}.pipe i{width:46px;height:46px;font-size:19px}.intro-head{margin-bottom:40px}.intro-head .ico-row em{width:36px}}
 /* ===== HERO ===== */
-.ba-hero{min-height:100vh;display:flex;align-items:center;padding-top:110px!important;background:radial-gradient(circle at 85% 15%,rgba(148,185,47,.28),transparent 45%),radial-gradient(circle at 5% 90%,rgba(85,150,67,.18),transparent 40%),#e6faf1}
-#net{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.ba-hero{min-height:100vh;display:flex;align-items:center;padding-top:110px!important;background:radial-gradient(circle at 80% 20%,rgba(148,185,47,.25),transparent 45%),#e6faf1}
+.ba-hero:before{content:"";position:absolute;inset:0;background-image:radial-gradient(#55964340 1.2px,transparent 1.2px);background-size:26px 26px;animation:drift 20s linear infinite;pointer-events:none}
+@keyframes drift{to{background-position:260px 260px}}
 .ba-hero h1{min-height:calc(2 * 1.1em);margin-bottom:16px;font-size:clamp(34px,4.3vw,55px);font-weight:800;letter-spacing:-2px;line-height:1.1;color:var(--d)}
 .ba-hero h1 #ba-typing-text{white-space:pre-line;background:linear-gradient(90deg,var(--d) 0 100%);-webkit-background-clip:text;background-clip:text}
 @media(max-width:991px){.ba-hero h1{min-height:calc(2 * 1.1em)}}
@@ -283,7 +284,7 @@ html,body{width:100%;max-width:100%;overflow-x:clip}
 <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
 <ul class="navbar-nav">
 <li class="nav-item"><a href="index.html" class="nav-link text-nowrap">Home</a></li>
-<li class="nav-item"><a href="demo-marketing-about.html" class="nav-link text-nowrap">About Us</a></li>
+<li class="nav-item"><a href="about.html" class="nav-link text-nowrap">About Us</a></li>
 <li class="nav-item dropdown simple-dropdown"><a href="ai-solution.html" class="nav-link text-nowrap">AI Solutions</a><i class="fa-solid fa-angle-down dropdown-toggle" id="dAI" role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
 <ul class="dropdown-menu ai-dropdown" aria-labelledby="dAI">
 <li><a href="ai-agent-developemnt.html"><i class="fa-solid fa-robot"></i>AI Agent Development</a></li>
@@ -299,26 +300,22 @@ html,body{width:100%;max-width:100%;overflow-x:clip}
    <li><a href="custom-software-development.html"><i class="fa-solid fa-code"></i>Custom Software Development</a></li>
    <li><a href="software-modification-modernization.html"><i class="fa-solid fa-arrows-rotate"></i>Software Modification &amp; Modernization</a></li>
 </ul></li>
-<!-- 5. BUSINESS SOLUTIONS (Dropdown) -->
-                                <li class="nav-item dropdown simple-dropdown">
-                                    <a href="#" class="nav-link text-nowrap">Business Solutions</a>
-                                    <i class="fa-solid fa-angle-down dropdown-toggle" id="navbarDropdownBusiness" role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
-                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownBusiness" style="min-width: 260px;">
-                                         <li><a href="business-automation.html">Business Automation</a></li>
-                                        <li><a href="#">Digital Transformation</a></li>
-                                        <li><a href="#">Branding</a></li>
-                                        <li><a href="#">Business Services</a></li>
-                                    </ul>
-                                </li>
+              <li class="nav-item dropdown simple-dropdown"><a href="#" class="nav-link text-nowrap">Business Solutions</a><i class="fa-solid fa-angle-down dropdown-toggle" id="dBS" role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
+<ul class="dropdown-menu ai-dropdown" aria-labelledby="dBS">
+  <li><a href="business-automation.html"><i class="fa-solid fa-gears"></i>Business Automation</a></li>
+  <li><a href="digital-transformation.html"><i class="fa-solid fa-chart-line"></i>Digital Transformation</a></li>
+  <li><a href="branding.html"><i class="fa-solid fa-palette"></i>Branding</a></li>
+  <li><a href="business-services.html"><i class="fa-solid fa-briefcase"></i>Business Services</a></li>
+</ul></li>
 
 <ul class="dropdown-menu" aria-labelledby="dBS" style="min-width:260px;">
 <li><a href="business-automation.html">Business Automation</a></li>
-<li><a href="#">Digital Transformation</a></li>
+<li><a href="digital-transformation.html">Digital Transformation</a></li>
 <li><a href="#">Branding</a></li>
 <li><a href="#">Business Services</a></li>
 </ul></li>
-<li class="nav-item"><a href="demo-marketing-case-studies.html" class="nav-link text-nowrap">Our Work</a></li>
-<li class="nav-item"><a href="#" class="nav-link text-nowrap">AI Insights</a></li>
+<li class="nav-item"><a href="our-work.html" class="nav-link text-nowrap">Our Work</a></li>
+<li class="nav-item"><a href="ai-insights.html" class="nav-link text-nowrap">AI Insights</a></li>
 <li class="nav-item"><a href="demo-marketing-contact.html" class="nav-link text-nowrap">Contact</a></li>
 </ul></div></div>
 <div class="col-auto text-end"><div class="header-icon"><div class="header-social-icon icon"><a href="http://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook-f"></i></a><a href="http://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a><a href="http://www.twitter.com" target="_blank"><i class="fa-brands fa-twitter"></i></a></div></div></div>
@@ -327,7 +324,6 @@ html,body{width:100%;max-width:100%;overflow-x:clip}
 
 <!-- HERO -->
 <section class="ba-hero">
-<canvas id="net"></canvas>
 <div class="container position-relative" style="z-index:2"><div class="row align-items-center">
 <div class="col-lg-6 mb-5 mt-7 mb-lg-0 rv">
 <span class="d-inline-block bg-white border-radius-100px ps-20px pe-20px fs-14 fw-600 text-base-color mb-20px box-shadow-large">● Business Automation Services in Kerala</span>
@@ -535,16 +531,6 @@ send('t','a',900,()=>{pulse('a');say('Enquiry classified for routing');send('a',
 log.innerHTML='<div class="hd">workflow · live</div>';
 cycle();setInterval(cycle,6500);
 
-/* ---------- NETWORK CANVAS ---------- */
-(function(){const cv=Q('#net'),cx=cv.getContext('2d');let W,H,pp=[];
-function rs(){W=cv.width=cv.offsetWidth;H=cv.height=cv.offsetHeight;pp=Array.from({length:Math.min(60,Math.floor(W/24))},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4}))}
-rs();addEventListener('resize',rs);
-if(RM)return;
-(function d(){cx.clearRect(0,0,W,H);
-pp.forEach((a,i)=>{a.x+=a.vx;a.y+=a.vy;if(a.x<0||a.x>W)a.vx*=-1;if(a.y<0||a.y>H)a.vy*=-1;
-cx.beginPath();cx.arc(a.x,a.y,2,0,6.3);cx.fillStyle='rgba(85,150,67,.55)';cx.fill();
-for(let j=i+1;j<pp.length;j++){const b=pp[j],dx=a.x-b.x,dy=a.y-b.y,ds=dx*dx+dy*dy;if(ds<12000){cx.strokeStyle=`rgba(85,150,67,${.22*(1-ds/12000)})`;cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(b.x,b.y);cx.stroke()}}});
-requestAnimationFrame(d)})()})();
 
 /* ---------- MANUAL VS AUTOMATED DEMO ---------- */
 const steps=[['bi-ui-checks','Capture enquiry details','Name, requirement and contact info'],['bi-person-lines-fill','Add lead to CRM','Record created with source and stage'],['bi-bell','Notify the sales team','Right person alerted about the new lead'],['bi-alarm','Schedule a follow-up reminder','So no enquiry is forgotten']];
