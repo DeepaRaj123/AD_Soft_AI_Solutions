@@ -7233,6 +7233,81 @@ header.sticky .navbar.disable-fixed {
   box-shadow: none;
 }
 
+/* Keep the shared site header visible while scrolling on every page. */
+header .navbar.disable-fixed {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+}
+  header:not(.sticky) .navbar.disable-fixed { background-color: transparent !important; }
+
+header .navbar.disable-fixed > .container-fluid {
+  width: 100%;
+  max-width: 100%;
+}
+
+header .navbar.disable-fixed {
+  background-color: transparent !important;
+  box-shadow: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+header .navbar.disable-fixed.nav-scrolled {
+  background-color: rgba(255, 255, 255, 0.96) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 20px rgba(35, 35, 35, 0.1);
+}
+
+header.sticky .navbar.disable-fixed {
+  background-color: var(--white);
+  box-shadow: 0 8px 24px rgba(35, 35, 35, 0.12);
+}
+
+header.sticky.sticky-active .navbar.disable-fixed .default-logo {
+  visibility: visible;
+  opacity: 1;
+  width: auto;
+  max-height: 70px;
+}
+
+header.sticky.sticky-active .navbar.disable-fixed .alt-logo {
+  visibility: visible;
+  opacity: 1;
+  width: 0;
+}
+
+@media (min-width: 992px) {
+  header,
+  header .navbar.disable-fixed {
+    z-index: 1000;
+  }
+
+  header .navbar .navbar-nav .simple-dropdown {
+    position: relative;
+  }
+
+  header .navbar .navbar-nav .simple-dropdown > .dropdown-menu {
+    left: 0;
+    top: 100%;
+    width: min(340px, calc(100vw - 30px));
+    max-width: calc(100vw - 30px);
+    padding: 22px 0;
+    z-index: 1001;
+  }
+
+  header .navbar .navbar-nav .simple-dropdown > .dropdown-menu li {
+    padding: 0 22px;
+  }
+
+  header .navbar .navbar-nav .simple-dropdown > .dropdown-menu li a {
+    white-space: normal;
+    line-height: 1.45;
+  }
+}
+
 /* Navbar */
 .navbar {
   padding: 0;

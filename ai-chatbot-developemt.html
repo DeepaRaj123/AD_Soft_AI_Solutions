@@ -41,12 +41,28 @@
             padding-top: 30px
         }
 
-        .ai-hero {
-            position: relative;
-            overflow: hidden;
-            background: rgba(102, 243, 199, .14) url('images/demo-marketing-dot.svg');
-            padding: 150px 0 90px
-        }
+       .ai-hero {
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 110px 0 40px !important;
+    background: radial-gradient(circle at 80% 20%, rgba(148, 185, 47, .25), transparent 45%), #e6faf1;
+}
+.ai-hero:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(#55964340 1.2px, transparent 1.2px);
+    background-size: 26px 26px;
+    animation: drift 20s linear infinite !important;
+}
+@keyframes drift { to { background-position: 260px 260px; } }
+.ai-hero > .container { width: 100%; }
+@media (max-width: 991px) {
+    .ai-hero { min-height: auto; padding: 130px 0 60px !important; }
+}
 
         .blob {
             position: absolute;
