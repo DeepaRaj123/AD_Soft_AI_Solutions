@@ -7233,32 +7233,24 @@ header.sticky .navbar.disable-fixed {
   box-shadow: none;
 }
 
-/* Keep the shared site header visible while scrolling on every page. */
+/* Keep the shared navigation visible at the top while the page scrolls. */
 header .navbar.disable-fixed {
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
   width: 100%;
+  z-index: 1000;
+  background-color: var(--white) !important;
+  box-shadow: 0 2px 12px rgba(35, 35, 35, 0.08);
 }
-  header:not(.sticky) .navbar.disable-fixed { background-color: transparent !important; }
+header:not(.sticky) .navbar.disable-fixed {
+  background-color: var(--white) !important;
+}
 
 header .navbar.disable-fixed > .container-fluid {
   width: 100%;
   max-width: 100%;
-}
-
-header .navbar.disable-fixed {
-  background-color: transparent !important;
-  box-shadow: none;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-header .navbar.disable-fixed.nav-scrolled {
-  background-color: rgba(255, 255, 255, 0.96) !important;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 4px 20px rgba(35, 35, 35, 0.1);
 }
 
 header.sticky .navbar.disable-fixed {
