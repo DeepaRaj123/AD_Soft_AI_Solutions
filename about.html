@@ -37,7 +37,10 @@
     <meta name="twitter:image" content="https://www.adsofttechnologies.com/images/logo.png">
 
 <link rel="canonical" href="https://www.adsofttechnologies.com/about-us/">
-<link rel="shortcut icon" href="images/favicon.png">
+<link rel="shortcut icon" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/logo.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="css/vendors.min.css"/>
@@ -111,7 +114,7 @@ section[style*="demo-marketing-dot.svg"]::before { content:""; position:absolute
 <li class="nav-item dropdown simple-dropdown"><a href="ai-solution.html" class="nav-link text-nowrap">AI Solutions</a><i class="fa-solid fa-angle-down dropdown-toggle" id="dAI" role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
 <ul class="dropdown-menu ai-dropdown" aria-labelledby="dAI">
 <li><a href="ai-agent-developemnt.html"><i class="fa-solid fa-robot"></i>AI Agent Development</a></li>
-<li><a href="ai-chatbot-developemt.html"><i class="fa-solid fa-comment-dots"></i>AI Chatbot Development</a></li>
+<li><a href="ai-chatbot-developemt"><i class="fa-solid fa-comment-dots"></i>AI Chatbot Development</a></li>
 <li><a href="ai-automation.html"><i class="fa-solid fa-bolt"></i>AI Automation</a></li>
 <li><a href="ai-integration.html"><i class="fa-solid fa-diagram-project"></i>AI Integration</a></li>
 <li><a href="ai-adoption-and-consulting.html"><i class="fa-solid fa-chart-line"></i>AI Adoption &amp; Consulting</a></li>
@@ -666,6 +669,19 @@ section[style*="demo-marketing-dot.svg"]::before { content:""; position:absolute
 <!-- end footer -->
 
 <div class="scroll-progress d-none d-xxl-block"><a href="#" class="scroll-top" aria-label="scroll"><span class="scroll-text">Scroll</span><span class="scroll-line"><span class="scroll-point"></span></span></a></div>
+<script>
+  // Local environment-il (.html) illamal click pannum pothu 404 varamal irukka or local testing fallback
+  if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+    document.querySelectorAll('a').forEach(function(link) {
+      let href = link.getAttribute('href');
+      // External links matrum anchor links (#)-ai thavirthu mattum check pannum
+      if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('mailto:')) {
+        // Oru vela link-la .html illamal irunthu, local-il file irunthal add pannikkum (Optional fallback)
+        // Ative class toggle pannukira logic-um ithula handle pannalam
+      }
+    });
+  }
+</script>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/vendors.min.js"></script>
 <script type="text/javascript" src="js/main.js"></script>

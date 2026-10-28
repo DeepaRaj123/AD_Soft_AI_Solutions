@@ -4057,12 +4057,14 @@ document.addEventListener("DOMContentLoaded", function() {
                 const speed = 60; 
                 
                 function typeWriter() {
+                    const target = document.getElementById("typing-text");
+                    if (!target) return;
                     if (index < text.length) {
                         let char = text.charAt(index);
                         if (char === '\n') {
-                            document.getElementById("typing-text").innerHTML += "<br>";
+                            target.innerHTML += "<br>";
                         } else {
-                            document.getElementById("typing-text").innerHTML += char;
+                            target.innerHTML += char;
                         }
                         index++;
                         setTimeout(typeWriter, speed);
