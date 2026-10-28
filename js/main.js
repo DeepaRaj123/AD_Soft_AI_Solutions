@@ -306,6 +306,9 @@
 
     // Open menu on hover
     $('.dropdown').on('mouseenter touchstart', function (e) {
+        if (getWindowWidth() < 1200) {
+            return;
+        }
         var _this = $(this);
         _this.siblings('.dropdown').removeClass('open');
         _this.parents('.navbar-nav').siblings('.navbar-nav').find('.dropdown').removeClass('open');
@@ -329,6 +332,9 @@
             }
         }
     }).on('mouseleave', function (e) {
+        if (getWindowWidth() < 1200) {
+            return;
+        }
         var _this = $(this);
         _this.removeClass('menu-left');
         _this.removeClass('open');
@@ -518,28 +524,11 @@
         }
     }
 
-    // Without link
-    $('.nav-item  .nav-link').on('click', function (e) {
-        var submenuLenth = $(this).closest('.dropdown').find('.dropdown').length;
-
-        if ($(window).width() < 992 && $(this).closest('.dropdown').length > 0) {
-            var HasClass = $(this).closest('.nav-item').find('.dropdown-menu').hasClass('show');
-            if ($(this).closest('.nav-item').find('.dropdown-menu').hasClass('show')) {
-                $(this).closest('.nav-item').find('.dropdown-menu').removeClass('show')
-                $(this).closest('.nav-item').find('.dropdown-toggle').removeClass('show')
-            } else {
-                $('.navbar-nav').find('.dropdown-menu').removeClass('show');
-                $('.navbar-nav').find('.dropdown-toggle').removeClass('show');
-                $(this).closest('.nav-item').find('.dropdown-menu').addClass('show')
-                $(this).closest('.nav-item').find('.dropdown-toggle').addClass('show')
-            }
-        }
-    });
-
     $(window).resize(function () {
-        if ($(window).width() > 991) {
+        if ($(window).width() >= 1200) {
             $('.navbar-nav').find('.dropdown-menu').removeClass('show');
             $('.navbar-nav').find('.dropdown-toggle').removeClass('show');
+            $('.navbar-nav').find('.dropdown-toggle').attr('aria-expanded', 'false');
         }
     });
 
@@ -3828,6 +3817,41 @@
 
 })(jQuery);
 
+document.addEventListener('click', function (event) {
+  if (window.innerWidth >= 1200 || !event.target.closest) return;
+
+  var trigger = event.target.closest('.simple-dropdown > .nav-link, .simple-dropdown > .dropdown-toggle');
+  if (!trigger) return;
+
+  var dropdown = trigger.parentElement;
+  var menu = dropdown.querySelector('.dropdown-menu');
+  var toggle = dropdown.querySelector('.dropdown-toggle');
+  if (!menu || !toggle) return;
+
+  event.preventDefault();
+  event.stopPropagation();
+  if (event.stopImmediatePropagation) event.stopImmediatePropagation();
+
+  var shouldOpen = !menu.classList.contains('show');
+  document.querySelectorAll('.navbar-nav .simple-dropdown').forEach(function (item) {
+    item.classList.remove('open');
+    item.querySelectorAll('.dropdown-menu').forEach(function (itemMenu) {
+      itemMenu.classList.remove('show');
+    });
+    item.querySelectorAll('.dropdown-toggle').forEach(function (itemToggle) {
+      itemToggle.classList.remove('show');
+      itemToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  if (shouldOpen) {
+    dropdown.classList.add('open');
+    menu.classList.add('show');
+    toggle.classList.add('show');
+    toggle.setAttribute('aria-expanded', 'true');
+  }
+}, true);
+
 /* ===================================
  Google map
  ====================================== */
@@ -4047,16 +4071,22 @@ document.addEventListener("DOMContentLoaded", function() {
                 
                 setTimeout(typeWriter, 500); 
             });
+
 (function () {
-  var nav = document.querySelector('header .navbar');
-  if (!nav) return;
-  function toggleNav() {
-    if (window.scrollY > 20) {
-      nav.classList.add('nav-scrolled');
-    } else {
-      nav.classList.remove('nav-scrolled');
-    }
-  }
-  window.addEventListener('scroll', toggleNav, { passive: true });
-  toggleNav();
+  if (window.innerWidth >= 992) return;
+
+  var nav = document.querySelector('header .navbar.disable-fixed');
+  if (!nav || nav.querySelector('.mobile-menu-social')) return;
+
+  var socialLinks = nav.querySelectorAll('.header-social-icon a');
+  var collapse = nav.querySelector('.navbar-collapse');
+  if (!socialLinks.length || !collapse) return;
+
+  var mobileSocial = document.createElement('div');
+  mobileSocial.className = 'mobile-menu-social';
+  mobileSocial.setAttribute('aria-label', 'Social media');
+  Array.prototype.forEach.call(socialLinks, function (link) {
+    mobileSocial.appendChild(link.cloneNode(true));
+  });
+  collapse.appendChild(mobileSocial);
 })();
