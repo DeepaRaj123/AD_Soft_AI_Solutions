@@ -66,7 +66,7 @@
     }
     </script>
 <style>
-:root{--g:#559643;--g-d:#3f7431;--g-l:#94b92f;--g2:#94b92f;--gl:#B5D65A;--d:#232323}
+:root{--g:#559643;--g-d:#3f7431;--g-l:#94b92f;--g2:#94b92f;--gl:#eef7ea;--d:#232323}
 .text-base-color,.btn-base-color{color:var(--g)!important}.bg-base-color{background-color:var(--g)!important}
 #sp{position:fixed;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,var(--g-l),var(--g));z-index:9999}
 .wd section{padding:40px 0;position:relative;overflow:hidden}
@@ -78,9 +78,9 @@
 .wd-hero{min-height:100vh;display:flex;align-items:center;padding-top:110px!important;background:radial-gradient(circle at 80% 20%,rgba(148,185,47,.25),transparent 45%),#e6faf1}
 .wd-hero:before{content:"";position:absolute;inset:0;background-image:radial-gradient(#55964340 1.2px,transparent 1.2px);background-size:26px 26px;animation:drift 20s linear infinite}
 @keyframes drift{to{background-position:260px 260px}}
-.wd-hero h1{height:auto;min-height:132px;font-size:clamp(34px,4.3vw,55px);font-weight:800;letter-spacing:-2px;line-height:1.1;color:var(--d)}
+.wd-hero h1{min-height:120px;font-size:clamp(34px,4.3vw,55px);font-weight:800;letter-spacing:-2px;line-height:1.1;color:var(--d)}
 .wd-hero h1 #wd-typing-text{white-space:pre-line}
-@media(max-width:991px){.wd-hero h1{height:auto;min-height:100px}}
+@media(max-width:991px){.wd-hero h1{min-height:92px}}
 .wd-hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--g),var(--g2),var(--g));background-size:200%;-webkit-background-clip:text;color:transparent;animation:shine 4s linear infinite}
 @keyframes shine{to{background-position:200%}}
 .browser{position:relative;background:#fff;border-radius:16px;box-shadow:0 40px 80px rgba(60,90,20,.25);transform:perspective(1000px) rotateY(-10deg) rotateX(4deg);transition:transform .3s;overflow:hidden}
@@ -152,6 +152,7 @@ html,body{width:100%;max-width:100%;overflow-x:clip}
 @media(max-width:767px){.tl:before,.tl .fill{left:20px}.st,.st:nth-child(odd){width:100%;margin:0;padding:0 0 30px 56px;text-align:left}.st .n,.st:nth-child(odd) .n{left:0;right:auto}.fi{display:none}.browser{transform:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv,.chip{opacity:1;transform:none}.bar2 i{width:var(--w)}}
 </style>
+<link rel="stylesheet" href="css/eq-image.css">
 </head>
 <body data-mobile-nav-style="classic" class="wd custom-cursor">
 <div id="sp"></div>
@@ -264,23 +265,20 @@ html,body{width:100%;max-width:100%;overflow-x:clip}
                 </div>
 
                 <!-- Content Area -->
-                <div class="row software-intro-row">
+                <div class="row software-intro-row align-items-stretch">
                     
                     <!-- Left Side: Image -->
-                    <div class="col-lg-6 col-md-10 position-relative md-mb-50px sm-mb-40px text-center software-intro-visual">
-                        <figure class="software-intro-image position-relative" data-anime='{ "effect": "slide", "color": "#B5D65A", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
-                            <!-- Image size reduced using w-80 -->
-                            <img src="images/about-1.png" class="border-radius-6px" alt="AD Soft Technologies">
-                            
-                            <!-- Floating small image positioned accordingly -->
-                            <figcaption class="position-absolute bottom-50px left-minus-30px sm-left-0px" data-anime='{ "translateY": [-50, 0], "opacity": [0,1], "duration": 800, "delay": 1000, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                                <img src="images/about-2.png" class="animation-float box-shadow-quadruple-large border-radius-6px" alt="">
-                            </figcaption>
-                        </figure>
+                    <div class="col-lg-6 col-md-10 position-relative md-mb-50px sm-mb-40px">
+                        <div class="eq-wrap">
+<figure class="m-0" data-anime='{ "effect": "slide", "color": "#eef7ea", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
+<img src="images/software/software-4.webp" class="eq-main border-radius-6px" alt="AD Soft Technologies">
+</figure>
+<img src="images/software/software-float-4.webp" class="eq-float animation-float box-shadow-quadruple-large border-radius-6px" alt="">
+</div>
                     </div>
                     
                     <!-- Right Side: Content -->
-                    <div class="col-lg-6 col-md-12 software-intro-content" data-anime='{ "el": "childs", "translateX": [50, 0], "opacity": [0,1], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
+                    <div class="col-lg-6 col-md-12 software-intro-content d-flex flex-column justify-content-center" data-anime='{ "el": "childs", "translateX": [50, 0], "opacity": [0,1], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
                         
                         <!-- Paragraphs -->
                         <div class="software-intro-copy last-paragraph-no-margin">
@@ -490,14 +488,11 @@ addEventListener('scroll',()=>{const t=Q('#tl'),r=t.getBoundingClientRect(),p=Ma
                     typingElement.textContent += textToType.charAt(charIndex);
                     charIndex++;
                     setTimeout(type, typingSpeed);
-                } else {
-                    var cursor = typingElement.parentElement.querySelector(".blinking-cursor");
-                    if (cursor) cursor.style.display = "none";
                 }
             }
 
-            // Start typing immediately; the fixed hero title height prevents layout shaking
-            setTimeout(type, 100);
+            // Start typing after a short delay
+            setTimeout(type, 500);
         }
     });
 </script>

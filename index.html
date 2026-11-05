@@ -670,7 +670,7 @@ section[style*="demo-marketing-dot.svg"]::before {
     .portfolio-filter li,.portfolio-filter li:first-child,.portfolio-filter li:last-child{padding:0}
     .portfolio-filter li a{
         display:inline-block;padding:10px 24px;border-radius:40px;
-        background:#B5D65A;border:1.5px solid #d3e6cb;color:#2f4a28;font-weight:600;
+        background:#eef7ea;border:1.5px solid #d3e6cb;color:#2f4a28;font-weight:600;
         box-shadow:0 3px 8px rgba(85,150,67,.12);cursor:pointer;
         transition:transform .2s,background .2s,color .2s,box-shadow .2s,border-color .2s;
     }
@@ -686,6 +686,28 @@ section[style*="demo-marketing-dot.svg"]::before {
     @media(max-width:575px){.portfolio-filter li a{padding:8px 16px;font-size:14px}}
 </style>
     <link rel="stylesheet" href="css/nav-active.css">
+<link rel="stylesheet" href="css/eq-image.css">
+<style>
+/* Goal quote */
+.goal-quote{position:relative;background: linear-gradient(326deg, #73b162 0%, #469c2e 55%, #238108 100%);border-radius:10px;padding:48px 70px;box-shadow:0 18px 45px rgba(46,187,121,.35);overflow:hidden}
+.goal-quote::after{content:"";position:absolute;right:-60px;bottom:-80px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.08)}
+.goal-quote-text{position:relative;z-index:1;margin:0;color:#fff;font-size:22px;line-height:1.6;font-weight:600}
+.goal-quote-mark{position:absolute;z-index:1;font-family:Georgia,"Times New Roman",serif;font-size:90px;line-height:1;color:rgba(255,255,255,.45)}
+.goal-quote-open{left:22px;top:6px}
+.goal-quote-close{right:22px;bottom:-22px}
+@media(max-width:767px){.goal-quote{padding:40px 30px}.goal-quote-text{font-size:17px}.goal-quote-mark{font-size:60px}.goal-quote-open{left:12px;top:4px}.goal-quote-close{right:12px;bottom:-14px}}
+/* Equal-height review cards */
+.swiper-wrapper:has(.review-style-05){align-items:stretch}
+.swiper-wrapper:has(.review-style-05) > .swiper-slide{height:auto;display:flex}
+.review-style-05{width:100%;display:flex}
+.review-style-05 > div{width:100%;display:flex;flex-direction:column;background:#fff}
+.review-style-05 > div > .d-flex{flex:1 1 auto;min-height:190px}
+.review-style-05 > div > .border-top{flex:0 0 auto}
+/* Happy customers logo + review avatars */
+.happy-logo{max-height:110px;width:auto;max-width:100%;object-fit:contain}
+.review-style-05 img.review-avatar{width:64px;height:64px;min-width:64px;flex-shrink:0;object-fit:cover;background:#fff;box-shadow:0 3px 10px rgba(46,187,121,.25)}
+@media(max-width:767px){.review-style-05 img.review-avatar{width:52px;height:52px;min-width:52px}}
+</style>
 </head>
     <body data-mobile-nav-style="classic" class="custom-cursor home-page">
         <!-- start cursor -->
@@ -881,33 +903,30 @@ section[style*="demo-marketing-dot.svg"]::before {
                 </div>
 
                 <!-- Content Area -->
-                <div class="row align-items-center justify-content-md-center">
+                <div class="row justify-content-md-center align-items-stretch">
                     
                     <!-- Left Side: Image -->
-                    <div class="col-lg-6 col-md-10 position-relative md-mb-50px sm-mb-40px text-center"> 
-                        <figure class="position-relative m-0 d-inline-block" data-anime='{ "effect": "slide", "color": "#B5D65A", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
-                            <!-- Image size reduced using w-80 -->
-                            <img src="images/about-1.png" class="w-80 sm-w-100 border-radius-6px" alt="AD Soft Technologies">
-                            
-                            <!-- Floating small image positioned accordingly -->
-                            <figcaption class="position-absolute bottom-50px left-minus-30px sm-left-0px" data-anime='{ "translateY": [-50, 0], "opacity": [0,1], "duration": 800, "delay": 1000, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                                <img src="images/about-2.png" class="animation-float box-shadow-quadruple-large border-radius-6px" alt="">
-                            </figcaption>
-                        </figure>
+                    <div class="col-lg-6 col-md-10 position-relative md-mb-50px sm-mb-40px"> 
+                        <div class="eq-wrap">
+<figure class="m-0" data-anime='{ "effect": "slide", "color": "#eef7ea", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
+<img src="images/home/home-page-1.webp" class="eq-main border-radius-6px" alt="AD Soft Technologies">
+</figure>
+<img src="images/home/home-float-1.webp" class="eq-float animation-float box-shadow-quadruple-large border-radius-6px" alt="">
+</div>
                     </div>
                     
                     <!-- Right Side: Content -->
-                    <div class="col-lg-5 offset-lg-1 col-md-12" data-anime='{ "el": "childs", "translateX": [50, 0], "opacity": [0,1], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'> 
+                    <div class="col-lg-5 offset-lg-1 col-md-12 d-flex flex-column justify-content-center" data-anime='{ "el": "childs", "translateX": [50, 0], "opacity": [0,1], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'> 
                         
                         <!-- Paragraphs -->
-                        <div class="mb-40px last-paragraph-no-margin">
+                        <div class="mb-20px last-paragraph-no-margin">
                             <p class="mb-15px">AD Soft Technologies is an AI-powered software development and business automation company in Kerala, helping businesses build, improve and modernize their digital solutions. We develop AI agents, AI chatbots, AI automation solutions, AI integrations, websites, mobile applications and custom software designed around real business requirements.</p>
                             <p class="mb-15px">With 20+ projects delivered and experience working with clients in India, Europe and the USA, we combine software development expertise with modern AI technologies to help businesses solve operational challenges, improve customer experiences and create scalable digital solutions.</p>
                             <p>Whether you are starting a new digital product, looking to automate an existing business process, or exploring how AI can be integrated into your current software, AD Soft Technologies can help you identify the right technology approach and turn it into a practical solution.</p>
                         </div>
                         
                         <!-- Buttons -->
-                        <div class="mt-20px d-sm-flex align-items-center">
+                        <div class=" d-sm-flex align-items-center">
                             <a href="contact.html" class="btn btn-large btn-dark-gray btn-hover-animation-switch btn-round-edge btn-box-shadow me-20px xs-mb-15px fw-400 text-nowrap">
                                 <span> 
                                     <span class="btn-text">Talk to Our AI & Software Experts</span>
@@ -1190,8 +1209,10 @@ section[style*="demo-marketing-dot.svg"]::before {
                 <!-- Final Goal Statement -->
                 <div class="row justify-content-center mt-5">
                     <div class="col-xl-10 col-lg-11 text-center">
-                        <div class="bg-white border border-color-extra-medium-gray box-shadow-extra-large border-radius-6px p-30px">
-                            <p class="fs-18 text-dark-gray fw-600 mb-0">Our goal is not simply to introduce technology. It is to understand what your business needs, why it needs it and how technology can deliver measurable value.</p>
+                        <div class="goal-quote">
+                            <span class="goal-quote-mark goal-quote-open" aria-hidden="true">&ldquo;</span>
+                            <p class="goal-quote-text">Our goal is not simply to introduce technology. It is to understand what your business needs, why it needs it and how technology can deliver measurable value.</p>
+                            <span class="goal-quote-mark goal-quote-close" aria-hidden="true">&rdquo;</span>
                         </div>
                     </div>
                 </div>
@@ -1314,6 +1335,8 @@ section[style*="demo-marketing-dot.svg"]::before {
                     <div class="col-xl-8 col-lg-9 text-center" data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 800, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
                         <h3 class="fw-700 mb-0 text-dark-gray ls-minus-1px">AI Doesn't Have to Replace Your Existing Technology</h3>
                         <span class="fs-18 text-base-color fw-600 ls-1px font-style-italic d-block mt-2">Upgrade What You Already Have</span>
+                         <p class="mt-15px">Many businesses already have websites, mobile applications, CRM platforms, ERP systems or custom software. Replacing those systems completely may not always be necessary. AI can often be introduced as an additional capability.</p>
+
 
                     </div>
                 </div>
@@ -1321,13 +1344,12 @@ section[style*="demo-marketing-dot.svg"]::before {
                 <!-- Content and Image Row -->
                 <div class="row align-items-center justify-content-md-center">
                     <div class="col-lg-6 col-md-10 position-relative md-mb-50px sm-mb-40px text-center order-lg-2">
-                        <figure class="position-relative m-0 d-inline-block" data-anime='{ "effect": "slide", "color": "#B5D65A", "direction":"rl", "easing": "easeOutQuad", "delay":50}'>
-                            <img src="images/why-01.png" class="w-90 sm-w-100 border-radius-6px" alt="Upgrade what you already have">
+                        <figure class="position-relative m-0 d-inline-block" data-anime='{ "effect": "slide", "color": "#eef7ea", "direction":"rl", "easing": "easeOutQuad", "delay":50}'>
+                            <img src="images/home/home-page-2.webp" class="w-90 sm-w-100 border-radius-6px" alt="Upgrade what you already have">
                         </figure>
                     </div>
                     <div class="col-lg-5 offset-lg-1 order-lg-1" data-anime='{ "el": "childs", "translateX": [-50, 0], "opacity": [0,1], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
                         <div class="mb-30px last-paragraph-no-margin">
-                            <p class="mb-15px">Many businesses already have websites, mobile applications, CRM platforms, ERP systems or custom software. Replacing those systems completely may not always be necessary. AI can often be introduced as an additional capability.</p>
                             <p class="mb-15px">For example, an existing website can be connected to an AI chatbot. A business application can be enhanced with an AI assistant. Internal documents can be connected to a knowledge-based assistant, and existing workflows can be connected with AI-powered automation.</p>
                             <p>Our approach is to first understand your existing technology and business processes, and then determine where AI integration, automation or software modernization makes the most sense — so you can adopt AI progressively instead of treating digital transformation as an all-or-nothing project.</p>
                         </div>
@@ -1428,8 +1450,8 @@ section[style*="demo-marketing-dot.svg"]::before {
                 <!-- Content and Image Row -->
                 <div class="row align-items-center justify-content-md-center">
                     <div class="col-lg-6 col-md-10 position-relative md-mb-50px sm-mb-40px text-center">
-                        <figure class="position-relative m-0 d-inline-block" data-anime='{ "effect": "slide", "color": "#B5D65A", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
-                            <img src="images/why-02.png" class="w-90 sm-w-100 border-radius-6px" alt="Business Automation & Digital Transformation">
+                        <figure class="position-relative m-0 d-inline-block" data-anime='{ "effect": "slide", "color": "#eef7ea", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
+                            <img src="images/home/home-page-3.webp" class="w-90 sm-w-100 border-radius-6px" alt="Business Automation & Digital Transformation">
                         </figure>
                     </div>
                     <div class="col-lg-5 offset-lg-1" data-anime='{ "el": "childs", "translateX": [50, 0], "opacity": [0,1], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
@@ -1485,8 +1507,8 @@ section[style*="demo-marketing-dot.svg"]::before {
                 <div class="row align-items-center mb-6 xs-mb-12 justify-content-md-center"> 
                     <!-- Left Side Image Layout -->
                     <div class="col-lg-6 col-md-10 position-relative md-mb-50px"> 
-                        <figure class="position-relative m-0 text-center" data-anime='{ "effect": "slide", "color": "#B5D65A", "direction":"rl", "easing": "easeOutQuad", "delay":50}'>
-                            <img src="images/why-04.png" class="border-radius-6px w-100" alt="">
+                        <figure class="position-relative m-0 text-center" data-anime='{ "effect": "slide", "color": "#eef7ea", "direction":"rl", "easing": "easeOutQuad", "delay":50}'>
+                            <img src="images/home/home-page-4.webp" class="border-radius-6px w-100" alt="">
                             <figcaption class="position-absolute bottom-60px right-0px" data-anime='{ "translateY": [-50, 0], "opacity": [0,1], "duration": 800, "delay": 1000, "staggervalue": 300, "easing": "easeOutQuad" }'> 
                                 <img src="images/about-2.png" class="animation-float box-shadow-quadruple-large border-radius-6px" alt="">
                             </figcaption>
@@ -2118,14 +2140,14 @@ section[style*="demo-marketing-dot.svg"]::before {
         </section>
      
         <!-- start section -->
-        <section class="pt-0 pb-2 sm-pb-6 overflow-hidden">
+        <section class="pt-0 pb-1 sm-pb-4 overflow-hidden">
             <div class="container">
                 <div class="row align-items-center justify-content-center">
                     <div class="col-lg-5 text-center text-lg-end md-mb-30px" data-anime='{ "translateX": [-50, 0], "opacity": [0,1], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
                         <h6 class="text-dark-gray fw-600 mb-0 ls-minus-1px">25,000+ Happy customers</h6>
                     </div>
                     <div class="col-lg-2 text-center md-mb-25px" data-anime='{ "translateX": [0, 0], "opacity": [0,1], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
-                        <img src="https://placehold.co/140x132" alt="">
+                        <img src="images/logo.png" alt="AD Soft Technologies" class="happy-logo">
                     </div>
                     <div class="col-lg-5 text-center text-lg-start" data-anime='{ "translateX": [50, 0], "opacity": [0,1], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'> 
                         <div class="review-star-icon fs-22 d-inline-block align-middle me-15px">
@@ -2140,21 +2162,21 @@ section[style*="demo-marketing-dot.svg"]::before {
         <!-- start section -->
         <section class="pt-0 overflow-hidden position-relative overlap-height">
             <div class="container-fluid overlap-gap-section">
-                <div class="row mb-2 md-mb-4">
+                <div class="row mb-0 md-mb-2">
                     <div class="col-12 position-relative">
                         <div class="outside-box-right-15 outside-box-left-15 md-outside-box-right-0 md-outside-box-left-0">
                             <div class="swiper magic-cursor slider-shadow-left-right md-slider-shadow-none" data-slider-options='{ "slidesPerView": 1, "spaceBetween": 30, "loop": true, "autoplay": { "delay": 3000, "disableOnInteraction": false },  "pagination": { "el": ".slider-four-slide-pagination-1", "clickable": true, "dynamicBullets": false }, "keyboard": { "enabled": true, "onlyInViewport": true }, "breakpoints": { "1300": { "slidesPerView": 4 }, "992": { "slidesPerView": 3 }, "768": { "slidesPerView": 2 } }, "effect": "slide" }' data-anime='{ "translateX": [0, 0], "opacity": [0,1], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
-                                <div class="swiper-wrapper pt-20px pb-20px">
-                                    <!-- start slider item --> 
+                                <div class="swiper-wrapper pt-0 pb-20px">
+                                    <!-- start slider item -->
                                     <div class="swiper-slide"> 
                                         <div class="review-style-05">
                                             <div class="border-radius-4px last-paragraph-no-margin border border-color-extra-medium-gray">
                                                 <div class="d-flex align-items-center ps-45px pe-45px pt-35px pb-35px xl-p-25px">
-                                                    <img class="rounded-circle w-110px md-w-75px h-110px md-h-75px me-25px" src="https://placehold.co/200x200" alt="" />
-                                                    <p>Team of ThemeZaa has worked closely with us and never failed to follow our perfect business requirements.</p>
+                                                    <img class="rounded-circle review-avatar me-20px" src="images/user-icon.svg" alt="Client" width="64" height="64" />
+                                                    <p>The e-commerce website made it easy for our customers to browse and order online. The team understood our requirements well and delivered on time.</p>
                                                 </div>
                                                 <div class="border-top border-color-extra-medium-gray pt-15px pb-15px ps-45px pe-45px xl-ps-25px xl-pe-25px">
-                                                    <span class="fw-600 text-dark-gray d-inline-block xs-fs-15">Herman Miller, ThemeZaa</span>
+                                                    <span class="fw-600 text-dark-gray d-inline-block xs-fs-15">E-commerce Website Project</span>
                                                     <div class="review-star-icon float-end fs-18 xs-fs-15">
                                                         <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                                                     </div>
@@ -2163,16 +2185,17 @@ section[style*="demo-marketing-dot.svg"]::before {
                                         </div>
                                     </div>
                                     <!-- end slider item -->
+
                                     <!-- start slider item -->
                                     <div class="swiper-slide"> 
                                         <div class="review-style-05">
                                             <div class="border-radius-4px last-paragraph-no-margin border border-color-extra-medium-gray">
                                                 <div class="d-flex align-items-center ps-45px pe-45px pt-35px pb-35px xl-p-25px">
-                                                    <img class="rounded-circle w-110px md-w-75px h-110px md-h-75px me-25px" src="https://placehold.co/200x200" alt="" />
-                                                    <p>I personally enjoyed the energy and the professional support the whole team gave to us into creating website.</p>
+                                                    <img class="rounded-circle review-avatar me-20px" src="images/user-icon.svg" alt="Client" width="64" height="64" />
+                                                    <p>Our mobile app was delivered exactly as planned. The team explained every stage clearly and fixed our feedback quickly.</p>
                                                 </div>
                                                 <div class="border-top border-color-extra-medium-gray pt-15px pb-15px ps-45px pe-45px xl-ps-25px xl-pe-25px">
-                                                    <span class="fw-600 text-dark-gray d-inline-block xs-fs-15">Matthew Taylor, LinkSture</span>
+                                                    <span class="fw-600 text-dark-gray d-inline-block xs-fs-15">Mobile App Project</span>
                                                     <div class="review-star-icon float-end fs-18 xs-fs-15">
                                                         <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                                                     </div>
@@ -2181,34 +2204,17 @@ section[style*="demo-marketing-dot.svg"]::before {
                                         </div>
                                     </div>
                                     <!-- end slider item -->
+
                                     <!-- start slider item -->
                                     <div class="swiper-slide"> 
                                         <div class="review-style-05">
                                             <div class="border-radius-4px last-paragraph-no-margin border border-color-extra-medium-gray">
                                                 <div class="d-flex align-items-center ps-45px pe-45px pt-35px pb-35px xl-p-25px">
-                                                    <img class="rounded-circle w-110px md-w-75px h-110px md-h-75px me-25px" src="https://placehold.co/148x148" alt="" />
-                                                    <p>They have provided superior quality of content marketing services. Very satisfied by choosing them. Thank you so much!</p>
+                                                    <img class="rounded-circle review-avatar me-20px" src="images/user-icon.svg" alt="Client" width="64" height="64" />
+                                                    <p>They built a booking app that works smoothly for both customers and drivers. Good communication and support even after launch.</p>
                                                 </div>
                                                 <div class="border-top border-color-extra-medium-gray pt-15px pb-15px ps-45px pe-45px xl-ps-25px xl-pe-25px">
-                                                    <span class="fw-600 text-dark-gray d-inline-block xs-fs-15">Shoko Mugikura, Google</span>
-                                                    <div class="review-star-icon float-end fs-18 xs-fs-15">
-                                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- end slider item --> 
-                                    <!-- start slider item -->
-                                    <div class="swiper-slide"> 
-                                        <div class="review-style-05">
-                                            <div class="border-radius-4px last-paragraph-no-margin border border-color-extra-medium-gray">
-                                                <div class="d-flex align-items-center ps-45px pe-45px pt-35px pb-35px xl-p-25px">
-                                                    <img class="rounded-circle w-110px md-w-75px h-110px md-h-75px me-25px" src="https://placehold.co/148x148" alt="" />
-                                                    <p>Trust us we looked for a very long time and wasted thousands of dollars testing other teams and outsource companies.</p>
-                                                </div>
-                                                <div class="border-top border-color-extra-medium-gray pt-15px pb-15px ps-45px pe-45px xl-ps-25px xl-pe-25px">
-                                                    <span class="fw-600 text-dark-gray d-inline-block xs-fs-15">Leonel Mooney, Apple</span>
+                                                    <span class="fw-600 text-dark-gray d-inline-block xs-fs-15">Cab Booking App Project</span>
                                                     <div class="review-star-icon float-end fs-18 xs-fs-15">
                                                         <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                                                     </div>
@@ -2217,16 +2223,17 @@ section[style*="demo-marketing-dot.svg"]::before {
                                         </div>
                                     </div>
                                     <!-- end slider item -->
-                                    <!-- start slider item --> 
+
+                                    <!-- start slider item -->
                                     <div class="swiper-slide"> 
                                         <div class="review-style-05">
                                             <div class="border-radius-4px last-paragraph-no-margin border border-color-extra-medium-gray">
                                                 <div class="d-flex align-items-center ps-45px pe-45px pt-35px pb-35px xl-p-25px">
-                                                    <img class="rounded-circle w-110px md-w-75px h-110px md-h-75px me-25px" src="https://placehold.co/200x200" alt="" />
-                                                    <p>Team of ThemeZaa has worked closely with us and never failed to follow our perfect business requirements.</p>
+                                                    <img class="rounded-circle review-avatar me-20px" src="images/user-icon.svg" alt="Client" width="64" height="64" />
+                                                    <p>Our radio station now has a professional website that listeners can use easily. The team was patient with every change we asked for.</p>
                                                 </div>
                                                 <div class="border-top border-color-extra-medium-gray pt-15px pb-15px ps-45px pe-45px xl-ps-25px xl-pe-25px">
-                                                    <span class="fw-600 text-dark-gray d-inline-block xs-fs-15">Herman Miller, ThemeZaa</span>
+                                                    <span class="fw-600 text-dark-gray d-inline-block xs-fs-15">Media Website Project</span>
                                                     <div class="review-star-icon float-end fs-18 xs-fs-15">
                                                         <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                                                     </div>
@@ -2235,16 +2242,17 @@ section[style*="demo-marketing-dot.svg"]::before {
                                         </div>
                                     </div>
                                     <!-- end slider item -->
+
                                     <!-- start slider item -->
                                     <div class="swiper-slide"> 
                                         <div class="review-style-05">
                                             <div class="border-radius-4px last-paragraph-no-margin border border-color-extra-medium-gray">
                                                 <div class="d-flex align-items-center ps-45px pe-45px pt-35px pb-35px xl-p-25px">
-                                                    <img class="rounded-circle w-110px md-w-75px h-110px md-h-75px me-25px" src="https://placehold.co/200x200" alt="" />
-                                                    <p>I personally enjoyed the energy and the professional support the whole team gave to us into creating website.</p>
+                                                    <img class="rounded-circle review-avatar me-20px" src="images/user-icon.svg" alt="Client" width="64" height="64" />
+                                                    <p>We needed a clean website to present our engineering services. AD Soft understood our business and gave us a simple, professional result.</p>
                                                 </div>
                                                 <div class="border-top border-color-extra-medium-gray pt-15px pb-15px ps-45px pe-45px xl-ps-25px xl-pe-25px">
-                                                    <span class="fw-600 text-dark-gray d-inline-block xs-fs-15">Matthew Taylor, LinkSture</span>
+                                                    <span class="fw-600 text-dark-gray d-inline-block xs-fs-15">Corporate Website Project</span>
                                                     <div class="review-star-icon float-end fs-18 xs-fs-15">
                                                         <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                                                     </div>
@@ -2253,16 +2261,17 @@ section[style*="demo-marketing-dot.svg"]::before {
                                         </div>
                                     </div>
                                     <!-- end slider item -->
+
                                     <!-- start slider item -->
                                     <div class="swiper-slide"> 
                                         <div class="review-style-05">
                                             <div class="border-radius-4px last-paragraph-no-margin border border-color-extra-medium-gray">
                                                 <div class="d-flex align-items-center ps-45px pe-45px pt-35px pb-35px xl-p-25px">
-                                                    <img class="rounded-circle w-110px md-w-75px h-110px md-h-75px me-25px" src="https://placehold.co/148x148" alt="" />
-                                                    <p>They have provided superior quality of content marketing services. Very satisfied by choosing them. Thank you so much!</p>
+                                                    <img class="rounded-circle review-avatar me-20px" src="images/user-icon.svg" alt="Client" width="64" height="64" />
+                                                    <p>The website gives our school a strong online presence and makes it easy for students to find our courses and contact us.</p>
                                                 </div>
                                                 <div class="border-top border-color-extra-medium-gray pt-15px pb-15px ps-45px pe-45px xl-ps-25px xl-pe-25px">
-                                                    <span class="fw-600 text-dark-gray d-inline-block xs-fs-15">Shoko Mugikura, Google</span>
+                                                    <span class="fw-600 text-dark-gray d-inline-block xs-fs-15">Education Website Project</span>
                                                     <div class="review-star-icon float-end fs-18 xs-fs-15">
                                                         <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                                                     </div>
@@ -2270,17 +2279,113 @@ section[style*="demo-marketing-dot.svg"]::before {
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- end slider item --> 
+                                    <!-- end slider item -->
+
                                     <!-- start slider item -->
                                     <div class="swiper-slide"> 
                                         <div class="review-style-05">
                                             <div class="border-radius-4px last-paragraph-no-margin border border-color-extra-medium-gray">
                                                 <div class="d-flex align-items-center ps-45px pe-45px pt-35px pb-35px xl-p-25px">
-                                                    <img class="rounded-circle w-110px md-w-75px h-110px md-h-75px me-25px" src="https://placehold.co/148x148" alt="" />
-                                                    <p>Trust us we looked for a very long time and wasted thousands of dollars testing other teams and outsource companies.</p>
+                                                    <img class="rounded-circle review-avatar me-20px" src="images/user-icon.svg" alt="Client" width="64" height="64" />
+                                                    <p>The e-commerce website made it easy for our customers to browse and order online. The team understood our requirements well and delivered on time.</p>
                                                 </div>
                                                 <div class="border-top border-color-extra-medium-gray pt-15px pb-15px ps-45px pe-45px xl-ps-25px xl-pe-25px">
-                                                    <span class="fw-600 text-dark-gray d-inline-block xs-fs-15">Leonel Mooney, Apple</span>
+                                                    <span class="fw-600 text-dark-gray d-inline-block xs-fs-15">E-commerce Website Project</span>
+                                                    <div class="review-star-icon float-end fs-18 xs-fs-15">
+                                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end slider item -->
+
+                                    <!-- start slider item -->
+                                    <div class="swiper-slide"> 
+                                        <div class="review-style-05">
+                                            <div class="border-radius-4px last-paragraph-no-margin border border-color-extra-medium-gray">
+                                                <div class="d-flex align-items-center ps-45px pe-45px pt-35px pb-35px xl-p-25px">
+                                                    <img class="rounded-circle review-avatar me-20px" src="images/user-icon.svg" alt="Client" width="64" height="64" />
+                                                    <p>Our mobile app was delivered exactly as planned. The team explained every stage clearly and fixed our feedback quickly.</p>
+                                                </div>
+                                                <div class="border-top border-color-extra-medium-gray pt-15px pb-15px ps-45px pe-45px xl-ps-25px xl-pe-25px">
+                                                    <span class="fw-600 text-dark-gray d-inline-block xs-fs-15">Mobile App Project</span>
+                                                    <div class="review-star-icon float-end fs-18 xs-fs-15">
+                                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end slider item -->
+
+                                    <!-- start slider item -->
+                                    <div class="swiper-slide"> 
+                                        <div class="review-style-05">
+                                            <div class="border-radius-4px last-paragraph-no-margin border border-color-extra-medium-gray">
+                                                <div class="d-flex align-items-center ps-45px pe-45px pt-35px pb-35px xl-p-25px">
+                                                    <img class="rounded-circle review-avatar me-20px" src="images/user-icon.svg" alt="Client" width="64" height="64" />
+                                                    <p>They built a booking app that works smoothly for both customers and drivers. Good communication and support even after launch.</p>
+                                                </div>
+                                                <div class="border-top border-color-extra-medium-gray pt-15px pb-15px ps-45px pe-45px xl-ps-25px xl-pe-25px">
+                                                    <span class="fw-600 text-dark-gray d-inline-block xs-fs-15">Cab Booking App Project</span>
+                                                    <div class="review-star-icon float-end fs-18 xs-fs-15">
+                                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end slider item -->
+
+                                    <!-- start slider item -->
+                                    <div class="swiper-slide"> 
+                                        <div class="review-style-05">
+                                            <div class="border-radius-4px last-paragraph-no-margin border border-color-extra-medium-gray">
+                                                <div class="d-flex align-items-center ps-45px pe-45px pt-35px pb-35px xl-p-25px">
+                                                    <img class="rounded-circle review-avatar me-20px" src="images/user-icon.svg" alt="Client" width="64" height="64" />
+                                                    <p>Our radio station now has a professional website that listeners can use easily. The team was patient with every change we asked for.</p>
+                                                </div>
+                                                <div class="border-top border-color-extra-medium-gray pt-15px pb-15px ps-45px pe-45px xl-ps-25px xl-pe-25px">
+                                                    <span class="fw-600 text-dark-gray d-inline-block xs-fs-15">Media Website Project</span>
+                                                    <div class="review-star-icon float-end fs-18 xs-fs-15">
+                                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end slider item -->
+
+                                    <!-- start slider item -->
+                                    <div class="swiper-slide"> 
+                                        <div class="review-style-05">
+                                            <div class="border-radius-4px last-paragraph-no-margin border border-color-extra-medium-gray">
+                                                <div class="d-flex align-items-center ps-45px pe-45px pt-35px pb-35px xl-p-25px">
+                                                    <img class="rounded-circle review-avatar me-20px" src="images/user-icon.svg" alt="Client" width="64" height="64" />
+                                                    <p>We needed a clean website to present our engineering services. AD Soft understood our business and gave us a simple, professional result.</p>
+                                                </div>
+                                                <div class="border-top border-color-extra-medium-gray pt-15px pb-15px ps-45px pe-45px xl-ps-25px xl-pe-25px">
+                                                    <span class="fw-600 text-dark-gray d-inline-block xs-fs-15">Corporate Website Project</span>
+                                                    <div class="review-star-icon float-end fs-18 xs-fs-15">
+                                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end slider item -->
+
+                                    <!-- start slider item -->
+                                    <div class="swiper-slide"> 
+                                        <div class="review-style-05">
+                                            <div class="border-radius-4px last-paragraph-no-margin border border-color-extra-medium-gray">
+                                                <div class="d-flex align-items-center ps-45px pe-45px pt-35px pb-35px xl-p-25px">
+                                                    <img class="rounded-circle review-avatar me-20px" src="images/user-icon.svg" alt="Client" width="64" height="64" />
+                                                    <p>The website gives our school a strong online presence and makes it easy for students to find our courses and contact us.</p>
+                                                </div>
+                                                <div class="border-top border-color-extra-medium-gray pt-15px pb-15px ps-45px pe-45px xl-ps-25px xl-pe-25px">
+                                                    <span class="fw-600 text-dark-gray d-inline-block xs-fs-15">Education Website Project</span>
                                                     <div class="review-star-icon float-end fs-18 xs-fs-15">
                                                         <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                                                     </div>
@@ -2402,7 +2507,7 @@ section[style*="demo-marketing-dot.svg"]::before {
                 <div class="row justify-content-center">
                     <div class="col-xl-9 col-md-10 bg-white">
                         <div class="row position-relative box-shadow-quadruple-large">
-                            <div class="col-lg-6 cover-background md-h-400px xs-h-300px" style="background-image:url('https://placehold.co/800x770');"></div>
+                            <div class="col-lg-6 cover-background md-h-400px xs-h-300px" style="background-image:url('images/team3.png');"></div>
                             <div class="col-lg-6 newsletter-popup p-8 pt-10 pb-10 lg-p-5 md-p-6 xs-p-8 position-relative">
                                 <h4 class="d-inline-block alt-font ls-minus-1px fw-700 text-dark-gray mb-15px">Subscribe to the latest updates!</h4>
                                 <p>Subscribe to our newsletters and get the latest business updates.</p>
