@@ -44,7 +44,8 @@
     <link rel="stylesheet" href="css/vendors.min.css" />
     <link rel="stylesheet" href="css/icon.min.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/responsive.css" />
+   <link rel="stylesheet" href="css/responsive.css"/>
+         <link rel="stylesheet" href="css/nav-active.css">
     <link rel="stylesheet" href="demos/marketing/marketing.css" />
     <link rel="stylesheet" href="css/ai-hero-cards.css" />
     <!-- SCHEMA MARKUP -->
@@ -2348,6 +2349,7 @@
             transform: none !important
         }
     </style>
+<link rel="stylesheet" href="css/eq-image.css">
 </head>
 
 <body data-mobile-nav-style="classic" class="custom-cursor">
@@ -2466,7 +2468,7 @@
         <div class="container">
             <div class="row align-items-stretch g-5 eq">
                 <div class="col-lg-6 rv d-flex flex-column justify-content-center">
-                    <p class="fs-18 text-dark-gray">Customers increasingly expect businesses to provide quick, relevant
+                    <p>Customers increasingly expect businesses to provide quick, relevant
                         and convenient answers across digital channels. Traditional rule-based chatbots can handle
                         predefined questions, but modern AI chatbots can understand natural language, interpret context,
                         retrieve information and provide more flexible conversational experiences.</p>
@@ -2482,14 +2484,12 @@
                         technologies to create practical and scalable conversational solutions.</p>
                 </div>
                 <div class="col-lg-6 rv">
-                    <figure class="pic"
-                        data-anime='{ "effect": "slide", "color": "#B5D65A", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
-                        <img src="images/why-03.png" alt="AI chatbot development">
-                        <figcaption class="position-absolute bottom-50px left-minus-30px sm-left-0px"><img
-                                src="images/about-2.png"
-                                class="animation-float box-shadow-quadruple-large border-radius-6px" alt="">
-                        </figcaption>
-                    </figure>
+                    <div class="eq-wrap">
+<figure class="m-0" data-anime='{ "effect": "slide", "color": "#eef7ea", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
+<img src="images/ai-solution/ai-chatbot-development/ai-chatbot-development-1.webp" class="eq-main border-radius-6px" alt="AI chatbot development">
+</figure>
+<img src="images/ai-solution/ai-chatbot-development/ai-chatbot-development-float-1.webp" class="eq-float animation-float box-shadow-quadruple-large border-radius-6px" alt="">
+</div>
                 </div>
             </div>
         </div>
@@ -2750,8 +2750,8 @@
             <div class="row align-items-stretch g-5 eq">
                 <div class="col-lg-6 rv">
                     <figure class="pic"
-                        data-anime='{ "effect": "slide", "color": "#B5D65A", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
-                        <img src="images/why-01.png" alt="AI chatbot integration"></figure>
+                        data-anime='{ "effect": "slide", "color": "#eef7ea", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
+                        <img src="images/ai-solution/ai-chatbot-development/ai-chatbot-development-2.webp" alt="AI chatbot integration"></figure>
                 </div>
                 <div class="col-lg-6 rv d-flex flex-column justify-content-center">
                     <p class="fs-18 text-dark-gray">You don't necessarily need to create a new digital platform to use
@@ -2973,9 +2973,9 @@
             <div class="row align-items-stretch g-5 eq">
                 <div class="col-lg-6 rv">
                     <figure class="pic"
-                        data-anime='{ "effect": "slide", "color": "#B5D65A", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
-                        <img src="images/why-04.png" alt="Human handoff in AI chatbots">
-                        <figcaption class="position-absolute bottom-60px right-0px"><img src="images/about-2.png"
+                        data-anime='{ "effect": "slide", "color": "#eef7ea", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
+                        <img src="images/ai-solution/ai-chatbot-development/ai-chatbot-development-3.webp" alt="Human handoff in AI chatbots">
+                        <figcaption class="position-absolute bottom-60px right-0px"><img src="images/ai-solution/ai-chatbot-development/ai-chatbot-development-float-2.webp"
                                 class="animation-float box-shadow-quadruple-large border-radius-6px" alt="">
                         </figcaption>
                     </figure>
@@ -3430,13 +3430,14 @@
     <div class="scroll-progress d-none d-xxl-block"><a href="#" class="scroll-top" aria-label="scroll"><span
                 class="scroll-text">Scroll</span><span class="scroll-line"><span class="scroll-point"></span></span></a>
     </div>
-    <script src="js/jquery.js"></script>
-    <script src="js/vendors.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/nav-active.js"></script>
-    <script>(function () {
-            var t = document.getElementById('typer'), s = "AI Chatbot Development Services for Businesses", ci = 0;
-            if (t) { function tick() { t.textContent = s.slice(0, ci); ci++; if (ci <= s.length) setTimeout(tick, 45); } tick(); }
+ <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/vendors.min.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+          <script src="js/nav-active.js"></script>
+          <script>
+    (function () {
+            var t = document.getElementById('typer'), w = ["AI Chatbot Development Services for Businesses"], wi = 0, ci = 0, del = false;
+            function tick() { var s = w[wi]; t.textContent = s.slice(0, ci); if (!del && ci === s.length) { del = true; return setTimeout(tick, 1800) } if (del && ci === 0) { del = false; wi = (wi + 1) % w.length } ci += del ? -1 : 1; setTimeout(tick, del ? 28 : 60) } tick();
             var io = new IntersectionObserver(function (e) { e.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target) } }) }, { threshold: .1 }); document.querySelectorAll('.rv').forEach(function (el) { io.observe(el) });
             document.querySelectorAll('.tb').forEach(function (b) { b.onclick = function () { document.querySelectorAll('.tb,.tp').forEach(function (x) { x.classList.remove('on') }); b.classList.add('on'); document.getElementById('tp' + b.dataset.t).classList.add('on') } });
             var ck = document.querySelectorAll('.ck'); ck.forEach(function (c) { c.onclick = function () { c.classList.toggle('on'); var n = document.querySelectorAll('.ck.on').length; document.getElementById('ckn').textContent = n; document.getElementById('ckm').style.width = (n / ck.length * 100) + '%' } })

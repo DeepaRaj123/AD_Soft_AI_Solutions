@@ -73,12 +73,7 @@ section[style*="demo-marketing-dot.svg"]::before { content:""; position:absolute
 /* hero tagline: readable line-height when it wraps */
 .about-tagline { line-height: 1.7; max-width: 620px; }
 /* image column that matches the height of the text column */
-.eq-wrap { position: relative; height: 100%; min-height: 440px; }
-.eq-wrap > .eq-main { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.eq-wrap > figure { position: absolute !important; inset: 0; width: 100%; height: 100%; margin: 0 !important; }
-.eq-wrap > figure img.eq-main { width: 100%; height: 100%; object-fit: cover; display: block; }
-.eq-wrap > .eq-float { position: absolute; left: 20px; bottom: 20px; width: 42%; height: auto; }
-@media (max-width: 991px) { .eq-wrap { min-height: 320px; } }
+/* .eq-wrap rules now live in css/eq-image.css (shared by all pages) */
 /* team cards: same pattern as the old About page */
 .team-photo { width:100%; height:340px; object-fit:cover; object-position:center 15%; }
 @media (min-width:768px) { .team-photo { width:42%; height:auto; min-height:100%; flex-shrink:0; } }
@@ -87,6 +82,7 @@ section[style*="demo-marketing-dot.svg"]::before { content:""; position:absolute
 /* leadership cards (full-width rows) */
 @media (min-width:768px) { .team-photo.lead { width:36%; min-height:400px; } }
 </style>
+<link rel="stylesheet" href="css/eq-image.css">
 </head>
 <body data-mobile-nav-style="classic" class="custom-cursor">
 <div class="cursor-page-inner">
@@ -184,9 +180,9 @@ section[style*="demo-marketing-dot.svg"]::before { content:""; position:absolute
 <div class="eq-wrap">
 <figure class="position-relative m-0 d-inline-block" data-anime='{ "effect": "slide", "color": "#B5D65A", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
 
-<img src="images/about5.png" class="eq-main border-radius-6px " style="width: 100%; height: 560px;" alt="AD Soft Technologies">
+<img src="images/about/about-page-1.webp" class="eq-main border-radius-6px" alt="AD Soft Technologies">
 </figure>
-<img src="images/about-2.png" class="eq-float animation-float box-shadow-quadruple-large border-radius-6px" alt="">
+<img src="images/about/about-page-float-1.webp" class="eq-float animation-float box-shadow-quadruple-large border-radius-6px" alt="">
 </div>
 </div>
 <div class="col-lg-5 offset-lg-1 col-md-10 d-flex flex-column justify-content-center" data-anime='{ "el": "childs", "translateX": [50, 0], "opacity": [0,1], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
@@ -259,7 +255,7 @@ section[style*="demo-marketing-dot.svg"]::before { content:""; position:absolute
 <div class="eq-wrap">
 <figure class="position-relative m-0 d-inline-block" data-anime='{ "effect": "slide", "color": "#B5D65A", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
 
-<img src="images/team1.png" class="eq-main border-radius-6px" alt="AI and AI integration">
+<img src="images/about/about-page-2.webp" class="eq-main border-radius-6px" alt="AI and AI integration">
 </figure>
 <div class="position-absolute d-flex align-items-center bg-white border-radius-6px box-shadow-large ps-20px pe-25px pt-10px pb-10px" style="left:20px;bottom:20px;"><i class="bi bi-robot icon-medium text-base-color me-12px" style="margin-right:12px"></i><span class="fw-700 text-dark-gray fs-15">AI Solutions</span></div>
 </div>
@@ -279,7 +275,7 @@ section[style*="demo-marketing-dot.svg"]::before { content:""; position:absolute
 <div class="eq-wrap">
 <figure class="position-relative m-0 d-inline-block" data-anime='{ "effect": "slide", "color": "#B5D65A", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
 
-<img src="images/team2.png" class="eq-main border-radius-6px" alt="Software development">
+<img src="images/about/about-page-3.webp" class="eq-main border-radius-6px" alt="Software development">
 </figure>
 <div class="position-absolute d-flex align-items-center bg-white border-radius-6px box-shadow-large ps-20px pe-25px pt-10px pb-10px" style="left:20px;bottom:20px;"><i class="bi bi-code-slash icon-medium text-base-color me-12px" style="margin-right:12px"></i><span class="fw-700 text-dark-gray fs-15">Software Development</span></div>
 </div>
@@ -301,7 +297,7 @@ section[style*="demo-marketing-dot.svg"]::before { content:""; position:absolute
 <div class="eq-wrap">
 <figure class="position-relative m-0 d-inline-block" data-anime='{ "effect": "slide", "color": "#B5D65A", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
 
-<img src="images/team3.png" class="eq-main border-radius-6px" alt="Business automation">
+<img src="images/about/about-page-4.webp" class="eq-main border-radius-6px" alt="Business automation">
 </figure>
 <div class="position-absolute d-flex align-items-center bg-white border-radius-6px box-shadow-large ps-20px pe-25px pt-10px pb-10px" style="left:20px;bottom:20px;"><i class="bi bi-gear-wide-connected icon-medium text-base-color me-12px" style="margin-right:12px"></i><span class="fw-700 text-dark-gray fs-15">Business Solutions</span></div>
 </div>
@@ -320,7 +316,7 @@ section[style*="demo-marketing-dot.svg"]::before { content:""; position:absolute
 <div class="eq-wrap">
 <figure class="position-relative m-0 d-inline-block" data-anime='{ "effect": "slide", "color": "#B5D65A", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
 
-<img src="images/service-12.png" class="eq-main border-radius-6px" alt="Branding">
+<img src="images/about/about-page-5.webp" class="eq-main border-radius-6px" alt="Branding">
 </figure>
 <div class="position-absolute d-flex align-items-center bg-white border-radius-6px box-shadow-large ps-20px pe-25px pt-10px pb-10px" style="left:20px;bottom:20px;"><i class="bi bi-palette icon-medium text-base-color me-12px" style="margin-right:12px"></i><span class="fw-700 text-dark-gray fs-15">Branding</span></div>
 </div>
@@ -387,8 +383,8 @@ section[style*="demo-marketing-dot.svg"]::before { content:""; position:absolute
 <div class="col-lg-6 col-md-10 md-mb-40px" data-anime='{ "opacity": [0,1], "translateY": [30, 0], "duration": 900, "easing": "easeOutQuad" }'>
 <div class="eq-wrap">
   
-<img src="images/about6.png" class="eq-main border-radius-6px" alt="Our experience">
-<img src="images/about-2.png" class="eq-float animation-float box-shadow-quadruple-large border-radius-6px" alt="">
+<img src="images/about/about-page-6.webp" class="eq-main border-radius-6px" alt="Our experience">
+<img src="images/about/about-page-float-2.webp" class="eq-float animation-float box-shadow-quadruple-large border-radius-6px" alt="">
 </div>
 </div>
 <div class="col-lg-5 offset-lg-1 col-md-10 d-flex flex-column justify-content-center" data-anime='{ "el": "childs", "translateX": [50, 0], "opacity": [0,1], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>

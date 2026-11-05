@@ -41,7 +41,8 @@
   <link rel="stylesheet" href="css/vendors.min.css" />
   <link rel="stylesheet" href="css/icon.min.css" />
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/responsive.css" />
+ <link rel="stylesheet" href="css/responsive.css"/>
+         <link rel="stylesheet" href="css/nav-active.css">
   <link rel="stylesheet" href="demos/marketing/marketing.css" />
   <link rel="stylesheet" href="css/ai-hero-cards.css" />
   <!-- SCHEMA MARKUP -->
@@ -1303,6 +1304,7 @@
       overflow-x: clip
     }
   </style>
+<link rel="stylesheet" href="css/eq-image.css">
 </head>
 
 <body data-mobile-nav-style="classic" class="custom-cursor">
@@ -1363,7 +1365,6 @@
               </li>
              <li class="nav-item"><a href="ai-insights.html" class="nav-link text-nowrap">AI Insights</a></li>
               <li class="nav-item"><a href="contact.html" class="nav-link text-nowrap">Contact</a></li>
-
             </ul>
           </div>
         </div>
@@ -1381,7 +1382,6 @@
 
   <!-- HERO -->
   <section class="ai-hero" id="hero">
-
     <span class="fi sm hero-fi" data-d="-35" style="right:3%;top:16%;animation-delay:-2s"><i
         class="bi bi-cpu"></i></span>
     <div class="container position-relative" style="z-index:4">
@@ -1419,9 +1419,6 @@
       </div>
     </div>
   </section>
-
-
-
   <div class="mq" aria-hidden="true">
     <div><span>AI
         AGENTS</span><b>✦</b><span>CHATBOTS</span><b>✦</b><span>AUTOMATION</span><b>✦</b><span>INTEGRATION</span><b>✦</b><span>CONSULTING</span><b>✦</b><span>AI
@@ -1429,10 +1426,8 @@
         AGENTS</span><b>✦</b><span>CHATBOTS</span><b>✦</b><span>AUTOMATION</span><b>✦</b><span>INTEGRATION</span><b>✦</b><span>CONSULTING</span><b>✦</b>
     </div>
   </div>
-
   <section class="overflow-hidden">
     <div class="container">
-
       <!-- Top Centered Heading Section -->
       <div class="row justify-content-center mb-5">
         <div class="col-lg-8 text-center"
@@ -1444,26 +1439,24 @@
           </h2>
         </div>
       </div>
-
       <!-- Image and Text Content Section -->
-      <div class="row align-items-center">
+      <div class="row align-items-stretch">
         <div class="col-lg-6 col-md-11 offset-lg-0 offset-md-1 position-relative md-mb-20px">
-          <figure class="position-relative m-0 text-center"
-            data-anime='{ "effect": "slide", "color": "#B5D65A", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
-            <img src="images/about9.png" alt="AI Solutions">
-          </figure>
+          <div class="eq-wrap">
+<figure class="m-0" data-anime='{ "effect": "slide", "color": "#fff2ef", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
+<img src="images/ai-solution/ai-solution-1.webp" class="eq-main border-radius-6px" alt="AI Solutions">
+</figure>
+<img src="images/ai-solution/ai-solution-float-1.webp" class="eq-float animation-float box-shadow-quadruple-large border-radius-6px" alt="">
+</div>
         </div>
-
-        <div class="col-xl-5 offset-xl-1 col-lg-6"
+        <div class="col-xl-5 offset-xl-1 col-lg-6 d-flex flex-column justify-content-center"
           data-anime='{ "el": "childs", "translateX": [50, 0], "opacity": [0,1], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
-
           <p class="w-95 md-w-100 mb-10px text-muted" style="font-size: 1.05rem; line-height: 1.7;">
             Artificial intelligence is changing how businesses interact with customers, manage operations and build
             digital products. But adopting AI successfully is not simply about adding a chatbot or using the latest AI
             model. Businesses need to identify the right use cases, choose appropriate technologies and integrate AI
             into workflows where it can create measurable value.
           </p>
-
           <p class="w-95 md-w-100 mb-10px"><strong>AD Soft Technologies</strong> provides AI solutions for businesses in
             Kerala and international markets, helping organizations explore, develop and integrate practical AI
             technologies into their existing operations and digital products.</p>
@@ -1473,9 +1466,6 @@
           <p class="w-95 md-w-100 mb-10px">With<strong> 20+ projects delivered</strong>and experience working with
             clients in <strong> India, Europe and the USA,</strong> our approach combines software development
             experience with modern AI capabilities to build solutions around real business requirements.</p>
-
-
-
           <!-- Buttons placed on a single line -->
           <div class="d-flex align-items-center mt-4">
             <a href="#"
@@ -2373,8 +2363,8 @@
 
       /* scroll reveal + counters */
         /* typing headline */
-        var t = document.getElementById('typer'), s = "Build smarter with practical AI solutions.", ci = 0;
-        if (t) { function tick() { t.textContent = s.slice(0, ci); ci++; if (ci <= s.length) setTimeout(tick, 45); } tick(); }
+        var t = document.getElementById('typer'), w = ["Build smarter with practical AI.", "Automate faster, skip the busywork.", "Grow with AI that fits your business."], wi = 0, ci = 0, del = false;
+        function tick() { var s = w[wi]; t.textContent = s.slice(0, ci); if (!del && ci === s.length) { del = true; return setTimeout(tick, 1800) } if (del && ci === 0) { del = false; wi = (wi + 1) % w.length } ci += del ? -1 : 1; setTimeout(tick, del ? 28 : 60) } tick();
 
         /* scroll reveal + counters */
       var io = new IntersectionObserver(function (e) { e.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('in'); x.target.querySelectorAll('.cnt').forEach(count); io.unobserve(x.target) } }) }, { threshold: .15 });
