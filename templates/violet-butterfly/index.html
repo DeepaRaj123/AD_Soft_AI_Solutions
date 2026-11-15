@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Wedding Invitation</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Pinyon+Script&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="lock">
+<div id="env">
+  <div class="stage">
+    <div class="back"></div>
+    <div class="letter"><span class="script" data-bind="coupleLine">Arjun &amp; Meera</span><p data-bind="introMessage">ARE GETTING MARRIED</p></div>
+    <div class="front"></div>
+    <div class="flap"></div>
+    <button class="seal" id="seal" aria-label="Open invitation" data-bind="sealText">A&amp;M</button>
+  </div>
+  <div class="hint">TAP THE SEAL TO OPEN</div>
+</div>
+
+<header class="hero" id="home">
+  <div class="blob b1"></div><div class="blob b2"></div>
+  <div class="in arch">
+    <div class="sub" data-bind="heroEyebrow"></div>
+    <div class="script"><span data-bind="groom"></span><span class="amp">&amp;</span><span data-bind="bride"></span></div>
+    <div class="dt" data-bind="heroLine"></div>
+  </div>
+</header>
+
+<section class="date" id="date">
+  <h2 class="t rv" data-bind="dateTitle"></h2>
+  <p class="lead rv" data-bind="dateMessage"></p>
+  <div class="dgrid" id="cd"><div class="dbox"><b>0</b><span>DAYS</span></div><div class="dbox"><b>0</b><span>HOURS</span></div><div class="dbox"><b>0</b><span>MINS</span></div><div class="dbox"><b>0</b><span>SECS</span></div></div>
+  <div class="bigdate" data-bind="dateLong"></div>
+</section>
+
+<section id="plan">
+  <h2 class="t rv" data-bind="timelineTitle"></h2>
+  <div class="tl" id="tl"></div>
+</section>
+
+<section class="gal" id="gallery">
+  <h2 class="t rv" data-bind="galleryTitle"></h2>
+  <p class="lead rv" data-bind="galleryMessage"></p>
+  <div class="track" id="track"></div>
+  <p class="note">Hover to pause</p>
+</section>
+
+<section class="venue flw" id="venue">
+  <h2 class="t rv" data-bind="venueTitle"></h2>
+  <p class="lead rv" data-bind="venueName"></p>
+  <iframe id="map" title="Venue map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <div class="cards">
+    <div class="c rv"><h3>Venue</h3><p><b data-bind="venueName"></b><br><span data-bind="venueAddress"></span></p><a class="btn" id="mapLink" target="_blank" rel="noopener">Open in Maps</a></div>
+    <div class="c rv"><h3 data-bind="contactTitle"></h3><p id="contact"></p></div>
+  </div>
+</section>
+
+<section class="flw" id="story">
+  <h2 class="t rv" data-bind="journeyTitle"></h2>
+  <p class="lead rv" data-bind="journeyMessage"></p>
+  <div class="jr" id="jr"></div>
+</section>
+
+<section class="gift flw" id="gift">
+  <h2 class="t rv" data-bind="giftTitle"></h2>
+  <p class="lead rv" data-bind="giftMessage"></p>
+  <div class="scr"><div class="quote" data-bind="giftQuote"></div><canvas id="sc"></canvas></div>
+  <p data-bind="giftNote"></p>
+</section>
+
+<section class="rsvp" id="rsvp">
+  <h2 class="t rv" data-bind="rsvpTitle"></h2>
+  <p class="lead rv" data-bind="rsvpMessage"></p>
+  <form id="rsvpForm">
+    <input name="name" placeholder="Your name" required maxlength="80">
+    <select name="attending"><option value="Yes">Joyfully accepting</option><option value="No">Regretfully declining</option></select>
+    <input name="guests" type="number" min="1" max="10" value="1" aria-label="Number of guests">
+    <textarea name="message" rows="2" placeholder="A message for the couple (optional)" maxlength="300"></textarea>
+    <button class="btn" type="submit">Send RSVP</button>
+  </form>
+  <p id="success" role="status"></p>
+</section>
+
+<footer>
+  <div class="script" data-bind="coupleLine"></div>
+  <p style="margin:.6rem 0 1.2rem;font-weight:300" data-bind="closingLine"></p>
+  <a class="btn" id="wa" style="background:#fff;color:#3b1a6b" target="_blank" rel="noopener" hidden>RSVP on WhatsApp</a>
+</footer>
+<audio id="audio" loop preload="none"></audio>
+<script src="js/template.js"></script>
+</body></html>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1200" preserveAspectRatio="xMidYMid slice" width="800" height="1200">
+<defs>
+<linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d9cba8"/><stop offset="1" stop-color="#85805f"/></linearGradient>
+<filter id="b"><feGaussianBlur stdDeviation="66"/></filter>
+<filter id="s"><feGaussianBlur stdDeviation="3"/></filter>
+</defs>
+<rect width="800" height="1200" fill="url(#g)"/>
+<g filter="url(#b)" opacity=".6"><circle cx="176.0" cy="336.00000000000006" r="192.0" fill="#fff6e2"/><circle cx="656.0" cy="840.0" r="240.0" fill="#85805f"/><circle cx="480.0" cy="180.0" r="112.00000000000001" fill="#f3e2b8"/></g>
+<g filter="url(#s)" fill="#3a2f26" opacity=".26">
+<ellipse cx="344.0" cy="624.0" rx="36.0" ry="44.0"/>
+<path d="M280.0 1200 C280.0 792.0 304.0 696.0 344.0 696.0 C384.0 696.0 400.0 792.0 400.0 1200Z"/>
+<ellipse cx="460.0" cy="600.0" rx="33.6" ry="41.6"/>
+<path d="M384.0 1200 C384.0 768.0 416.0 672.0000000000001 460.0 672.0000000000001 C504.0 672.0000000000001 528.0 768.0 528.0 1200Z"/>
+</g>
+<text x="400.0" y="1116.0" text-anchor="middle" font-family="Georgia,serif" font-size="21" letter-spacing="3" fill="#fff" opacity=".7">PHOTO 6</text>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" preserveAspectRatio="xMidYMid slice" width="1200" height="1600">
+<defs>
+<linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d8c8a2"/><stop offset="1" stop-color="#7a765a"/></linearGradient>
+<filter id="b"><feGaussianBlur stdDeviation="100"/></filter>
+<filter id="s"><feGaussianBlur stdDeviation="5"/></filter>
+</defs>
+<rect width="1200" height="1600" fill="url(#g)"/>
+<g filter="url(#b)" opacity=".6"><circle cx="264.0" cy="448.00000000000006" r="288.0" fill="#fff6e2"/><circle cx="983.9999999999999" cy="1120.0" r="360.0" fill="#7a765a"/><circle cx="720.0" cy="240.0" r="168.00000000000003" fill="#f3e2b8"/></g>
+<g filter="url(#s)" fill="#3a2f26" opacity=".26">
+<ellipse cx="516.0" cy="832.0" rx="54.0" ry="66.0"/>
+<path d="M420.0 1600 C420.0 1056.0 456.0 927.9999999999999 516.0 927.9999999999999 C576.0 927.9999999999999 600.0 1056.0 600.0 1600Z"/>
+<ellipse cx="690.0" cy="800.0" rx="50.400000000000006" ry="62.4"/>
+<path d="M576.0 1600 C576.0 1024.0 624.0 896.0000000000001 690.0 896.0000000000001 C756.0 896.0000000000001 792.0 1024.0 792.0 1600Z"/>
+</g>
+<text x="600.0" y="1488.0" text-anchor="middle" font-family="Georgia,serif" font-size="31" letter-spacing="3" fill="#fff" opacity=".7">REPLACE: assets/images/closing.jpg</text>
+</svg>
