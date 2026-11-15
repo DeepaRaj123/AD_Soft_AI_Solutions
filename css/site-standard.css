@@ -464,6 +464,9 @@ html body .ad-middle-dark-section {
     max-width: 100%;
     white-space: normal;
   }
+  .ci-hero{
+    margin-top: 96px !important;
+  }
 
   html body footer .footer-dark,
   html body footer .footer-dark .row,

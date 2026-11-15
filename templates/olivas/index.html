@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Vamshi & Shrishti | Wedding Invitation</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&family=Great+Vibes&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modern.css">
+</head>
+
+<body>
+    <div id="petals"></div>
+    <section class="intro" id="intro">
+        <p class="eyebrow" data-bind="introEyebrow">A divine celebration of love</p>
+        <h1 class="script" data-bind="coupleLine">Vamshi &amp; Shrishti</h1>
+        <p data-bind="dateLong">29 AUGUST 2026 · INDIA</p>
+        <div class="envelope" id="envelope">
+            <div class="back"></div>
+            <div class="letter"><b>ॐ</b><span class="script">You are invited</span><small data-bind="introMessage">BLESSINGS OF SHIVA &
+                    PARVATI</small></div>
+            <div class="front"></div>
+            <div class="flap"></div><button id="open" class="seal" data-bind="sealText">V &amp; S</button>
+        </div>
+        <p class="hint">TAP THE GOLDEN SEAL TO OPEN</p><button id="skip">OPEN INVITATION ↗</button>
+    </section>
+    <main id="site">
+        <nav><a href="#home" data-bind="sealText">V &amp; S</a><a href="#rsvp">RSVP ↗</a></nav>
+        <header class="hero" id="home">
+            <div class="photo"></div>
+            <div class="garland"></div>
+            <div class="garland r"></div>
+            <div class="hero-content reveal">
+                <p class="eyebrow" data-bind="heroEyebrow">With the blessings of Lord Shiva &amp; Goddess Parvati</p>
+                <div class="om">ॐ</div>
+                <p data-bind="familiesLine">Together with our families</p>
+                <h1 class="script"><span data-bind="groom">Vamshi</span> <span>&amp;</span><br><span data-bind="bride">Shrishti</span></h1>
+                <p class="date" data-bind="dateCompact">29 · 08 · 2026</p>
+                <p data-bind="tagline">Two hearts. One sacred journey. Forever begins here.</p><a href="#blessing" data-bind="heroLinkLabel">SCROLL TO EXPLORE ↓</a>
+            </div>
+        </header>
+        <section class="section reveal" id="blessing">
+            <p class="eyebrow" data-bind="blessingEyebrow">A sacred beginning</p>
+            <h2 class="script" data-bind="blessingTitle">A blessing from above</h2>
+            <p data-bind="blessingMessage">With the divine blessings of Lord Shiva and Goddess Parvati, and the love of our families, we invite you
+                to be part of the most beautiful chapter of our lives.</p>
+        </section>
+        <section class="section scratch-section reveal">
+            <p class="eyebrow" data-bind="scratchEyebrow">A little surprise for you</p>
+            <h2 class="script" data-bind="scratchTitle">Scratch to reveal</h2>
+            <p data-bind="scratchMessage">Gently scratch the golden card to reveal our special day.</p>
+            <div class="scratch-box">
+                <div class="under"><small data-bind="scratchRevealLabel">THE WEDDING OF</small>
+                    <h3 class="script" data-bind="coupleLine">Vamshi &amp; Shrishti</h3>
+                    <p data-bind="dateOrdinal">29th August 2026</p><small data-bind="scratchClosingLabel">YOUR PRESENCE IS OUR GREATEST GIFT</small>
+                </div><canvas id="scratch"></canvas>
+            </div>
+            <p id="scratchHint" class="scratch-hint">USE YOUR FINGER OR MOUSE TO SCRATCH ✨</p>
+            <button type="button" class="reset" id="resetScratch">RESET SCRATCH CARD</button>
+        </section>
+        <section class="section countdown reveal">
+            <p class="eyebrow" data-bind="countdownEyebrow">The countdown begins</p>
+            <h2 class="script" data-bind="countdownTitle">Until we say “I do”</h2>
+            <div class="timer">
+                <div><b id="days">000</b><small>DAYS</small></div>
+                <div><b id="hours">00</b><small>HOURS</small></div>
+                <div><b id="minutes">00</b><small>MINUTES</small></div>
+                <div><b id="seconds">00</b><small>SECONDS</small></div>
+            </div>
+            <p id="countNote" data-bind="countNote">A beautiful forever is almost here.</p>
+        </section>
+        <section class="section reveal" id="events">
+            <p class="eyebrow" data-bind="eventsEyebrow">The celebrations</p>
+            <h2 class="script" data-bind="eventsTitle">Events schedule</h2>
+            <div class="events">
+                <article><img
+                        src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=85"
+                        alt="Haldi">
+                    <div><small>01 / PRE-WEDDING</small>
+                        <h3 class="script">Haldi Celebration</h3>
+                        <p>Friday · 28 August 2026</p><b>10:00 AM onwards</b>
+                        <p>Sunshine, turmeric and laughter.</p>
+                    </div>
+                </article>
+                <article><img
+                        src="https://images.unsplash.com/photo-1597157639073-69284dc0fdaf?auto=format&fit=crop&w=800&q=85"
+                        alt="Mehendi">
+                    <div><small>02 / PRE-WEDDING</small>
+                        <h3 class="script">Mehendi & Sangeet</h3>
+                        <p>Friday · 28 August 2026</p><b>6:00 PM onwards</b>
+                        <p>An evening of music, dance and traditions.</p>
+                    </div>
+                </article>
+                <article><img
+                        src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=85"
+                        alt="Wedding">
+                    <div><small>03 / THE WEDDING</small>
+                        <h3 class="script">Muhurtham</h3>
+                        <p>Saturday · 29 August 2026</p><b>9:30 AM – 10:30 AM</b>
+                        <p>The sacred moment our journeys become one.</p>
+                    </div>
+                </article>
+                <article><img
+                        src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=800&q=85"
+                        alt="Reception">
+                    <div><small>04 / CELEBRATION</small>
+                        <h3 class="script">Wedding Reception</h3>
+                        <p>Saturday · 29 August 2026</p><b>6:30 PM onwards</b>
+                        <p>An evening of dinner, joy and celebration.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <section class="section timeline-section reveal" id="timeline">
+            <p class="eyebrow" data-bind="timelineEyebrow">The wedding day</p>
+            <h2 class="script" data-bind="timelineTitle">A day to remember</h2>
+            <div class="timeline">
+                <article><time>08:30 AM</time><i></i>
+                    <div>
+                        <h3>Welcoming our guests</h3>
+                        <p>Traditional welcome and refreshments</p>
+                    </div>
+                </article>
+                <article><time>09:30 AM</time><i></i>
+                    <div>
+                        <h3>Muhurtham</h3>
+                        <p>The sacred wedding ceremony</p>
+                    </div>
+                </article>
+                <article><time>11:00 AM</time><i></i>
+                    <div>
+                        <h3>Blessings & photographs</h3>
+                        <p>Share a special moment with the couple</p>
+                    </div>
+                </article>
+                <article><time>12:30 PM</time><i></i>
+                    <div>
+                        <h3>Wedding feast</h3>
+                        <p>A traditional meal with loved ones</p>
+                    </div>
+                </article>
+                <article><time>06:30 PM</time><i></i>
+                    <div>
+                        <h3>Reception</h3>
+                        <p>Let's celebrate together</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <section class="section reveal" id="story">
+            <p class="eyebrow" data-bind="storyEyebrow">A little piece of forever</p>
+            <h2 class="script" data-bind="storyTitle">Our story</h2>
+            <div class="story"><img
+                    src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1100&q=85"
+                    alt="Couple holding hands">
+                <div><small data-bind="storyChapter">CHAPTER ONE</small>
+                    <h3 class="script" data-bind="storyHeading">Two paths, one destiny</h3>
+                    <p data-bind="storyMessage">Some stories are written in the stars. Ours brought us here.</p>
+                </div>
+            </div>
+            <div class="story-points">
+                <article><b>01</b>
+                    <h3>The first hello</h3>
+                    <p>A beautiful beginning to a story we never want to end.</p>
+                </article>
+                <article><b>02</b>
+                    <h3>A promise made</h3>
+                    <p>Two families, countless blessings and a lifetime ahead.</p>
+                </article>
+            </div>
+        </section>
+        <section class="section gallery-section reveal" id="gallery">
+            <p class="eyebrow" data-bind="galleryEyebrow">Captured moments</p>
+            <h2 class="script" data-bind="galleryTitle">Memories of us</h2>
+            <p data-bind="galleryMessage">A few moments we will keep close to our hearts.</p>
+            <div class="gallery"></div>
+            <small>SHARE YOUR FAVOURITE MEMORIES</small>
+        </section>
+        <section class="section reveal" id="venue">
+            <p class="eyebrow" data-bind="venueEyebrow">Where the magic happens</p>
+            <h2 class="script" data-bind="venueTitle">The venue</h2>
+            <div class="venue"><span>⌖</span>
+                <h3 data-bind="venueName">Shree Lakshmi Wedding Hall</h3>
+                <p data-bind="venueAddress">Chennai, Tamil Nadu, India</p><a data-map-link
+                    href="https://www.google.com/maps/search/?api=1&query=wedding+hall+Chennai" target="_blank"
+                    rel="noopener">GET DIRECTIONS ↗</a>
+            </div><iframe class="map" title="Wedding venue map" loading="lazy"
+                src="https://www.google.com/maps?q=wedding%20hall%20Chennai&amp;output=embed"></iframe>
+        </section>
+        <section class="section rsvp reveal" id="rsvp">
+            <p class="eyebrow" data-bind="rsvpEyebrow">Kindly respond</p>
+            <h2 class="script" data-bind="rsvpTitle">Will you join us?</h2>
+            <p data-bind="rsvpMessage">Your presence will make our celebration even more special.</p>
+            <form id="rsvpForm"><label>YOUR NAME<input name="name" required
+                        placeholder="Full name"></label><label>CONTACT NUMBER<input name="phone" type="tel" required
+                        placeholder="+91"></label><label>EMAIL ADDRESS<input name="email" type="email"
+                        placeholder="you@example.com"></label>
+                <fieldset>
+                    <legend>WILL YOU JOIN US?</legend><label><input type="radio" name="attendance"
+                            value="Joyfully accepts" required> JOYFULLY ACCEPTS</label><label><input type="radio"
+                            name="attendance" value="Regretfully declines"> REGRETFULLY DECLINES</label>
+                </fieldset><label>NUMBER OF GUESTS<select name="guests">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select></label><label>YOUR WISHES<textarea name="message" rows="3"
+                        placeholder="Leave a lovely message..."></textarea></label><button type="submit">SEND YOUR RSVP
+                    ↗</button><small>Demo mode until an RSVP endpoint is configured.</small>
+            </form>
+            <p id="success" class="success"></p>
+        </section>
+        <footer>
+            <div>❀</div>
+            <p class="eyebrow" data-bind="footerEyebrow">With love and gratitude</p>
+            <h2 class="script" data-bind="coupleLine">Vamshi &amp; Shrishti</h2><small data-bind="footerDate">29 AUGUST 2026 · CHENNAI, INDIA</small>
+            <p>✦ ❧ ✦</p>
+        </footer>
+    </main><button class="music" id="music">♫</button><audio id="audio" loop></audio>
+    <div class="lightbox" id="lightbox"><button id="close">×</button><button id="prev">‹</button><img id="large"
+            alt="Gallery image"><button id="next">›</button></div>
+    <script src="js/template.js"></script>
+    <script src="js/scratch.js"></script>
+    <script src="js/modern.js"></script>
+</body>
+
+</html>

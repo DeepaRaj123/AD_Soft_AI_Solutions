@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Wedding Invitation</title>
+  <meta name="robots" content="noindex">
+  <meta name="description" content="You are invited to our wedding celebration.">
+  <meta name="theme-color" content="#f6efe2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <noscript><style>#intro{display:none!important}.invitation{opacity:1!important;visibility:visible!important}.reveal,.rise{opacity:1!important;transform:none!important;filter:none!important}</style></noscript>
+</head>
+<body class="is-locked">
+
+  <!-- Shared ornament -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="sprig" viewBox="0 0 160 28">
+      <path d="M8 14c26-6 46-6 72 0s46 6 72 0" fill="none" stroke="currentColor" stroke-width="1"/>
+      <g fill="currentColor" opacity=".9">
+        <ellipse cx="34" cy="9.5" rx="7" ry="2.6" transform="rotate(-28 34 9.5)"/>
+        <ellipse cx="52" cy="18.5" rx="7" ry="2.6" transform="rotate(28 52 18.5)"/>
+        <ellipse cx="108" cy="18.5" rx="7" ry="2.6" transform="rotate(-28 108 18.5)"/>
+        <ellipse cx="126" cy="9.5" rx="7" ry="2.6" transform="rotate(28 126 9.5)"/>
+        <ellipse cx="18" cy="17" rx="5" ry="2" transform="rotate(30 18 17)"/>
+        <ellipse cx="142" cy="17" rx="5" ry="2" transform="rotate(-30 142 17)"/>
+        <path d="M80 7l4 7-4 7-4-7z"/>
+      </g>
+    </symbol>
+  </svg>
+
+  <!-- ============ 1. ENVELOPE OPENING SCREEN ============ -->
+  <section id="intro" class="intro paper" aria-label="Sealed wedding invitation">
+    <div class="intro__top">
+      <h1 class="intro__names script"><span data-bind="groom"></span> <em>&amp;</em> <span data-bind="bride"></span></h1>
+      <p class="intro__date" data-bind="dateLong"></p>
+    </div>
+
+    <div class="envelope-scene">
+      <div class="envelope" id="envelope">
+        <div class="env-back"></div>
+
+        <div class="env-card">
+          <div class="env-card__inner">
+            <svg class="env-card__sprig" aria-hidden="true"><use href="#sprig"/></svg>
+            <p class="env-card__small">You are invited to the wedding of</p>
+            <p class="env-card__names script"><span data-bind="groom"></span> &amp; <span data-bind="bride"></span></p>
+            <p class="env-card__small" data-bind="dateLong"></p>
+          </div>
+        </div>
+
+        <div class="env-pocket" aria-hidden="true">
+          <span class="env-left"></span><span class="env-right"></span><span class="env-bottom"></span>
+        </div>
+        <div class="env-flap" aria-hidden="true"></div>
+
+        <button type="button" class="seal" id="seal" aria-label="Open your invitation">
+          <span class="seal__ring"></span>
+          <span class="seal__text script" data-bind="sealInitials"></span>
+        </button>
+      </div>
+    </div>
+
+    <button type="button" class="intro__hint" id="openBtn">Tap to open your invitation</button>
+  </section>
+
+  <!-- ============ MAIN INVITATION (single vertical column) ============ -->
+  <main id="invitation" class="invitation" inert aria-hidden="true">
+    <div class="column">
+
+      <!-- 3. HERO -->
+      <header class="hero" id="top">
+        <div class="hero__bg" data-parallax></div>
+        <div class="hero__shade"></div>
+        <div class="petals" data-petals aria-hidden="true"></div>
+        <div class="hero__content">
+          <p class="eyebrow rise" style="--d:.3s" data-bind="labels.heroEyebrow">The Wedding Of</p>
+          <h2 class="hero__names script rise" style="--d:.7s">
+            <span data-bind="groom"></span>
+            <span class="amp">&amp;</span>
+            <span data-bind="bride"></span>
+          </h2>
+          <p class="hero__date rise" style="--d:1.2s" data-bind="dateLong"></p>
+          <p class="hero__tagline rise" style="--d:1.6s" data-bind="tagline"></p>
+        </div>
+        <a class="scroll-cue rise" style="--d:2.2s" href="#countdown" aria-label="Scroll down"><span></span></a>
+      </header>
+
+      <!-- 4. COUNTDOWN -->
+      <section class="section" data-section="countdown" id="countdown" aria-labelledby="cd-title">
+        <p class="eyebrow eyebrow--dark reveal">Save The Date</p>
+        <h2 class="section__title reveal" id="cd-title" data-bind="labels.countdownTitle">Counting Down To Forever</h2>
+        <div class="countdown reveal" id="countdownGrid" role="timer" aria-label="Time remaining until the wedding">
+          <div class="cd-box"><span class="cd-num" data-cd="days">00</span><span class="cd-label">Days</span></div>
+          <div class="cd-box"><span class="cd-num" data-cd="hours">00</span><span class="cd-label">Hours</span></div>
+          <div class="cd-box"><span class="cd-num" data-cd="minutes">00</span><span class="cd-label">Minutes</span></div>
+          <div class="cd-box"><span class="cd-num" data-cd="seconds">00</span><span class="cd-label">Seconds</span></div>
+        </div>
+        <div class="countdown-done" id="countdownDone" hidden>
+          <p class="script" id="countdownDoneTitle"></p>
+          <p id="countdownDoneText"></p>
+        </div>
+      </section>
+
+      <!-- 5. MESSAGE -->
+      <section class="section section--tint" id="message" aria-label="Invitation message">
+        <svg class="ornament reveal" aria-hidden="true"><use href="#sprig"/></svg>
+        <p class="message__lead reveal" data-bind="familiesLine"></p>
+        <p class="message__text reveal" data-bind="invitationMessage"></p>
+        <p class="message__sign script reveal" data-bind="coupleLine"></p>
+        <svg class="ornament ornament--flip reveal" aria-hidden="true"><use href="#sprig"/></svg>
+      </section>
+
+      <!-- 6. DETAILS -->
+      <section class="section" id="details" aria-labelledby="details-title">
+        <p class="eyebrow eyebrow--dark reveal">The Celebration</p>
+        <h2 class="section__title reveal" id="details-title" data-bind="labels.detailsTitle">Wedding Details</h2>
+
+        <article class="card reveal">
+          <h3 class="card__title" data-bind="ceremony.title"></h3>
+          <dl class="card__list">
+            <div><dt>Date</dt><dd data-bind="ceremony.dateLabel"></dd></div>
+            <div><dt>Time</dt><dd data-bind="ceremony.time"></dd></div>
+            <div><dt>Venue</dt><dd data-bind="ceremony.venue"></dd></div>
+            <div><dt>Address</dt><dd data-bind="ceremony.address"></dd></div>
+          </dl>
+          <a class="btn" data-directions="ceremony" target="_blank" rel="noopener">Get Directions</a>
+        </article>
+
+        <article class="card reveal">
+          <h3 class="card__title" data-bind="reception.title"></h3>
+          <dl class="card__list">
+            <div><dt>Date</dt><dd data-bind="reception.dateLabel"></dd></div>
+            <div><dt>Time</dt><dd data-bind="reception.time"></dd></div>
+            <div><dt>Venue</dt><dd data-bind="reception.venue"></dd></div>
+            <div><dt>Address</dt><dd data-bind="reception.address"></dd></div>
+          </dl>
+          <a class="btn" data-directions="reception" target="_blank" rel="noopener">Get Directions</a>
+        </article>
+      </section>
+
+      <!-- 7. TIMELINE -->
+      <section class="section section--tint" data-section="timeline" id="timeline-section" aria-labelledby="tl-title">
+        <p class="eyebrow eyebrow--dark reveal">The Wedding Day</p>
+        <h2 class="section__title reveal" id="tl-title" data-bind="labels.timelineTitle">Order Of The Day</h2>
+        <ol class="timeline" id="timeline"></ol>
+      </section>
+
+      <!-- 8. GALLERY -->
+      <section class="section" data-section="gallery" id="gallery-section" aria-labelledby="gal-title">
+        <p class="eyebrow eyebrow--dark reveal">Our Story</p>
+        <h2 class="section__title reveal" id="gal-title" data-bind="labels.galleryTitle">Moments Together</h2>
+        <div class="gallery" id="gallery"></div>
+      </section>
+
+      <!-- 9. MAP -->
+      <section class="section section--tint" data-section="map" id="location" aria-labelledby="map-title">
+        <p class="eyebrow eyebrow--dark reveal">Find Us</p>
+        <h2 class="section__title reveal" id="map-title" data-bind="labels.mapSectionTitle">The Venue</h2>
+        <div class="map reveal">
+          <iframe id="mapFrame" title="Wedding venue on Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+        <p class="map__name reveal" data-bind="mapTitle"></p>
+        <p class="map__address reveal" data-bind="mapAddress"></p>
+        <div class="btn-row reveal">
+          <a class="btn btn--solid" data-directions="main" target="_blank" rel="noopener">Get Directions</a>
+          <a class="btn" data-openmap target="_blank" rel="noopener">Open in Google Maps</a>
+        </div>
+      </section>
+
+      <!-- 10. RSVP -->
+      <section class="section" data-section="rsvp" id="rsvp" aria-labelledby="rsvp-title">
+        <p class="eyebrow eyebrow--dark reveal">Kindly Reply</p>
+        <h2 class="section__title reveal" id="rsvp-title" data-bind="labels.rsvpTitle">RSVP</h2>
+        <p class="rsvp__note reveal" id="rsvpNote"></p>
+
+        <form class="form reveal" id="rsvpForm" novalidate>
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+
+          <div class="field">
+            <label for="fName">Full Name</label>
+            <input id="fName" name="name" type="text" autocomplete="name" required>
+            <p class="error" data-for="name" role="alert"></p>
+          </div>
+          <div class="field">
+            <label for="fEmail">Email Address</label>
+            <input id="fEmail" name="email" type="email" autocomplete="email" required>
+            <p class="error" data-for="email" role="alert"></p>
+          </div>
+          <div class="field">
+            <label for="fPhone">Phone Number</label>
+            <input id="fPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
+            <p class="error" data-for="phone" role="alert"></p>
+          </div>
+
+          <fieldset class="field choice">
+            <legend>Will you attend?</legend>
+            <label class="choice__opt"><input type="radio" name="attendance" value="Joyfully Accepts"><span>Joyfully Accepts</span></label>
+            <label class="choice__opt"><input type="radio" name="attendance" value="Regretfully Declines"><span>Regretfully Declines</span></label>
+            <p class="error" data-for="attendance" role="alert"></p>
+          </fieldset>
+
+          <div id="attendingFields">
+            <div class="field">
+              <label for="fGuests">Number of Guests</label>
+              <select id="fGuests" name="guests"></select>
+            </div>
+            <div class="field">
+              <label for="fDiet">Dietary Preferences</label>
+              <select id="fDiet" name="dietary">
+                <option>No preference</option>
+                <option>Vegetarian</option>
+                <option>Vegan</option>
+                <option>Jain</option>
+                <option>Gluten-free</option>
+                <option>Other (mention below)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="fMsg">Personal Message</label>
+            <textarea id="fMsg" name="message" rows="4" maxlength="600"></textarea>
+          </div>
+
+          <button class="btn btn--solid btn--block" type="submit" id="rsvpSubmit"><span>Send RSVP</span></button>
+        </form>
+
+        <div class="rsvp-success" id="rsvpSuccess" hidden tabindex="-1">
+          <svg class="ornament" aria-hidden="true"><use href="#sprig"/></svg>
+          <h3 class="script" id="successTitle">Thank You</h3>
+          <p id="successText"></p>
+        </div>
+      </section>
+
+      <!-- 12. THANK YOU -->
+      <footer class="closing" id="closing">
+        <div class="closing__bg" data-parallax></div>
+        <div class="closing__shade"></div>
+        <div class="petals" data-petals aria-hidden="true"></div>
+        <div class="closing__content">
+          <p class="eyebrow reveal" data-bind="labels.closingEyebrow">With Love &amp; Gratitude</p>
+          <h2 class="closing__title reveal" data-bind="thanks.title"></h2>
+          <p class="closing__names script reveal"><span data-bind="groom"></span> &amp; <span data-bind="bride"></span></p>
+          <p class="closing__date reveal" data-bind="dateLong"></p>
+          <p class="closing__msg reveal" data-bind="thanks.message"></p>
+        </div>
+      </footer>
+    </div>
+  </main>
+
+  <!-- 11. MUSIC -->
+  <button type="button" class="music" id="musicBtn" aria-label="Play background music" aria-pressed="false" hidden>
+    <span class="music__bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <svg class="music__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/></svg>
+  </button>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
+    <button type="button" class="lightbox__close" id="lbClose" aria-label="Close">&times;</button>
+    <button type="button" class="lightbox__nav lightbox__nav--prev" id="lbPrev" aria-label="Previous photo">&#8249;</button>
+    <figure class="lightbox__figure"><img id="lbImg" alt=""><figcaption id="lbCount"></figcaption></figure>
+    <button type="button" class="lightbox__nav lightbox__nav--next" id="lbNext" aria-label="Next photo">&#8250;</button>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="template.js"></script>
+</body>
+</html>
