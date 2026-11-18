@@ -4,25 +4,68 @@
    Change a value here and the whole site follows.
    ========================================================= */
 
-/* Fallback shown while Poppins downloads: local Arial scaled to Poppins' widths and line
-   metrics, so text does not reflow (layout shift) when the web font swaps in. */
+/* Fallback shown while Poppins downloads: Arial (or the Arial-compatible Liberation Sans / Arimo
+   on Linux and Android) scaled per weight to Poppins' widths, measured on this site's headings and
+   buttons, with Poppins' line metrics. Text then keeps the same line breaks when the web font swaps
+   in, so nothing shifts (CLS). */
 @font-face {
   font-family: "Poppins Fallback";
-  src: local("Arial"), local("ArialMT");
-  font-weight: 100 500;
-  size-adjust: 114.5%;
-  ascent-override: 91.7%;
-  descent-override: 30.57%;
-  line-gap-override: 8.73%;
+  src: local("Arial"), local("ArialMT"), local("Liberation Sans"), local("LiberationSans"), local("Arimo");
+  font-weight: 100 449;
+  size-adjust: 109.0%;
+  ascent-override: 96.33%;
+  descent-override: 32.11%;
+  line-gap-override: 9.17%;
 }
 @font-face {
   font-family: "Poppins Fallback";
-  src: local("Arial Bold"), local("Arial-BoldMT");
-  font-weight: 600 900;
-  size-adjust: 108%;
+  src: local("Arial"), local("ArialMT"), local("Liberation Sans"), local("LiberationSans"), local("Arimo");
+  font-weight: 450 549;
+  size-adjust: 111.0%;
+  ascent-override: 94.59%;
+  descent-override: 31.53%;
+  line-gap-override: 9.01%;
+}
+@font-face {
+  font-family: "Poppins Fallback";
+  src: local("Arial Bold"), local("Arial-BoldMT"), local("Liberation Sans Bold"), local("LiberationSans-Bold"), local("Arimo Bold"), local("Arimo-Bold");
+  font-weight: 550 649;
+  size-adjust: 104.5%;
+  ascent-override: 100.48%;
+  descent-override: 33.49%;
+  line-gap-override: 9.57%;
+}
+@font-face {
+  font-family: "Poppins Fallback";
+  src: local("Arial Bold"), local("Arial-BoldMT"), local("Liberation Sans Bold"), local("LiberationSans-Bold"), local("Arimo Bold"), local("Arimo-Bold");
+  font-weight: 650 749;
+  size-adjust: 106.0%;
+  ascent-override: 99.06%;
+  descent-override: 33.02%;
+  line-gap-override: 9.43%;
+}
+@font-face {
+  font-family: "Poppins Fallback";
+  src: local("Arial Bold"), local("Arial-BoldMT"), local("Liberation Sans Bold"), local("LiberationSans-Bold"), local("Arimo Bold"), local("Arimo-Bold");
+  font-weight: 750 849;
+  size-adjust: 108.0%;
   ascent-override: 97.22%;
   descent-override: 32.41%;
   line-gap-override: 9.26%;
+}
+@font-face {
+  font-family: "Poppins Fallback";
+  src: local("Arial Bold"), local("Arial-BoldMT"), local("Liberation Sans Bold"), local("LiberationSans-Bold"), local("Arimo Bold"), local("Arimo-Bold");
+  font-weight: 850 1000;
+  size-adjust: 109.5%;
+  ascent-override: 95.89%;
+  descent-override: 31.96%;
+  line-gap-override: 9.13%;
+}
+/* style.css hard-codes Poppins on these elements (button labels, links, text); add the fallback */
+body, body h1, body h2, body h3, body h4, body h5, body h6, body p, body a, body button, body input,
+body textarea, body select, body label, body span, body li, body td, body th {
+  font-family: "Poppins", "Poppins Fallback", sans-serif;
 }
 
 :root {
@@ -579,13 +622,22 @@ html body .ad-middle-dark-section {
   html body .counter-style-04 > .col p { font-size: 12.5px; line-height: 1.4; margin: 0; }
 
   /* review cards: avatar above the quote, all centred */
-  html body .review-style-05 > div > .d-flex { flex-direction: column; align-items: center !important; text-align: center; }
-  html body .review-style-05 > div > .d-flex > img { margin: 0 0 12px !important; }
+  /* :not(#_) adds id-level weight: the home page has its own align-items:flex-start !important */
+  html body:not(#_) .review-style-05 > div > .d-flex { flex-direction: column; align-items: center !important; text-align: center; }
+  html body:not(#_) .review-style-05 > div > .d-flex > img { margin: 0 0 12px !important; }
   html body .review-style-05 > div > .border-top { text-align: center; }
 
   /* ---- 15.3 Client-logo marquee: fixed boxes so logos never overlap ---- */
-  html body .client-logo-group a { overflow: hidden; min-width: 0; }
-  html body .client-logo-group img { width: 100% !important; height: 100% !important; max-width: 100%; max-height: 100%; object-fit: contain; }
+  /* explicit box size (not just flex-basis) and images capped with max-width/max-height:
+     iPhone Safari sized the boxes from the images and the logos overlapped */
+  html body .client-logo-group { gap: 14px !important; padding-right: 14px !important; }
+  html body .client-logo-track { animation-duration: 18s !important; }  /* a little faster on phones (desktop: 28s) */
+  html body .client-logo-group a { flex: none !important; width: 112px !important; height: 60px !important; overflow: hidden; }
+  html body .client-logo-group img {
+    width: auto !important; height: auto !important;
+    max-width: 100% !important; max-height: 100% !important;
+    object-fit: contain;
+  }
 
   /* ---- 15.4 Newsletter popup: darker image + visible white close button ---- */
   html body .subscribe-popup .cover-background { position: relative; }
@@ -646,7 +698,6 @@ html body .ad-middle-dark-section {
     white-space: pre-line; visibility: hidden; grid-area: 1 / 1;
   }
   html body.home-page .home-hero h1 > #typing-text { grid-area: 1 / 1; }
-  html body.home-page .home-hero h1 > #typing-text::after { content: "\2022"; margin-left: 1px; color: var(--brand-light); animation: bl 1s steps(2) infinite; }
   html body.home-page .home-hero h1 > .blinking-cursor { display: none !important; }
   html body.home-page .home-hero h2 { color: #c6e06a !important; }
   html body.home-page .home-hero h2 .hd-accent { background: none !important; color: #c6e06a !important; -webkit-text-fill-color: currentColor; }
@@ -830,4 +881,122 @@ html body h1[data-final] > .type-layer { grid-area: 1 / 1; }
   html body header #navbarNav .navbar-nav > li.nav-current > a.nav-link { color: var(--brand) !important; font-weight: 600 !important; opacity: 1 !important; }
   html body header #navbarNav .navbar-nav > li > .nav-link { opacity: 1 !important; }
   html body header #navbarNav .navbar-nav > li.nav-current > a.nav-link::after { display: none !important; }
+}
+
+/* =========================================================
+   19. RENDER ONLY WHAT IS ON SCREEN
+       Sections below the first screen are laid out and painted only when they come
+       near the viewport (the browser keeps their last size, so scrolling stays smooth).
+   ========================================================= */
+html body > section ~ section,
+html body > footer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 800px;
+}
+@media (max-width: 767px) {
+  html body > section ~ section,
+  html body > footer { contain-intrinsic-size: auto 1300px; }
+}
+
+/* =========================================================
+   20. HOME HERO (tablet/desktop): reserve the typed headline's final height,
+       same technique as the phone rule in 15.5, so typing never pushes content down
+   ========================================================= */
+@media (min-width: 768px) {
+  html body.home-page .home-hero h1 { display: grid; }
+  html body.home-page .home-hero h1::before {
+    content: "AI-Powered Software Development &\A Business Automation Company in Kerala\2022";
+    white-space: pre-line; visibility: hidden; grid-area: 1 / 1;
+  }
+  html body.home-page .home-hero h1 > #typing-text { grid-area: 1 / 1; }
+  html body.home-page .home-hero h1 > .blinking-cursor { display: none !important; }
+}
+
+/* typing headline (home): untyped text is laid out but invisible; the caret takes no width,
+   so nothing reflows while typing */
+html body .home-hero #typing-text .type-rest { visibility: hidden; }
+html body .home-hero #typing-text .type-caret {
+  display: inline-block;
+  width: 0;
+  overflow: visible;
+  margin-left: 2px;
+  color: var(--brand);
+  animation: bl 1s steps(2) infinite;
+}
+@media (max-width: 767px) {
+  html body.home-page .home-hero #typing-text .type-caret { color: var(--brand-light); }
+}
+
+/* =========================================================
+   21. NEWSLETTER POPUP: the page behind is locked until the popup is closed
+       (js/main.js opens it with fixedContentPos: true). If the popup is taller than the
+       screen, only the popup scrolls; the scroll never passes through to the page.
+   ========================================================= */
+html body .mfp-wrap { overscroll-behavior: contain; }
+html body .mfp-bg { touch-action: none; }
+
+/* =========================================================
+   22. ABOUT HERO ON PHONES: own background photo, same treatment as the home hero
+   ========================================================= */
+@media (max-width: 767px) {
+  html body .about-hero {
+    background-image: linear-gradient(180deg, rgba(12, 24, 10, 0.80) 0%, rgba(14, 30, 12, 0.72) 45%, rgba(10, 20, 8, 0.88) 100%), url("../images/about/hero-mobile.webp") !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    display: flex;
+    align-items: center;
+    padding-bottom: 48px !important;
+  }
+  html body .about-hero::before,
+  html body .about-hero > .bg-gradient-black-green { display: none !important; }
+  html body .about-hero > .container { width: 100%; }
+  html body:not(#_) .about-hero > .container > .row > [class*="col-"]:last-child { display: none !important; }  /* cut-out photo: desktop only */
+  html body .about-hero h1 { color: #fff !important; }
+  html body .about-hero h2,
+  html body .about-hero h2 .hd-accent { color: #c6e06a !important; background: none !important; -webkit-text-fill-color: currentColor; }
+  html body .about-hero p { color: rgba(255, 255, 255, 0.88) !important; }
+  html body .about-hero .btn-dark-gray { background-color: var(--brand-dark) !important; border-color: var(--brand-dark) !important; color: #fff !important; }
+  html body .about-hero .btn-white { background-color: transparent !important; border: 1.5px solid rgba(255, 255, 255, 0.85) !important; color: #fff !important; box-shadow: none !important; }
+}
+
+/* =========================================================
+   23. BUTTON PAIRS ON PHONES: any two+ buttons side by side become a centred stack of equal width
+   ========================================================= */
+@media (max-width: 767px) {
+  html body section :is(div, p):has(> a.btn ~ a.btn) > a.btn {
+    display: block !important;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto 12px !important;
+    text-align: center;
+    white-space: normal;
+  }
+  html body section :is(div, p):has(> a.btn ~ a.btn) > a.btn > span { justify-content: center; }
+}
+
+/* "25,000+ Happy customers" (home): a real heading. Desktop keeps its old small size so the
+   three-column row is unchanged; phones show it at section-heading size. */
+html body:not(#_) h2.happy-heading { font-size: var(--h6-size) !important; line-height: 1.4 !important; font-weight: 700 !important; }
+@media (max-width: 767px) {
+  html body:not(#_) h2.happy-heading { font-size: var(--h2-size) !important; line-height: 1.18 !important; font-weight: 800 !important; letter-spacing: -0.02em !important; }
+}
+
+/* Header logo: reserve its final size before the image file arrives (the template sizes it with
+   width/height:auto, so it was 0px at first paint and the whole header then grew 56px -> 104px) */
+html body header .navbar-brand img { aspect-ratio: 1 / 1; }
+@media (min-width: 1200px) { html body header .navbar-brand .default-logo { height: 68px; } }
+@media (min-width: 992px) and (max-width: 1199px) { html body header .navbar-brand .default-logo { height: 70px; } }
+@media (min-width: 768px) and (max-width: 991px) { html body header .navbar-brand .mobile-logo { height: 27px; } }
+@media (max-width: 767px) { html body header .navbar-brand .mobile-logo { height: 34px; } }
+/* typing headlines: invisible remainder (added by js/site-motion.js) + a caret that takes no width */
+html body h1[data-final] .type-rest { visibility: hidden; white-space: pre-line; }
+html body h1[data-final] .type-layer > :is(.blinking-cursor, .blink) {
+  display: inline-block;
+  width: 0;
+  margin: 0;
+  overflow: visible;
+  white-space: nowrap;
+  position: relative;
+  left: 1px;
 }

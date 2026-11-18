@@ -2057,6 +2057,8 @@
             function openSubscribePopup() {
                 if (getCookie(cookieName) == 'shown') return;
                 (function () {
+                    // Lock the page behind the popup on every device until it is closed.
+                    // ('auto' switched to a non-locking mode on phones, so the page behind could scroll.)
                     $.magnificPopup.open({
                         showCloseBtn: false,
                         items: {
@@ -2064,6 +2066,8 @@
                         },
                         type: 'inline',
                         mainClass: 'my-mfp-zoom-in',
+                        fixedContentPos: true,
+                        fixedBgPos: true,
                         callbacks: {
                             close: function () {
                                 if ($('#newsletter-off').is(':checked')) {
@@ -4133,16 +4137,16 @@ document.addEventListener("DOMContentLoaded", function() {
                 let index = 0;
                 const speed = 60; 
                 
+                // The whole sentence is laid out from the start; the part not typed yet is invisible.
+                // Words never jump to the next line while typing, so the page does not shift (CLS).
+                const html = s => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/\n/g, "<br>");
                 function typeWriter() {
                     const target = document.getElementById("typing-text");
                     if (!target) return;
-                    if (index < text.length) {
-                        let char = text.charAt(index);
-                        if (char === '\n') {
-                            target.innerHTML += "<br>";
-                        } else {
-                            target.innerHTML += char;
-                        }
+                    if (index <= text.length) {
+                        target.innerHTML = html(text.slice(0, index)) +
+                            '<span class="type-caret" aria-hidden="true">•</span>' +
+                            '<span class="type-rest" aria-hidden="true">' + html(text.slice(index)) + '</span>';
                         index++;
                         setTimeout(typeWriter, speed);
                     }

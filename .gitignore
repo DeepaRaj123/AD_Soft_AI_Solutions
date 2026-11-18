@@ -1,3 +1,0 @@
-# build tools installed by `npm i --no-save` for tools/build-css.mjs
-node_modules/
-package-lock.json

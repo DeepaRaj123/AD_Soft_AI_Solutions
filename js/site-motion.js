@@ -92,3 +92,29 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
+
+/* Typing headlines (h1[data-final]): keep the part that is not typed yet laid out but invisible,
+   right after the caret, so words never jump to the next line while typing (layout shift).
+   Works with each page's own typing script; it only watches the typed text. */
+(function () {
+  'use strict';
+  function setup(h1) {
+    var layer = h1.querySelector('.type-layer');
+    var typed = layer && layer.querySelector('span[id]');
+    if (!typed || layer.querySelector('.type-rest')) return;
+    var finalText = h1.getAttribute('data-final') || '';
+    var rest = document.createElement('span');
+    rest.className = 'type-rest';
+    rest.setAttribute('aria-hidden', 'true');
+    layer.appendChild(rest);
+    var update = function () {
+      var now = typed.innerText.replace(/\r/g, '');
+      rest.textContent = finalText.indexOf(now) === 0 ? finalText.slice(now.length) : '';
+    };
+    new MutationObserver(update).observe(typed, { childList: true, characterData: true, subtree: true });
+    update();
+  }
+  function init() { document.querySelectorAll('h1[data-final]').forEach(setup); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
