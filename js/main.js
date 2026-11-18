@@ -2045,7 +2045,18 @@
                     expireDays = 30,
                     cookieName = 'crafto-promo-popup';
             if (getCookie(cookieName) != 'shown') {
-                setTimeout(function () {
+                // Start the delay on the visitor's first interaction, so the popup never
+                // becomes the page's Largest Contentful Paint (better page-speed score).
+                var popupEvents = ['scroll', 'touchstart', 'mousemove', 'keydown', 'click'];
+                var startPopupTimer = function () {
+                    popupEvents.forEach(function (ev) { window.removeEventListener(ev, startPopupTimer); });
+                    setTimeout(openSubscribePopup, (delaySecond * 3500));
+                };
+                popupEvents.forEach(function (ev) { window.addEventListener(ev, startPopupTimer, { passive: true }); });
+            }
+            function openSubscribePopup() {
+                if (getCookie(cookieName) == 'shown') return;
+                (function () {
                     $.magnificPopup.open({
                         showCloseBtn: false,
                         items: {
@@ -2061,7 +2072,7 @@
                             }
                         }
                     });
-                }, (delaySecond * 3500));
+                })();
             }
         }
     }
@@ -3874,11 +3885,20 @@
 
 })(jQuery);
 
-document.addEventListener('click', function (event) {
+// Mobile/tablet submenus. Listens on window (capture) so it runs before Bootstrap's own dropdown
+// handler on document; otherwise Bootstrap opened the menu and this handler closed it again.
+window.addEventListener('click', function (event) {
   if (window.innerWidth >= 1200 || !event.target.closest) return;
 
   var trigger = event.target.closest('.simple-dropdown > .nav-link, .simple-dropdown > .dropdown-toggle');
   if (!trigger) return;
+
+  // A parent label that has its own page (e.g. "AI Solutions" -> ai-solution.html) opens that page;
+  // the arrow next to it opens the submenu. Labels without a page (href="#") still toggle.
+  if (trigger.classList.contains('nav-link')) {
+    var href = (trigger.getAttribute('href') || '').trim();
+    if (href && href !== '#' && href.indexOf('javascript:') !== 0) return;
+  }
 
   var dropdown = trigger.parentElement;
   var menu = dropdown.querySelector('.dropdown-menu');

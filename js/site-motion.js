@@ -70,3 +70,25 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
+
+/* Sliders: images inside a carousel use loading="lazy", but slides hidden sideways would only
+   start loading when they slide in (blank flash). Once a slider comes near the screen, load
+   all of its images. */
+(function () {
+  'use strict';
+  if (!('IntersectionObserver' in window)) return;
+  function init() {
+    var sliders = document.querySelectorAll('.swiper');
+    if (!sliders.length) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.querySelectorAll('img[loading="lazy"]').forEach(function (img) { img.loading = 'eager'; });
+        io.unobserve(e.target);
+      });
+    }, { rootMargin: '600px 0px' });
+    sliders.forEach(function (s) { io.observe(s); });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();

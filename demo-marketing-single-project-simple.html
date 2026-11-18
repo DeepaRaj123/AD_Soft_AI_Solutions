@@ -13,13 +13,12 @@
         <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
         <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
         <!-- google fonts preconnect -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <!-- style sheets and font icons  -->
-        <link rel="stylesheet" href="css/vendors.min.css"/>
-        <link rel="stylesheet" href="css/icon.min.css"/>
-        <link rel="stylesheet" href="css/style.css"/>
-        <link rel="stylesheet" href="css/responsive.css"/>
+        <link rel="stylesheet" href="css/fonts.css">
+        <link rel="stylesheet" href="css/core.min.css">
+        <link rel="preload" href="css/icon.slim.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="css/icon.slim.css"></noscript>
+        <link rel="preload" href="fonts/gf/poppins-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="fonts/gf/poppins-latin-800.woff2" as="font" type="font/woff2" crossorigin>
          <link rel="stylesheet" href="css/nav-active.css">
         <link rel="stylesheet" href="demos/marketing/marketing.css" />
     <script>document.documentElement.classList.add("js-motion")</script>
@@ -179,13 +178,13 @@
         <section class="big-section overlap-height pt-30px">
             <div class="container overlap-gap-section">
                 <div class="row" data-anime='{ "el": "childs", "staggervalue": 300, "opacity": [0, 1], "translateY": [50, 0], "easing": "easeOutQuad" }'>
-                    <div class="col-12"><img src="https://placehold.co/1190x600" alt=""></div>
-                    <div class="col-12 mb-30px"><img src="https://placehold.co/1190x600" alt=""></div>
-                    <div class="col-12 mb-30px"><img src="https://placehold.co/1190x570" alt=""></div>
-                    <div class="col-md-6 mb-30px"><img src="https://placehold.co/580x700" alt=""></div>
-                    <div class="col-md-6 mb-30px"><img src="https://placehold.co/580x700" alt=""></div>
-                    <div class="col-12 mb-30px"><img src="https://placehold.co/1190x650" alt=""></div>
-                    <div class="col-12 mb-50px"><img src="https://placehold.co/1190x655" alt=""></div>
+                    <div class="col-12"><img loading="lazy" decoding="async" src="https://placehold.co/1190x600" alt=""></div>
+                    <div class="col-12 mb-30px"><img loading="lazy" decoding="async" src="https://placehold.co/1190x600" alt=""></div>
+                    <div class="col-12 mb-30px"><img loading="lazy" decoding="async" src="https://placehold.co/1190x570" alt=""></div>
+                    <div class="col-md-6 mb-30px"><img loading="lazy" decoding="async" src="https://placehold.co/580x700" alt=""></div>
+                    <div class="col-md-6 mb-30px"><img loading="lazy" decoding="async" src="https://placehold.co/580x700" alt=""></div>
+                    <div class="col-12 mb-30px"><img loading="lazy" decoding="async" src="https://placehold.co/1190x650" alt=""></div>
+                    <div class="col-12 mb-50px"><img loading="lazy" decoding="async" src="https://placehold.co/1190x655" alt=""></div>
                 </div>
                 <div class="row align-items-center justify-content-center" data-anime='{ "el": "childs", "staggervalue": 300, "opacity": [0, 1], "translateX": [50, 0], "easing": "easeOutQuad" }'>
                     <div class="col-lg-3 col-md-4 text-center alt-font text-dark-gray text-md-end fw-500 text-uppercase">Share this project</div>
@@ -227,7 +226,7 @@
                     <!-- start footer column -->
                     <div class="col-lg-3 col-md-4 col-sm-6 d-flex flex-column last-paragraph-no-margin md-mb-35px">
                         <a href="index.html" class="footer-logo mb-25px xs-mb-20px d-inline-block">
-                            <img src="images/demo-marketing-logo-white.png" data-at2x="images/demo-marketing-logo-white@2x.png" alt="">
+                            <img loading="lazy" decoding="async" src="images/demo-marketing-logo-white.png" data-at2x="images/demo-marketing-logo-white@2x.png" alt="">
                         </a>
                         <div class="elements-social social-text-style-01 mt-auto">
                             <ul class="small-icon light fw-500">
@@ -301,9 +300,9 @@
         </div>
         <!-- end scroll progress -->
         <!-- javascript libraries -->
-          <script type="text/javascript" src="js/jquery.js"></script>
-        <script type="text/javascript" src="js/vendors.min.js"></script>
-        <script type="text/javascript" src="js/main.js"></script>
+          <script defer src="js/jquery.js"></script>
+        <script defer src="js/vendors.min.js"></script>
+        <script defer src="js/main.js"></script>
           <script src="js/nav-active.js"></script>
     <script defer src="js/site-motion.js"></script>
 </body>

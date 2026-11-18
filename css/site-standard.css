@@ -4,7 +4,33 @@
    Change a value here and the whole site follows.
    ========================================================= */
 
+/* Fallback shown while Poppins downloads: local Arial scaled to Poppins' widths and line
+   metrics, so text does not reflow (layout shift) when the web font swaps in. */
+@font-face {
+  font-family: "Poppins Fallback";
+  src: local("Arial"), local("ArialMT");
+  font-weight: 100 500;
+  size-adjust: 114.5%;
+  ascent-override: 91.7%;
+  descent-override: 30.57%;
+  line-gap-override: 8.73%;
+}
+@font-face {
+  font-family: "Poppins Fallback";
+  src: local("Arial Bold"), local("Arial-BoldMT");
+  font-weight: 600 900;
+  size-adjust: 108%;
+  ascent-override: 97.22%;
+  descent-override: 32.41%;
+  line-gap-override: 9.26%;
+}
+
 :root {
+  /* one typeface everywhere: marketing.css set the template's alt font to Inter, which only the
+     white secondary buttons ended up using (and cost an extra ~47 KB font download) */
+  --alt-font: "Poppins", "Poppins Fallback", sans-serif;
+  --primary-font: "Poppins", "Poppins Fallback", sans-serif;
+
   /* brand colours */
   --brand: #559643;
   --brand-dark: #3f7431;
@@ -50,7 +76,7 @@ img, video, svg { max-width: 100%; }
 /* ---------- 1. HEADINGS: same colour + same size everywhere ---------- */
 html body h1, html body h2, html body h3, html body h4, html body h5, html body h6 {
   color: var(--ink);
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", "Poppins Fallback", sans-serif;
   text-wrap: balance;
   overflow-wrap: break-word;
 }
@@ -272,7 +298,14 @@ html body .ad-middle-dark-section {
   :root {
     --section-y: clamp(40px, 10vw, 56px);
     --grid-gap: 18px;
-    --h1-size: clamp(1.9rem, 8vw, 3rem);
+    /* px, not rem: the template drops <html> to 12px on phones, which made rem headings
+       smaller than the 16px body text (card titles rendered at 12px). */
+    --h1-size: clamp(29px, 8.2vw, 36px);
+    --h2-size: clamp(25px, 6.9vw, 30px);
+    --h3-size: clamp(21px, 5.9vw, 25px);
+    --h4-size: clamp(19px, 5.2vw, 21px);
+    --h5-size: 18px;
+    --h6-size: 16.5px;
   }
 
   html body .row { --bs-gutter-x: 18px; }
@@ -480,4 +513,321 @@ html body .ad-middle-dark-section {
     width: 100% !important;
     max-width: 100%;
   }
+}
+
+/* =========================================================
+   15. MOBILE POLISH (<= 767px only) - desktop/tablet untouched
+   ========================================================= */
+@media (max-width: 767px) {
+
+  /* ---- 15.1 Centre-align section content ---- */
+  html body section { text-align: center; }
+  html body section :is(.text-start, .text-left, .text-sm-start, .text-md-start, .text-lg-start, .text-xl-start) { text-align: center !important; }
+  html body section :is(p, h1, h2, h3, h4, h5, h6, blockquote) { margin-left: auto; margin-right: auto; }
+  html body section :is(.d-flex.flex-column, .flex-column) > .btn { align-self: center; }
+  html body section :not(.flex-column):has(> .btn) { justify-content: center; }
+  html body section .d-flex:not(.flex-column):has(> .btn) { flex-wrap: wrap; row-gap: 14px; }
+  /* ai-solution benefits: icon above centred text; decorative floating icons outside heroes overlap text on phones */
+  html body section .b3d-ico { margin-left: auto; margin-right: auto; }
+  html body section:not(.ai-hero):not(.wd-hero):not(.ba-hero):not(.contact-hero):not(.ci-hero):not(.home-hero) > .fi { display: none !important; }
+  /* green "Not sure where to begin?" CTA cards: stack and let the button wrap */
+  html body section .bt-cta { justify-content: center; text-align: center; }
+  html body section .bt-cta a { white-space: normal; text-align: center; max-width: 100%; }
+  html body section h6.xt { white-space: normal; }
+  /* create-invitation: centred chips, stat words never split mid-word */
+  html body section .ci-tags { justify-content: center; }
+  html body section .ci-stat b { font-size: clamp(1.3rem, 6.2vw, 1.75rem) !important; overflow-wrap: normal; word-break: normal; }
+  /* tick/check lists: the list block is centred, its items stay aligned so the ticks line up */
+  html body section :is(ul.lst, ul.cl, ul.list-idx, ul.list-style-02, ul.eb-pts, ul.agent-fit-list) {
+    display: inline-block; text-align: left; max-width: 100%; margin-left: auto; margin-right: auto;
+  }
+  /* bento + path cards (business-automation, digital-transformation, ai-insights) */
+  html body section :is(.bt, .path) { text-align: center; }
+  html body section :is(.bt, .path) > :first-child:not(h1, h2, h3, h4, h5, h6, p) { margin-left: auto; margin-right: auto; }
+  /* feature cards with a round icon beside the text: icon on top, everything centred */
+  html body section .feature-box.d-flex.align-items-start:has(> .rounded-circle:first-child) {
+    flex-direction: column; align-items: center !important; text-align: center !important;
+  }
+  html body section .feature-box.d-flex.align-items-start:has(> .rounded-circle:first-child) > .rounded-circle { margin: 0 0 14px !important; }
+  /* round icon badges on top of centred cards (e.g. Our Mission / Our Vision) */
+  html body section div:not(.d-flex) > .rounded-circle.d-flex.justify-content-center:not(.position-absolute) { margin-left: auto; margin-right: auto; }
+  /* plain tick lists split over two columns: one centred block, ticks aligned */
+  html body section .row:has(> .col > ul[style*="list-style"]) {
+    display: block; width: fit-content; max-width: min(100%, 300px); margin-left: auto !important; margin-right: auto !important; text-align: left;
+  }
+  html body section .row:has(> .col > ul[style*="list-style"]) > .col { width: auto; max-width: 100%; padding: 0; }
+  html body section .row:has(> .col > ul[style*="list-style"]) li { display: flex; align-items: baseline; }
+  html body section .row:has(> .col > ul[style*="list-style"]) li > i { flex-shrink: 0; }
+  /* rows with a number/icon on the left read better left-aligned */
+  html body section :is(li.d-flex, .vf-s) { text-align: left; }
+  html body section :is(li.d-flex, .vf-s) :is(h5, h6, p) { margin-left: 0; margin-right: 0; }
+  /* form fields stay readable left-to-right */
+  html body section :is(input, textarea, select, .form-control) { text-align: left; }
+
+  /* ---- 15.2 Counters: no clipped digits, compact tiles ---- */
+  html body .vertical-counter,
+  html body .vertical-counter .vertical-counter-number { letter-spacing: 0 !important; font-variant-numeric: tabular-nums; }
+  html body .vertical-counter .vertical-counter-number { width: auto; padding: 0 1px; }
+  html body .counter-style-04 { --bs-gutter-x: 10px; flex-wrap: wrap; justify-content: center; }
+  html body .counter-style-04 > .col { flex: 0 0 33.333%; max-width: 33.333%; margin-bottom: 0 !important; }
+  html body .counter-style-04 .vertical-counter {
+    font-size: 2rem !important;
+    line-height: 1.1 !important;
+    justify-content: center;
+    margin-bottom: 6px !important;
+  }
+  html body .counter-style-04 > .col p { font-size: 12.5px; line-height: 1.4; margin: 0; }
+
+  /* review cards: avatar above the quote, all centred */
+  html body .review-style-05 > div > .d-flex { flex-direction: column; align-items: center !important; text-align: center; }
+  html body .review-style-05 > div > .d-flex > img { margin: 0 0 12px !important; }
+  html body .review-style-05 > div > .border-top { text-align: center; }
+
+  /* ---- 15.3 Client-logo marquee: fixed boxes so logos never overlap ---- */
+  html body .client-logo-group a { overflow: hidden; min-width: 0; }
+  html body .client-logo-group img { width: 100% !important; height: 100% !important; max-width: 100%; max-height: 100%; object-fit: contain; }
+
+  /* ---- 15.4 Newsletter popup: darker image + visible white close button ---- */
+  html body .subscribe-popup .cover-background { position: relative; }
+  html body .subscribe-popup .cover-background::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(180deg, rgba(10, 18, 8, 0.62) 0%, rgba(10, 18, 8, 0.38) 55%, rgba(10, 18, 8, 0.55) 100%);
+  }
+  html body .subscribe-popup .mfp-close,
+  html body .subscribe-popup .mfp-close:active {
+    z-index: 3; top: 12px; right: 12px; width: 40px; height: 40px; line-height: 38px;
+    border-radius: 50%; background-color: rgba(0, 0, 0, 0.55); border: 1.5px solid rgba(255, 255, 255, 0.85);
+    color: #fff !important;
+  }
+  html body .subscribe-popup .mfp-close::before { color: #fff !important; }
+  html body .subscribe-popup .newsletter-popup { text-align: center; }
+
+  /* ---- 15.5a First screen paints immediately (no waiting for JS fade-ins) ---- */
+  html body > header + section [data-anime],
+  html body > header + section [data-anime] > *,
+  html body > header + section :is(.rv, [data-reveal]) { opacity: 1 !important; transform: none !important; }
+
+  /* ---- 15.5b Our Work hero: content starts right under the header ---- */
+  html body .work-hero { min-height: 0 !important; padding-top: 100px !important; padding-bottom: 40px !important; }
+  html body .work-hero .work-hero-copy { padding-top: 0 !important; padding-bottom: 0 !important; }
+  html body .work-hero .work-hero-copy > div:has(> .btn) { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  html body .work-hero .work-hero-copy .btn { width: 100%; max-width: 320px; margin: 0 !important; justify-content: center; }
+  html body .work-hero .logo-wall-wrap { display: none !important; }  /* decorative; text reads cleaner and phones skip ~300 KB */
+  html body .work-hero .hero-stats { justify-content: center; gap: 22px 28px; margin-left: auto; margin-right: auto; }
+  html body .work-hero .hero-stats div { justify-content: center; text-align: center; }
+  html body .work-hero .hero-stats small { flex-basis: 100%; }
+  /* generic full-screen heroes (about etc.): size to content instead of centring in a tall box */
+  html body > header + section.full-screen:not(.home-hero):not(.work-hero) { min-height: 0 !important; padding-top: 100px !important; }
+  html body > header + section:not(.home-hero) > .container > .row > [class*="col"]:first-child,
+  html body > header + section:not(.home-hero) > .container > .row > [class*="col"]:first-child > :first-child { margin-top: 0 !important; padding-top: 0 !important; }
+
+  /* ---- 15.5 Home hero: dedicated mobile banner image ---- */
+  html body.home-page .home-hero {
+    background-image: linear-gradient(180deg, rgba(12, 24, 10, 0.80) 0%, rgba(14, 30, 12, 0.72) 45%, rgba(10, 20, 8, 0.88) 100%), url("../images/home/hero-mobile.webp") !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    display: flex;
+    align-items: center;
+    --h1-size: clamp(2rem, 9vw, 2.6rem);
+  }
+  html body.home-page .home-hero::before,
+  html body.home-page .home-hero > .bg-gradient-black-green { display: none !important; }
+  html body.home-page .home-hero > .container { width: 100%; }
+  html body.home-page .home-hero > .container > .row { display: flex !important; justify-content: center; }
+  html body.home-page .home-hero > .container > .row > .col-xl-5 { display: none !important; }
+  html body.home-page .home-hero > .container > .row > .col-xl-7 { flex: 0 0 100%; max-width: 100%; align-items: center; text-align: center; padding-top: 0 !important; }
+  html body.home-page .home-hero h1 { color: #fff !important; margin-top: 0 !important; }
+  html body.home-page .home-hero h1 .blinking-cursor { color: var(--brand-light) !important; }
+  /* reserve the final headline height so the typing effect never pushes content down (CLS) */
+  html body.home-page .home-hero h1 { display: grid; }
+  html body.home-page .home-hero h1::before {
+    content: "AI-Powered Software Development &\A Business Automation Company in Kerala\2022";
+    white-space: pre-line; visibility: hidden; grid-area: 1 / 1;
+  }
+  html body.home-page .home-hero h1 > #typing-text { grid-area: 1 / 1; }
+  html body.home-page .home-hero h1 > #typing-text::after { content: "\2022"; margin-left: 1px; color: var(--brand-light); animation: bl 1s steps(2) infinite; }
+  html body.home-page .home-hero h1 > .blinking-cursor { display: none !important; }
+  html body.home-page .home-hero h2 { color: #c6e06a !important; }
+  html body.home-page .home-hero h2 .hd-accent { background: none !important; color: #c6e06a !important; -webkit-text-fill-color: currentColor; }
+  html body.home-page .home-hero .btn { width: 100%; max-width: 340px; margin-left: auto !important; margin-right: auto !important; justify-content: center; }
+  html body.home-page .home-hero .btn-dark-gray { background-color: var(--brand-dark) !important; border-color: var(--brand-dark) !important; color: #fff !important; }
+  html body.home-page .home-hero .btn-white { background-color: transparent !important; border: 1.5px solid rgba(255, 255, 255, 0.85) !important; color: #fff !important; box-shadow: none !important; }
+
+  /* ---- 15.6 Footer: centred and compact ---- */
+  html body footer { padding-bottom: 20px !important; }
+  html body footer .overlap-section > .row { padding: 18px 16px !important; margin-bottom: 28px !important; text-align: center; background-color: var(--brand-dark) !important; }
+  html body footer .overlap-section .feature-box-content h6 a { color: #fff !important; }
+  html body footer .footer-dark .btn-base-color,
+  html body footer .footer-dark li span[style*="background"] { background-color: var(--brand-dark) !important; border-color: var(--brand-dark) !important; }
+  html body footer .overlap-section h4 { font-size: 17px !important; line-height: 1.4 !important; letter-spacing: -0.01em !important; }
+  html body footer .overlap-section > .row > [class*="col"] { flex: 0 0 100%; max-width: 100%; margin-bottom: 10px !important; }
+  html body footer .overlap-section .feature-box { flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+  html body footer .overlap-section .feature-box-icon { width: 46px !important; height: 46px !important; margin: 0 0 8px !important; }
+  html body footer .overlap-section .feature-box-icon i { font-size: 20px !important; }
+  html body footer .overlap-section .feature-box-content span { font-size: 15px !important; }
+  html body footer .overlap-section .feature-box-content h6 { white-space: normal !important; font-size: 14px !important; }
+  html body footer .footer-dark { text-align: center !important; }
+  html body footer .footer-dark > .row:first-child { margin-bottom: 18px !important; --bs-gutter-x: 16px; }
+  html body footer .footer-dark > .row:first-child > [class*="col"] { margin-bottom: 22px !important; padding-right: calc(var(--bs-gutter-x) * .5) !important; align-items: center; }
+  html body footer .footer-dark > .row:first-child > [class*="col"]:first-child,
+  html body footer .footer-dark > .row:first-child > [class*="col"]:last-child { flex: 0 0 100%; max-width: 100%; }
+  html body footer .footer-dark > .row:first-child > [class*="col"]:not(:first-child):not(:last-child) { flex: 0 0 50%; max-width: 50%; }
+  html body footer .footer-dark .footer-logo { justify-content: center; margin-bottom: 12px !important; }
+  html body footer .footer-dark .footer-logo img { height: 44px !important; }
+  html body footer .footer-dark p { font-size: 14px; line-height: 1.6; margin-left: auto; margin-right: auto; margin-bottom: 12px !important; }
+  html body footer .footer-dark .d-flex { justify-content: center !important; }
+  html body footer .footer-dark ul li { margin-bottom: 4px !important; font-size: 14px; line-height: 1.6; }
+  html body footer .footer-dark .footer-bottom { padding-top: 16px !important; }
+  html body footer .footer-dark .footer-bottom p { font-size: 13px; margin-bottom: 0 !important; }
+}
+
+/* Touch screens show the "hover to explore" card text all the time; inside the dark middle
+   section it was inheriting light-grey text on a white card (unreadable). */
+@media (max-width: 991px) {
+  html body .ad-middle-dark-section .xi:not(.on) .xd { color: #6b7a63 !important; }
+}
+
+/* =========================================================
+   16. MOBILE TYPOGRAPHY + HERO CONSISTENCY (<= 767px only)
+   ========================================================= */
+@media (max-width: 767px) {
+  /* ---- 16.1 Letter-spacing: template ls-minus-2px/3px crushed letters at phone sizes ("Keraa") ---- */
+  html body :is(h1, h2, h3, h4, h5, h6)[class*="ls-minus"] { letter-spacing: -0.02em !important; }
+  html body :is(h4, h5, h6) { letter-spacing: -0.005em; }
+  html body :is(h1, h2, h3, h4, h5, h6).text-uppercase { letter-spacing: 0.06em !important; }
+
+  /* ---- 16.2 Hero: badge pill, equal-width stacked buttons, no row pulled under the header ---- */
+  html body > header + section span.d-inline-block.border-radius-100px {
+    max-width: 100%;
+    line-height: 1.45;
+    padding-top: 7px;
+    padding-bottom: 7px;
+  }
+  html body > header + section > .container > .row.g-5 { margin-top: 0; }
+  html body > header + section > .container > .row.g-5 > :first-child { margin-top: 0; }
+  html body > header + section a.btn.btn-large {
+    display: block !important;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto 12px !important;
+    text-align: center;
+    white-space: normal;
+  }
+  html body > header + section a.btn.btn-large > span { justify-content: center; }
+
+  /* full-screen heroes with a cut-out person image (about): smaller image grounded on the section edge */
+  html body > header + section.full-screen:not(.home-hero):not(.work-hero) { padding-bottom: 0 !important; }
+  html body > header + section.full-screen:not(.home-hero):not(.work-hero) > .container > .row > [class*="col-"]:last-child img {
+    max-width: 270px;
+    margin: 8px auto 0;
+  }
+  html body > header + section.full-screen:not(.home-hero):not(.work-hero) .animation-float { animation: none; }
+
+  /* ai-insights hero: rotated, absolutely-stacked article cards overlapped once text wrapped */
+  html body .wd-hero .stack { height: auto; max-width: 400px; }
+  html body .wd-hero .stack .sc { position: relative; top: auto !important; margin-bottom: 14px; }
+  html body .wd-hero .stack .sc:nth-child(1) { transform: rotate(-1.5deg); }
+  html body .wd-hero .stack .sc:nth-child(2) { transform: rotate(1.2deg); }
+  html body .wd-hero .stack .sc:nth-child(3) { transform: rotate(-0.8deg); margin-bottom: 0; }
+  html body .wd-hero [class*="col-"]:has(> .stack) > .fi { display: none !important; }
+
+  /* software-modernization hero mock: "Customers" was breaking mid-word */
+  html body .wd-hero .tiles span { overflow-wrap: normal; word-break: normal; padding-left: 2px; padding-right: 2px; line-height: 1.3; }
+
+  /* create-invitation hero steps: three equal columns, centred */
+  html body .ci-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-left: auto; margin-right: auto; text-align: center; }
+  html body .ci-steps div { font-size: 13px; line-height: 1.35; }
+}
+
+/* =========================================================
+   17. TYPING HEADLINES: the final text (data-final) reserves the H1's height,
+       so the typing animation never pushes the page down (layout shift)
+   ========================================================= */
+html body h1[data-final] { display: grid; }
+html body h1[data-final]::before {
+  content: attr(data-final) "\00a0|";
+  grid-area: 1 / 1;
+  visibility: hidden;
+  white-space: pre-line;
+  pointer-events: none;
+}
+html body h1[data-final] > .type-layer { grid-area: 1 / 1; }
+
+/* =========================================================
+   18. MOBILE MENU (<= 991px, collapsed navbar)
+       Each row: label (opens its page) + its own arrow button (opens the submenu).
+       Submenu opens inline as an indented list instead of a floating card.
+   ========================================================= */
+@media (max-width: 991px) {
+  /* the desktop "hover bridge" under dropdown items sat on top of the next row and ate taps */
+  html body header .navbar .nav-item.dropdown::after { display: none !important; }
+
+  html body header #navbarNav .navbar-nav { padding: 4px 0 8px; }
+  html body header #navbarNav .navbar-nav > li.nav-item { position: relative; border-bottom: 1px solid #edf1ea; }
+  html body header #navbarNav .navbar-nav > li.nav-item:last-child { border-bottom: 0; }
+
+  html body header #navbarNav .navbar-nav > li > .nav-link {
+    display: flex;
+    align-items: center;
+    min-height: 52px;
+    padding: 12px 56px 12px 4px !important;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.3;
+    color: var(--ink) !important;
+  }
+
+  /* arrow = separate 44px button on the right */
+  html body header #navbarNav .simple-dropdown > .dropdown-toggle {
+    position: absolute;
+    top: 4px;
+    right: 0;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: var(--brand-tint);
+    color: var(--brand-dark);
+    font-size: 15px;
+    cursor: pointer;
+    transition: transform var(--dur) var(--ease), background-color var(--dur) var(--ease);
+  }
+  html body header #navbarNav .simple-dropdown > .dropdown-toggle::after { display: none; }
+  html body header #navbarNav .simple-dropdown > .dropdown-toggle[aria-expanded="true"] {
+    transform: rotate(180deg);
+    background: var(--brand);
+    color: #fff;
+  }
+
+  /* submenu: inline, indented, light-green panel */
+  html body header #navbarNav .dropdown-menu.ai-dropdown {
+    position: static !important;
+    transform: none !important;
+    inset: auto !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    margin: 0 0 12px !important;
+    padding: 6px !important;
+    border-radius: 12px;
+    background: #f6faf3;
+    box-shadow: none;
+  }
+  html body header #navbarNav .dropdown-menu.ai-dropdown li a {
+    gap: 12px;
+    padding: 11px 12px !important;
+    font-size: 15px;
+    line-height: 1.35;
+    white-space: normal;
+    border-radius: 9px;
+  }
+  html body header #navbarNav .dropdown-menu.ai-dropdown li a i { flex: 0 0 20px; width: 20px; font-size: 15px; }
+
+  /* section of the current page: brand green, no desktop underline */
+  html body header #navbarNav .navbar-nav > li.nav-current > a.nav-link { color: var(--brand) !important; font-weight: 600 !important; opacity: 1 !important; }
+  html body header #navbarNav .navbar-nav > li > .nav-link { opacity: 1 !important; }
+  html body header #navbarNav .navbar-nav > li.nav-current > a.nav-link::after { display: none !important; }
 }

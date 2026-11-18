@@ -3,7 +3,7 @@
 
 <head>
    <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XHQDJE0KPP"></script>
+        <script>/* gtag.js loads after the page has loaded (faster first paint); queued events are kept */window.addEventListener("load",function(){setTimeout(function(){var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id=G-XHQDJE0KPP";document.head.appendChild(s);},1500);});</script>
         <script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -36,12 +36,11 @@
     <meta name="twitter:description" content="Explore custom AI agents, chatbots, automation, and integration services.">
     <meta name="twitter:image" content="https://www.adsofttechnologies.com/images/logo.png">
   <link rel="shortcut icon" href="images/favicon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="css/vendors.min.css" />
-  <link rel="stylesheet" href="css/icon.min.css" />
-  <link rel="stylesheet" href="css/style.css" />
- <link rel="stylesheet" href="css/responsive.css"/>
+  <link rel="stylesheet" href="css/fonts.css">
+        <link rel="stylesheet" href="css/core.min.css">
+        <link rel="preload" href="css/icon.slim.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="css/icon.slim.css"></noscript>
+  <link rel="preload" href="fonts/gf/poppins-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="fonts/gf/poppins-latin-800.woff2" as="font" type="font/woff2" crossorigin>
          <link rel="stylesheet" href="css/nav-active.css">
   <link rel="stylesheet" href="demos/marketing/marketing.css" />
   <link rel="stylesheet" href="css/ai-hero-cards.css" />
@@ -1320,9 +1319,9 @@
     <nav class="navbar navbar-expand-lg header-light header-transparent bg-transparent disable-fixed">
       <div class="container-fluid">
         <div class="col-auto me-lg-0 me-auto"><a class="navbar-brand d-flex align-items-center" href="index.html">
-            <img src="images/logo.png" alt="AD Soft Technologies" class="default-logo" style="max-height:70px;"><img
-              src="images/logo.png" alt="AD Soft Technologies" class="alt-logo"><img src="images/logo.png"
-              alt="AD Soft Technologies" class="mobile-logo">
+            <img src="images/logo-160.webp" alt="" class="default-logo" style="max-height:70px;"><img
+              src="images/logo-160.webp" alt="" class="alt-logo"><img src="images/logo-160.webp"
+              alt="" class="mobile-logo">
             <span class="ms-15px d-flex flex-column text-dark-gray fw-800 lh-20 ls-1px text-nowrap"
               style="font-size:16px;"><span>AD SOFT TECHNOLOGIES</span></span></a></div>
         <div class="col menu-order position-static">
@@ -1448,9 +1447,9 @@
         <div class="col-lg-6 col-md-11 offset-lg-0 offset-md-1 position-relative md-mb-20px">
           <div class="eq-wrap">
 <figure class="m-0" data-anime='{ "effect": "slide", "color":"#b7e4c7", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
-<img src="images/ai-solution/ai-solution-1.webp" class="eq-main border-radius-6px" alt="AI Solutions">
+<img loading="lazy" decoding="async" src="images/ai-solution/ai-solution-1.opt.webp" class="eq-main border-radius-6px" alt="AI Solutions">
 </figure>
-<img src="images/ai-solution/ai-solution-float-1.webp" class="eq-float animation-float box-shadow-quadruple-large border-radius-6px" alt="">
+<img loading="lazy" decoding="async" src="images/ai-solution/ai-solution-float-1.opt.webp" class="eq-float animation-float box-shadow-quadruple-large border-radius-6px" alt="">
 </div>
         </div>
         <div class="col-xl-5 offset-xl-1 col-lg-6 d-flex flex-column justify-content-center"
@@ -2292,7 +2291,7 @@
     <div class="container footer-dark text-center text-sm-start">
       <div class="row mb-5 sm-mb-30px">
         <div class="col-lg-3 col-md-6 col-sm-6 d-flex flex-column last-paragraph-no-margin md-mb-35px pe-15px"><a
-            href="index.html" class="footer-logo mb-20px d-flex align-items-center"><img src="images/logo.png"
+            href="index.html" class="footer-logo mb-20px d-flex align-items-center"><img loading="lazy" decoding="async" src="images/logo-160.webp"
               alt="AD Soft Technologies" class="me-10px" style="height:60px;width:auto;flex-shrink:0;"><span
               class="text-white fw-700 fs-16 ls-0px text-nowrap">AD SOFT TECHNOLOGIES</span></a>
           <p class="w-90 lg-w-95 xs-w-60 xs-mx-auto mb-15px">We are a Kerala based IT startup, which undertakes all
@@ -2359,9 +2358,9 @@
 
   <div class="scroll-progress d-none d-xxl-block"><a href="#" class="scroll-top" aria-label="scroll"><span
         class="scroll-text">Scroll</span><span class="scroll-line"><span class="scroll-point"></span></span></a></div>
-  <script type="text/javascript" src="js/jquery.js"></script>
-  <script type="text/javascript" src="js/vendors.min.js"></script>
-  <script type="text/javascript" src="js/main.js"></script>
+  <script defer src="js/jquery.js"></script>
+  <script defer src="js/vendors.min.js"></script>
+  <script defer src="js/main.js"></script>
     <script src="js/nav-active.js"></script>
   <script>
     (function () {

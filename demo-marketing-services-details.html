@@ -13,13 +13,12 @@
         <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
         <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
         <!-- google fonts preconnect -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <!-- style sheets and font icons  -->
-        <link rel="stylesheet" href="css/vendors.min.css"/>
-        <link rel="stylesheet" href="css/icon.min.css"/>
-        <link rel="stylesheet" href="css/style.css"/>
-        <link rel="stylesheet" href="css/responsive.css"/>
+        <link rel="stylesheet" href="css/fonts.css">
+        <link rel="stylesheet" href="css/core.min.css">
+        <link rel="preload" href="css/icon.slim.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="css/icon.slim.css"></noscript>
+        <link rel="preload" href="fonts/gf/poppins-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="fonts/gf/poppins-latin-800.woff2" as="font" type="font/woff2" crossorigin>
          <link rel="stylesheet" href="css/nav-active.css">
         <link rel="stylesheet" href="demos/marketing/marketing.css" />
     <script>document.documentElement.classList.add("js-motion")</script>
@@ -177,7 +176,7 @@
                                     </ul>
                                 </div>
                                 <div class="col-md-6">
-                                    <img src="https://placehold.co/543x417" alt=""/>
+                                    <img loading="lazy" decoding="async" src="https://placehold.co/543x417" alt=""/>
                                 </div>
                             </div>
                         </div>
@@ -189,7 +188,7 @@
                         <p><span class="fw-600 text-dark-gray text-decoration-line-bottom">Pull social data for case studies</span> - Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
                         <div class="bg-yellow p-35px border-radius-6px mt-9">
                             <div class="row align-items-center justify-content-center justify-content-lg-start">
-                                <div class="col-5 col-sm-3 sm-mb-20px text-center"><img src="https://placehold.co/233x237" alt=""/></div>
+                                <div class="col-5 col-sm-3 sm-mb-20px text-center"><img loading="lazy" decoding="async" src="https://placehold.co/233x237" alt=""/></div>
                                 <div class="col-md-9 text-center text-md-start ps-3">
                                     <div class="fs-18 lh-26 mb-15px w-90 sm-w-100 mx-auto mx-md-0 text-dark-gray">Even when you are marketing to your entire audience or customer base, you are still <span class="text-decoration-line-bottom fw-600">simply speaking</span> to a single human at any given time.</div>
                                     <span class="text-dark-gray fs-18"><span class="fw-600">Jacob vaynerchuk,</span> marketing analyst</span>
@@ -266,7 +265,7 @@
                     <!-- start footer column -->
                     <div class="col-lg-3 col-md-4 col-sm-6 d-flex flex-column last-paragraph-no-margin md-mb-35px">
                         <a href="index.html" class="footer-logo mb-25px xs-mb-20px d-inline-block">
-                            <img src="images/demo-marketing-logo-white.png" data-at2x="images/demo-marketing-logo-white@2x.png" alt="">
+                            <img loading="lazy" decoding="async" src="images/demo-marketing-logo-white.png" data-at2x="images/demo-marketing-logo-white@2x.png" alt="">
                         </a>
                         <div class="elements-social social-text-style-01 mt-auto">
                             <ul class="small-icon light fw-500">
@@ -340,9 +339,9 @@
         </div>
         <!-- end scroll progress -->
         <!-- javascript libraries -->
-          <script type="text/javascript" src="js/jquery.js"></script>
-        <script type="text/javascript" src="js/vendors.min.js"></script>
-        <script type="text/javascript" src="js/main.js"></script>
+          <script defer src="js/jquery.js"></script>
+        <script defer src="js/vendors.min.js"></script>
+        <script defer src="js/main.js"></script>
           <script src="js/nav-active.js"></script>
     <script defer src="js/site-motion.js"></script>
 </body>

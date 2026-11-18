@@ -3,7 +3,7 @@
 
 <head>
      <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XHQDJE0KPP"></script>
+        <script>/* gtag.js loads after the page has loaded (faster first paint); queued events are kept */window.addEventListener("load",function(){setTimeout(function(){var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id=G-XHQDJE0KPP";document.head.appendChild(s);},1500);});</script>
         <script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -36,16 +36,15 @@
     <meta name="twitter:description" content="Custom AI agents designed to interpret requests, connect tools, and automate workflows.">
     <meta name="twitter:image" content="https://www.adsofttechnologies.com/images/logo.png">
 
-<link rel="shortcut icon" href="images/logo.png">
-    <link rel="apple-touch-icon" href="images/logo.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="images/logo.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="images/logo.png">
-        <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="css/vendors.min.css" />
-    <link rel="stylesheet" href="css/icon.min.css" />
-    <link rel="stylesheet" href="css/style.css" />
-   <link rel="stylesheet" href="css/responsive.css"/>
+<link rel="shortcut icon" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon.png">
+    <link rel="stylesheet" href="css/fonts.css">
+        <link rel="stylesheet" href="css/core.min.css">
+        <link rel="preload" href="css/icon.slim.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="css/icon.slim.css"></noscript>
+    <link rel="preload" href="fonts/gf/poppins-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="fonts/gf/poppins-latin-800.woff2" as="font" type="font/woff2" crossorigin>
          <link rel="stylesheet" href="css/nav-active.css">
     <link rel="stylesheet" href="demos/marketing/marketing.css" />
     <link rel="stylesheet" href="css/ai-hero-cards.css" />
@@ -1394,7 +1393,7 @@
             .ai-opportunities .ai-opportunity-title,
             .ai-opportunities .ai-opportunity.is-active .ai-opportunity-title {
                 color: #232323;
-                font-size: 10px;
+                font-size: 19px;
                 writing-mode: horizontal-tb;
                 transform: none;
                 white-space: normal
@@ -1481,9 +1480,9 @@
         <nav class="navbar navbar-expand-lg header-light header-transparent bg-transparent disable-fixed">
             <div class="container-fluid">
                 <div class="col-auto me-lg-0 me-auto"><a class="navbar-brand d-flex align-items-center"
-                        href="index.html"><img src="images/logo.png" alt="AD Soft Technologies" class="default-logo"
-                            style="max-height:70px;"><img src="images/logo.png" alt="AD Soft Technologies"
-                            class="alt-logo"><img src="images/logo.png" alt="AD Soft Technologies"
+                        href="index.html"><img src="images/logo-160.webp" alt="" class="default-logo"
+                            style="max-height:70px;"><img src="images/logo-160.webp" alt=""
+                            class="alt-logo"><img src="images/logo-160.webp" alt=""
                             class="mobile-logo"><span class="ms-15px text-dark-gray fw-800 ls-1px text-nowrap"
                             style="font-size:16px;">AD SOFT TECHNOLOGIES</span></a></div>
                 <div class="col menu-order position-static"><button class="navbar-toggler float-start" type="button"
@@ -1558,8 +1557,8 @@
                     <span
                         class="d-inline-block bg-white border-radius-100px ps-20px pe-20px fs-14 fw-600 text-base-color mb-20px box-shadow-large">●
                         AI Agent Development Services for Businesses</span>
-                    <h1 class="fs-50 md-fs-40 sm-fs-32 text-dark-gray lh-60 md-lh-46 fw-800 ls-minus-2px mb-20px"><span
-                            id="typer"></span><span class="blink text-base-color">|</span></h1>
+                    <h1 class="fs-50 md-fs-40 sm-fs-32 text-dark-gray lh-60 md-lh-46 fw-800 ls-minus-2px mb-20px" data-final="AI Agent Development Services for Businesses"><span class="type-layer"><span
+                            id="typer"></span><span class="blink text-base-color">|</span></span></h1>
                     <p class="mb-30px">AD Soft Technologies provides custom AI agent development services for businesses
                         looking to automate workflows, improve customer experiences, assist employees and build
                         intelligent digital products.</p>
@@ -1638,7 +1637,7 @@
                             <div class="ig2-dots"></div>
                             <div class="ig2-ring"></div>
                             <div class="ig2-back"></div>
-                            <div class="ig2-frame"><img src="images/ai-solution/ai-agent-developemnt/ai-agent-developemnt.webp" alt="AI agent development"
+                            <div class="ig2-frame"><img loading="lazy" decoding="async" src="images/ai-solution/ai-agent-developemnt/ai-agent-developemnt.opt.webp" alt="AI agent development"
                                     onerror="this.parentNode.classList.add('noimg')">
                                 <div class="ig2-ph"><i class="bi bi-image"></i>
                                 <small>images/ai-solution/ai-agent-development/ai-agent-development.webp</small></div>
@@ -2482,8 +2481,8 @@
         <div class="container footer-dark text-center text-sm-start pt-5">
             <div class="row mb-5">
                 <div class="col-lg-3 col-md-6"><a href="index.html"
-                        class="footer-logo mb-20px d-flex align-items-center"><img src="images/logo.png"
-                            alt="AD Soft Technologies" class="me-10px" style="height:60px;width:auto"><span
+                        class="footer-logo mb-20px d-flex align-items-center"><img loading="lazy" decoding="async" src="images/logo-160.webp"
+                            alt="" class="me-10px" style="height:60px;width:auto"><span
                             class="text-white fw-700 fs-16 text-nowrap">AD SOFT TECHNOLOGIES</span></a>
                     <p>We are a Kerala based IT startup, which undertakes all kinds of AI solution, IT services like
                         Website development, Android/iOS App development, custom Software development etc.</p>
@@ -2531,9 +2530,9 @@
     <div class="scroll-progress d-none d-xxl-block"><a href="#" class="scroll-top" aria-label="scroll"><span
                 class="scroll-text">Scroll</span><span class="scroll-line"><span class="scroll-point"></span></span></a>
     </div>
- <script type="text/javascript" src="js/jquery.js"></script>
-        <script type="text/javascript" src="js/vendors.min.js"></script>
-        <script type="text/javascript" src="js/main.js"></script>
+ <script defer src="js/jquery.js"></script>
+        <script defer src="js/vendors.min.js"></script>
+        <script defer src="js/main.js"></script>
           <script src="js/nav-active.js"></script>
           <script>
   (function () {
