@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://www.adsofttechnologies.com/</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- About -->
+  <url>
+    <loc>https://www.adsofttechnologies.com/about</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Contact -->
+  <url>
+    <loc>https://www.adsofttechnologies.com/contact</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Our Work -->
+  <url>
+    <loc>https://www.adsofttechnologies.com/our-work</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- AI Solutions (Hub) -->
+  <url>
+    <loc>https://www.adsofttechnologies.com/ai-solution</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- AI Agent Development -->
+  <url>
+    <loc>https://www.adsofttechnologies.com/ai-agent-developemnt</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- AI Chatbot Development -->
+  <url>
+    <loc>https://www.adsofttechnologies.com/ai-chatbot-developemt</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- AI Automation -->
+  <url>
+    <loc>https://www.adsofttechnologies.com/ai-automation</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- AI Integration -->
+  <url>
+    <loc>https://www.adsofttechnologies.com/ai-integration</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- AI Adoption & Consulting -->
+  <url>
+    <loc>https://www.adsofttechnologies.com/ai-adoption-and-consulting</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- AI Insights (Blog) -->
+  <url>
+    <loc>https://www.adsofttechnologies.com/ai-insights</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Website Development -->
+  <url>
+    <loc>https://www.adsofttechnologies.com/website-development</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Mobile App Development -->
+  <url>
+    <loc>https://www.adsofttechnologies.com/mobile-app-development</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Custom Software Development -->
+  <url>
+    <loc>https://www.adsofttechnologies.com/custom-software-development</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Software Modification & Modernization -->
+  <url>
+    <loc>https://www.adsofttechnologies.com/software-modification-modernization</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Business Automation -->
+  <url>
+    <loc>https://www.adsofttechnologies.com/business-automation</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Digital Transformation -->
+  <url>
+    <loc>https://www.adsofttechnologies.com/digital-transformation</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Branding -->
+  <url>
+    <loc>https://www.adsofttechnologies.com/branding</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Business Services -->
+  <url>
+    <loc>https://www.adsofttechnologies.com/business-services</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Create Invitation -->
+  <url>
+    <loc>https://www.adsofttechnologies.com/create-invitation</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>
+

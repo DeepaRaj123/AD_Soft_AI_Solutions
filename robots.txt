@@ -1,0 +1,28 @@
+# robots.txt - AD Soft Technologies
+# https://www.adsofttechnologies.com
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.adsofttechnologies.com/sitemap.xml
+
+# Disallow internal/template directories and demo pages
+Disallow: /templates/
+Disallow: /demos/
+Disallow: /.vscode/
+Disallow: /js/inv-config.js
+Disallow: /demo-marketing-services-details
+Disallow: /demo-marketing-services
+Disallow: /demo-marketing-single-project-simple
+Disallow: /demo-marketing-team
+
+# Disallow utility files
+Disallow: /serve.py
+Disallow: /run-local.bat
+
+# Allow search engines to crawl CSS/JS/images for rendering
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Allow: /fonts/
