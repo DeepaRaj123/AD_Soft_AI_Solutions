@@ -35,4 +35,11 @@
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
+
+  // Menu labels without their own page (href="#", e.g. "Software Development", "Business Solutions")
+  // only open their dropdown; stop the click from adding "#" to the URL.
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('.navbar-nav .dropdown > a.nav-link[href="#"]');
+    if (a) e.preventDefault();
+  });
 })();
