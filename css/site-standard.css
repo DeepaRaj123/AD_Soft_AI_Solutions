@@ -1014,6 +1014,3 @@ html body footer p.lh-28 > a[href^="mailto:"] {
   min-height: 24px;
   line-height: 24px;
 }
-
-/* Menu labels that only open a dropdown (no page of their own) still look clickable */
-html body header .navbar .navbar-nav .nav-menu-label { cursor: pointer; user-select: none; }
