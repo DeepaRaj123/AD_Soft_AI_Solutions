@@ -7,6 +7,12 @@ DirectoryIndex index.html
 <IfModule mod_rewrite.c>
 RewriteEngine On
 
+# 0. Old misspelled page URLs -> corrected ones (301 keeps Google rankings and old shared links working)
+RewriteCond %{REQUEST_URI} ^(.*/)ai-agent-developemnt(?:\.html)?/?$ [NC]
+RewriteRule ^ %1ai-agent-development [R=301,L]
+RewriteCond %{REQUEST_URI} ^(.*/)ai-chatbot-developemt(?:\.html)?/?$ [NC]
+RewriteRule ^ %1ai-chatbot-development [R=301,L]
+
 # 1. /index.html -> folder root  (e.g. /ad_soft_tech/index.html -> /ad_soft_tech/)
 RewriteCond %{THE_REQUEST} \s(/(?:[^\s?]*/)?)index\.html[\s?] [NC]
 RewriteRule ^ %1 [R=301,L,QSA]

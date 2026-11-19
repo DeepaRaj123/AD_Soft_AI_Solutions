@@ -2,12 +2,29 @@
 <html class="no-js" lang="en">
     <head>
         <!-- Google tag (gtag.js) -->
-        <script>/* gtag.js loads after the page has loaded (faster first paint); queued events are kept */window.addEventListener("load",function(){setTimeout(function(){var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id=G-XHQDJE0KPP";document.head.appendChild(s);},1500);});</script>
+        <script>/* gtag.js loads on the first scroll/touch/mouse/key, or 5s after the page has loaded, whichever comes first, so it never competes with the first screen; queued events are kept */(function(){var d=0,e=["scroll","touchstart","mousemove","keydown","click"];function l(){if(d)return;d=1;e.forEach(function(n){removeEventListener(n,l)});var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id=G-XHQDJE0KPP";document.head.appendChild(s);}e.forEach(function(n){addEventListener(n,l,{passive:true})});addEventListener("load",function(){setTimeout(l,5000)});})();</script>
         <script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-XHQDJE0KPP');
+        </script>
+        <!-- Microsoft Clarity (project xcgek7he0d). Same tag as Clarity provides; its script is fetched on the first
+             scroll/touch/mouse/key or 5 s after the page has loaded (like gtag), so it never slows the first screen.
+             clarity() calls made before that are queued and sent once it loads. -->
+        <script type="text/javascript">
+            (function(c,l,a,r,i){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                var done=0,ev=["scroll","touchstart","mousemove","keydown","click"];
+                function load(){
+                    if(done)return; done=1;
+                    ev.forEach(function(n){c.removeEventListener(n,load)});
+                    var t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                    var y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+                }
+                ev.forEach(function(n){c.addEventListener(n,load,{passive:true})});
+                c.addEventListener("load",function(){setTimeout(load,5000)});
+            })(window, document, "clarity", "script", "xcgek7he0d");
         </script>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -67,7 +84,7 @@
       "@id": "https://www.adsofttechnologies.com/",
       "url": "https://www.adsofttechnologies.com/",
       "telephone": "",
-      "email": "adsofttechnologies2020@gmail.com",
+      "email": "info@adsofttechnologies.com",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "2nd Floor, Puthenpurackal (H), Puthenpurackal Lane, Judgimukku, Thrikkakkara",
@@ -302,23 +319,47 @@
     .home-page .blinking-cursor { animation: none; }
 }
 
-/* Moving dots on hero background */
+/* Moving dots on hero background.
+   The layer is one loop (260px = 10 dots) bigger than the hero and slides with transform,
+   so the GPU moves it: no repaint of the whole hero on every frame (was background-position).
+   The section is overflow-hidden, so the extra 260px is never visible. */
 section[style*="demo-marketing-dot.svg"]::before {
     content: "";
     position: absolute;
-    inset: 0;
+    top: -260px;
+    left: -260px;
+    right: 0;
+    bottom: 0;
     z-index: 0;
     pointer-events: none;
     background-image: radial-gradient(rgba(85, 150, 67, .35) 1.4px, transparent 1.6px);
     background-size: 26px 26px;
     animation: hero-dots-move 18s linear infinite;
-    
+    will-change: transform;
 }
 @keyframes hero-dots-move {
-    to { background-position: 260px 260px; }
+    to { transform: translate(260px, 260px); }
 }
 @media (prefers-reduced-motion: reduce) {
-    section[style*="demo-marketing-dot.svg"]::before { animation: none; }
+    section[style*="demo-marketing-dot.svg"]::before { animation: none; will-change: auto; }
+}
+
+/* Hero entrance on large screens: the same slide + fade the anime.js data-anime gave
+   (tagline/buttons from the left, image from the right 0.2s later), done in CSS so it plays
+   on first paint instead of after jQuery + vendors + main.js have loaded (that wait kept
+   the hero hidden and made it the slow Largest Contentful Paint). Below 1200px the
+   template never animated these, so they simply show. */
+@media (min-width: 1200px) and (prefers-reduced-motion: no-preference) {
+    .home-hero .hero-in-left { animation: hero-in-left 1s cubic-bezier(0.215, 0.61, 0.355, 1) both; }
+    .home-hero .hero-in-right { animation: hero-in-right 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both; }
+}
+@keyframes hero-in-left {
+    from { opacity: 0; transform: translateX(-100px); }
+    to { opacity: 1; transform: none; }
+}
+@keyframes hero-in-right {
+    from { opacity: 0; transform: translateX(100px); }
+    to { opacity: 1; transform: none; }
 }
 
 @media (min-width: 992px) {
@@ -693,7 +734,7 @@ section[style*="demo-marketing-dot.svg"]::before {
         transform:translateY(-2px);box-shadow:0 8px 16px rgba(85,150,67,.25);
     }
     .portfolio-filter li.active a{
-        background:#559643;border-color:#559643;color:#fff;
+        background:#447f34;border-color:#447f34;color:#fff; /* deeper brand green: white text passes 4.5:1 contrast */
         box-shadow:0 8px 16px rgba(85,150,67,.35);
     }
     .portfolio-filter li a:active{transform:translateY(0) scale(.97)}
@@ -772,8 +813,8 @@ section[style*="demo-marketing-dot.svg"]::before {
     class="fa-solid fa-angle-down dropdown-toggle" id="dAI" role="button" data-bs-toggle="dropdown"
     aria-expanded="false"></i>
 <ul class="dropdown-menu ai-dropdown" aria-labelledby="dAI">
-  <li><a href="ai-agent-developemnt.html"><i class="fa-solid fa-robot"></i>AI Agent Development</a></li>
-  <li><a href="ai-chatbot-developemt.html"><i class="fa-solid fa-comment-dots"></i>AI Chatbot Development</a></li>
+  <li><a href="ai-agent-development.html"><i class="fa-solid fa-robot"></i>AI Agent Development</a></li>
+  <li><a href="ai-chatbot-development.html"><i class="fa-solid fa-comment-dots"></i>AI Chatbot Development</a></li>
   <li><a href="ai-automation.html"><i class="fa-solid fa-bolt"></i>AI Automation</a></li>
   <li><a href="ai-integration.html"><i class="fa-solid fa-diagram-project"></i>AI Integration</a></li>
   <li><a href="ai-adoption-and-consulting.html"><i class="fa-solid fa-chart-line"></i>AI Adoption &amp; Consulting</a></li>
@@ -847,11 +888,11 @@ section[style*="demo-marketing-dot.svg"]::before {
                 </h1>
                 
                <!-- Tag Line (H2 Tag) -->
-<h2 class="fs-16 lg-fs-14 text-uppercase text-base-color fw-700 mb-40px d-block ls-1px" data-anime='{ "opacity": [0, 1], "translateX": [-100, 0], "duration": 1000, "delay": 0, "easing": "easeOutCubic" }'>    Build Smarter. Automate Faster. Grow <span class="hd-accent">with Technology.</span>
+<h2 class="hero-in-left fs-16 lg-fs-14 text-uppercase text-base-color fw-700 mb-40px d-block ls-1px">    Build Smarter. Automate Faster. Grow <span class="hd-accent">with Technology.</span>
 </h2>
                 
 <!-- Buttons -->
-<div data-anime='{ "el": "childs", "opacity": [0, 1], "translateX": [-100, 0], "staggervalue": 0, "duration": 1000, "delay": 0, "easing": "easeOutCubic" }'>    <a href="contact.html" class="btn btn-large btn-dark-gray btn-hover-animation-switch btn-round-edge btn-box-shadow me-20px fw-400 xs-mt-10px xs-mb-10px d-inline-block">
+<div class="hero-in-left">    <a href="contact.html" class="btn btn-large btn-dark-gray btn-hover-animation-switch btn-round-edge btn-box-shadow me-20px fw-400 xs-mt-10px xs-mb-10px d-inline-block">
                         <span> 
                             <span class="btn-text">Talk to Our AI & Software Experts</span>
                             <span class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span>
@@ -868,7 +909,7 @@ section[style*="demo-marketing-dot.svg"]::before {
            <!-- Right Side Images -->
                             <div class="col-xl-5 col-lg-4 col-md-2 align-self-end d-none d-md-inline-block">
                                 <div class="position-absolute right-0px bottom-minus-90px xxl-bottom-minus-30px md-bottom-minus-35px md-right-minus-250px lg-right-minus-150px w-50 xl-w-55 lg-w-65 md-w-75 overflow-hidden">
-                                    <picture><source media="(max-width: 767px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><img src="images/home.opt.webp" width="1280" height="1139" class="w-100 h-auto" alt="" data-anime='{ "opacity": [0, 1], "translateX": [100, 0], "duration": 1000, "delay": 200, "easing": "easeOutQuad" }'></picture>
+                                    <picture><source media="(max-width: 767px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><img src="images/home.opt.webp" width="1280" height="1139" class="hero-in-right w-100 h-auto" alt="" fetchpriority="high"></picture>
                                 </div>
                             </div>
 
@@ -887,18 +928,18 @@ section[style*="demo-marketing-dot.svg"]::before {
                 <div class="client-logo-marquee" aria-label="Our clients">
                     <div class="client-logo-track">
                         <div class="client-logo-group">
-                            <a href="#" aria-label="Client logo"><img decoding="async" src="images/pr13.opt.webp" alt=""></a>
-                            <a href="#" aria-label="Client logo"><img decoding="async" src="images/pr6.opt.webp" alt=""></a>
-                            <a href="#" aria-label="Client logo"><img decoding="async" src="images/pr14.opt.webp" alt=""></a>
-                            <a href="#" aria-label="Client logo"><img decoding="async" src="images/hori-logo.opt.webp" alt=""></a>
-                            <a href="#" aria-label="Client logo"><img decoding="async" src="images/logo 170X170.webp" alt=""></a>
+                            <a href="#" aria-label="Client logo"><img decoding="async" fetchpriority="low" src="images/pr13.opt.webp" srcset="images/pr13-160w.webp 160w, images/pr13-240w.webp 240w, images/pr13.opt.webp 358w" sizes="(max-width: 575px) 18vw, (max-width: 767px) 12vw, (max-width: 991px) 11vw, (max-width: 1199px) 9vw, (max-width: 1399px) 7vw, 72px" width="358" height="360" alt=""></a>
+                            <a href="#" aria-label="Client logo"><img decoding="async" fetchpriority="low" src="images/pr6.opt.webp" width="180" height="180" alt=""></a>
+                            <a href="#" aria-label="Client logo"><img decoding="async" fetchpriority="low" src="images/pr14.opt.webp" width="360" height="168" alt=""></a>
+                            <a href="#" aria-label="Client logo"><img decoding="async" fetchpriority="low" src="images/hori-logo.opt.webp" srcset="images/hori-logo-160w.webp 160w, images/hori-logo.opt.webp 360w" sizes="(max-width: 575px) 33vw, (max-width: 991px) 21vw, (max-width: 1199px) 17vw, (max-width: 1399px) 14vw, 153px" width="360" height="124" alt=""></a>
+                            <a href="#" aria-label="Client logo"><img decoding="async" fetchpriority="low" src="images/logo 170X170.webp" width="170" height="170" alt=""></a>
                         </div>
                         <div class="client-logo-group" aria-hidden="true">
-                            <a href="#" tabindex="-1"><img decoding="async" src="images/pr13.opt.webp" alt=""></a>
-                            <a href="#" tabindex="-1"><img decoding="async" src="images/pr6.opt.webp" alt=""></a>
-                            <a href="#" tabindex="-1"><img decoding="async" src="images/pr14.opt.webp" alt=""></a>
-                            <a href="#" tabindex="-1"><img decoding="async" src="images/hori-logo.opt.webp" alt=""></a>
-                            <a href="#" tabindex="-1"><img decoding="async" src="images/logo 170X170.webp" alt=""></a>
+                            <a href="#" tabindex="-1"><img decoding="async" fetchpriority="low" src="images/pr13.opt.webp" srcset="images/pr13-160w.webp 160w, images/pr13-240w.webp 240w, images/pr13.opt.webp 358w" sizes="(max-width: 575px) 18vw, (max-width: 767px) 12vw, (max-width: 991px) 11vw, (max-width: 1199px) 9vw, (max-width: 1399px) 7vw, 72px" width="358" height="360" alt=""></a>
+                            <a href="#" tabindex="-1"><img decoding="async" fetchpriority="low" src="images/pr6.opt.webp" width="180" height="180" alt=""></a>
+                            <a href="#" tabindex="-1"><img decoding="async" fetchpriority="low" src="images/pr14.opt.webp" width="360" height="168" alt=""></a>
+                            <a href="#" tabindex="-1"><img decoding="async" fetchpriority="low" src="images/hori-logo.opt.webp" srcset="images/hori-logo-160w.webp 160w, images/hori-logo.opt.webp 360w" sizes="(max-width: 575px) 33vw, (max-width: 991px) 21vw, (max-width: 1199px) 17vw, (max-width: 1399px) 14vw, 153px" width="360" height="124" alt=""></a>
+                            <a href="#" tabindex="-1"><img decoding="async" fetchpriority="low" src="images/logo 170X170.webp" width="170" height="170" alt=""></a>
                         </div>
                     </div>
                 </div>
@@ -925,9 +966,9 @@ section[style*="demo-marketing-dot.svg"]::before {
                     <div class="col-lg-6 col-md-10 position-relative md-mb-50px sm-mb-40px"> 
                         <div class="eq-wrap">
 <figure class="m-0" data-anime='{ "effect": "slide", "color": "#eef7ea", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
-<img loading="lazy" decoding="async" src="images/home/home-page-1.opt.webp" class="eq-main border-radius-6px" alt="AD Soft Technologies">
+<img loading="lazy" decoding="async" src="images/home/home-page-1.opt.webp" srcset="images/home/home-page-1-480w.webp 480w, images/home/home-page-1-640w.webp 640w, images/home/home-page-1.opt.webp 1280w" sizes="(max-width: 575px) 93vw, (max-width: 767px) 90vw, (max-width: 991px) 76vw, (max-width: 1199px) 47vw, (max-width: 1399px) 46vw, 592px" width="1280" height="1164" class="eq-main border-radius-6px" alt="AD Soft Technologies">
 </figure>
-<img loading="lazy" decoding="async" src="images/home/home-float-1.opt.webp" class="eq-float animation-float box-shadow-quadruple-large border-radius-6px" alt="">
+<img loading="lazy" decoding="async" src="images/home/home-float-1.opt.webp" srcset="images/home/home-float-1-160w.webp 160w, images/home/home-float-1-240w.webp 240w, images/home/home-float-1-320w.webp 320w, images/home/home-float-1-480w.webp 480w, images/home/home-float-1-640w.webp 640w, images/home/home-float-1.opt.webp 1280w" sizes="(max-width: 575px) 44vw, (max-width: 767px) 39vw, (max-width: 991px) 33vw, (max-width: 1199px) 21vw, (max-width: 1399px) 20vw, 249px" width="1280" height="960" class="eq-float animation-float box-shadow-quadruple-large border-radius-6px" alt="">
 </div>
                     </div>
                     
@@ -1040,10 +1081,10 @@ section[style*="demo-marketing-dot.svg"]::before {
                             <li class="grid-item ai-solutions transition-inner-all">
                                 <div class="portfolio-box">
                                     <div class="portfolio-image border-radius-6px">
-                                        <a href="ai-agent-developemnt.html"><img loading="lazy" decoding="async" src="images/service-1.opt.webp" alt="AI Agent Development" /></a>
+                                        <a href="ai-agent-development.html"><img loading="lazy" decoding="async" src="images/service-1.opt.webp" width="640" height="508" alt="AI Agent Development" /></a>
                                     </div>
                                     <div class="portfolio-caption pt-30px pb-30px text-nowrap">
-                                        <a href="ai-agent-developemnt.html" class="text-dark-gray text-dark-gray-hover fw-600">AI Agent Development</a>
+                                        <a href="ai-agent-development.html" class="text-dark-gray text-dark-gray-hover fw-600">AI Agent Development</a>
                                         <span class="d-inline-block align-middle w-10px separator-line-1px bg-light-gray ms-10px me-10px"></span>
                                         <div class="d-inline-block">AI Solutions</div>
                                     </div>
@@ -1054,10 +1095,10 @@ section[style*="demo-marketing-dot.svg"]::before {
                             <li class="grid-item ai-solutions transition-inner-all">
                                 <div class="portfolio-box">
                                     <div class="portfolio-image border-radius-6px">
-                                        <a href="ai-chatbot-developemt.html"><img loading="lazy" decoding="async" src="images/service-2.opt.webp" alt="AI Chatbot Development" /></a> 
+                                        <a href="ai-chatbot-development.html"><img loading="lazy" decoding="async" src="images/service-2.opt.webp" width="640" height="508" alt="AI Chatbot Development" /></a> 
                                     </div>
                                     <div class="portfolio-caption pt-30px pb-30px text-nowrap">
-                                        <a href="ai-chatbot-developemt.html" class="text-dark-gray text-dark-gray-hover fw-600">AI Chatbot Development</a>
+                                        <a href="ai-chatbot-development.html" class="text-dark-gray text-dark-gray-hover fw-600">AI Chatbot Development</a>
                                         <span class="d-inline-block align-middle w-10px separator-line-1px bg-light-gray ms-10px me-10px"></span>
                                         <div class="d-inline-block">AI Solutions</div>
                                     </div>
@@ -1068,7 +1109,7 @@ section[style*="demo-marketing-dot.svg"]::before {
                             <li class="grid-item ai-solutions transition-inner-all">
                                 <div class="portfolio-box">
                                     <div class="portfolio-image border-radius-6px">
-                                        <a href="ai-automation.html"><img loading="lazy" decoding="async" src="images/service-3.opt.webp" alt="AI Automation" /></a> 
+                                        <a href="ai-automation.html"><img loading="lazy" decoding="async" src="images/service-3.opt.webp" width="640" height="508" alt="AI Automation" /></a> 
                                     </div>
                                     <div class="portfolio-caption pt-30px pb-30px text-nowrap">
                                         <a href="ai-automation.html" class="text-dark-gray text-dark-gray-hover fw-600">AI Automation</a>
@@ -1082,7 +1123,7 @@ section[style*="demo-marketing-dot.svg"]::before {
                             <li class="grid-item ai-solutions transition-inner-all">
                                 <div class="portfolio-box">
                                     <div class="portfolio-image border-radius-6px">
-                                        <a href="ai-integration.html"><img loading="lazy" decoding="async" src="images/service-4.opt.webp" alt="AI Integration" /></a> 
+                                        <a href="ai-integration.html"><img loading="lazy" decoding="async" src="images/service-4.opt.webp" width="640" height="508" alt="AI Integration" /></a> 
                                     </div>
                                     <div class="portfolio-caption pt-30px pb-30px text-nowrap">
                                         <a href="ai-integration.html" class="text-dark-gray text-dark-gray-hover fw-600">AI Integration</a>
@@ -1096,7 +1137,7 @@ section[style*="demo-marketing-dot.svg"]::before {
                             <li class="grid-item ai-solutions transition-inner-all">
                                 <div class="portfolio-box">
                                     <div class="portfolio-image border-radius-6px">
-                                        <a href="ai-adoption-and-consulting.html"><img loading="lazy" decoding="async" src="images/service-5.opt.webp" alt="AI Consulting" /></a> 
+                                        <a href="ai-adoption-and-consulting.html"><img loading="lazy" decoding="async" src="images/service-5.opt.webp" width="640" height="508" alt="AI Consulting" /></a> 
                                     </div>
                                     <div class="portfolio-caption pt-30px pb-30px text-nowrap">
                                         <a href="ai-adoption-and-consulting.html" class="text-dark-gray text-dark-gray-hover fw-600">AI Consulting</a>
@@ -1110,7 +1151,7 @@ section[style*="demo-marketing-dot.svg"]::before {
                             <li class="grid-item software transition-inner-all">
                                 <div class="portfolio-box">
                                     <div class="portfolio-image border-radius-6px">
-                                        <a href="website-development.html"><img loading="lazy" decoding="async" src="images/service-6.opt.webp" alt="Website Development" /></a>
+                                        <a href="website-development.html"><img loading="lazy" decoding="async" src="images/service-6.opt.webp" width="640" height="508" alt="Website Development" /></a>
                                     </div>
                                     <div class="portfolio-caption pt-30px pb-30px text-nowrap">
                                         <a href="website-development.html" class="text-dark-gray text-dark-gray-hover fw-600">Website Development</a>
@@ -1124,7 +1165,7 @@ section[style*="demo-marketing-dot.svg"]::before {
                             <li class="grid-item software transition-inner-all">
                                 <div class="portfolio-box">
                                     <div class="portfolio-image border-radius-6px">
-                                        <a href="mobile-app-development.html"><img loading="lazy" decoding="async" src="images/service-7.opt.webp" alt="Android & iOS App" /></a> 
+                                        <a href="mobile-app-development.html"><img loading="lazy" decoding="async" src="images/service-7.opt.webp" width="640" height="508" alt="Android & iOS App" /></a> 
                                     </div>
                                     <div class="portfolio-caption pt-30px pb-30px text-nowrap">
                                         <a href="mobile-app-development.html" class="text-dark-gray text-dark-gray-hover fw-600">Android & iOS App</a>
@@ -1138,7 +1179,7 @@ section[style*="demo-marketing-dot.svg"]::before {
                             <li class="grid-item software transition-inner-all">
                                 <div class="portfolio-box">
                                     <div class="portfolio-image border-radius-6px">
-                                        <a href="custom-software-development.html"><img loading="lazy" decoding="async" src="images/service-8.opt.webp" alt="Custom Software" /></a> 
+                                        <a href="custom-software-development.html"><img loading="lazy" decoding="async" src="images/service-8.opt.webp" width="640" height="508" alt="Custom Software" /></a> 
                                     </div>
                                     <div class="portfolio-caption pt-30px pb-30px text-nowrap">
                                         <a href="custom-software-development.html" class="text-dark-gray text-dark-gray-hover fw-600">Custom Software</a>
@@ -1152,7 +1193,7 @@ section[style*="demo-marketing-dot.svg"]::before {
                             <li class="grid-item software transition-inner-all">
                                 <div class="portfolio-box">
                                     <div class="portfolio-image border-radius-6px">
-                                        <a href="software-modification-modernization.html"><img loading="lazy" decoding="async" src="images/service-9.opt.webp" alt="Software Modernization" /></a> 
+                                        <a href="software-modification-modernization.html"><img loading="lazy" decoding="async" src="images/service-9.opt.webp" width="640" height="508" alt="Software Modernization" /></a> 
                                     </div>
                                     <div class="portfolio-caption pt-30px pb-30px text-nowrap">
                                         <a href="software-modification-modernization.html" class="text-dark-gray text-dark-gray-hover fw-600">Software Modernization</a>
@@ -1166,7 +1207,7 @@ section[style*="demo-marketing-dot.svg"]::before {
                             <li class="grid-item business transition-inner-all">
                                 <div class="portfolio-box">
                                     <div class="portfolio-image border-radius-6px">
-                                        <a href="business-automation.html"><img loading="lazy" decoding="async" src="images/service-10.opt.webp" alt="Business Automation" /></a> 
+                                        <a href="business-automation.html"><img loading="lazy" decoding="async" src="images/service-10.opt.webp" width="640" height="508" alt="Business Automation" /></a> 
                                     </div>
                                     <div class="portfolio-caption pt-30px pb-30px text-nowrap">
                                         <a href="business-automation.html" class="text-dark-gray text-dark-gray-hover fw-600">Business Automation</a>
@@ -1180,7 +1221,7 @@ section[style*="demo-marketing-dot.svg"]::before {
                             <li class="grid-item business transition-inner-all">
                                 <div class="portfolio-box">
                                     <div class="portfolio-image border-radius-6px">
-                                        <a href="digital-transformation.html"><img loading="lazy" decoding="async" src="images/service-11.opt.webp" alt="Digital Transformation services" /></a>
+                                        <a href="digital-transformation.html"><img loading="lazy" decoding="async" src="images/service-11.opt.webp" width="640" height="508" alt="Digital Transformation services" /></a>
                                     </div>
                                     <div class="portfolio-caption pt-30px pb-30px text-nowrap">
                                         <a href="digital-transformation.html" class="text-dark-gray text-dark-gray-hover fw-600">Digital Transformation</a>
@@ -1194,7 +1235,7 @@ section[style*="demo-marketing-dot.svg"]::before {
                             <li class="grid-item business transition-inner-all">
                                 <div class="portfolio-box">
                                     <div class="portfolio-image border-radius-6px">
-                                        <a href="branding.html"><img loading="lazy" decoding="async" src="images/service-12.opt.webp" alt="Branding services" /></a>
+                                        <a href="branding.html"><img loading="lazy" decoding="async" src="images/service-12.opt.webp" width="640" height="508" alt="Branding services" /></a>
                                     </div>
                                     <div class="portfolio-caption pt-30px pb-30px text-nowrap">
                                         <a href="branding.html" class="text-dark-gray text-dark-gray-hover fw-600">Branding</a>
@@ -1208,7 +1249,7 @@ section[style*="demo-marketing-dot.svg"]::before {
                             <li class="grid-item business transition-inner-all">
                                 <div class="portfolio-box">
                                     <div class="portfolio-image border-radius-6px">
-                                        <a href="business-services.html"><img loading="lazy" decoding="async" src="images/service-13.opt.webp" alt="Business Services" /></a>
+                                        <a href="business-services.html"><img loading="lazy" decoding="async" src="images/service-13.opt.webp" width="640" height="508" alt="Business Services" /></a>
                                     </div>
                                     <div class="portfolio-caption pt-30px pb-30px text-nowrap">
                                         <a href="business-services.html" class="text-dark-gray text-dark-gray-hover fw-600">Business Services</a>
@@ -1257,7 +1298,7 @@ section[style*="demo-marketing-dot.svg"]::before {
                             </div>
                             <h6 class="fw-600 text-dark-gray mb-10px ls-minus-05px">AI Agent Development</h6>
                             <p class="mb-20px">Intelligent AI agents that can perform tasks, use connected tools, interact with business systems and support automated workflows — for customer assistance, lead qualification, internal operations and task automation.</p>
-                            <a href="ai-agent-developemnt.html" class="btn btn-link btn-hover-animation-switch text-dark-gray p-0 fw-600">
+                            <a href="ai-agent-development.html" class="btn btn-link btn-hover-animation-switch text-dark-gray p-0 fw-600">
                                 <span>
                                     <span class="btn-text">Explore AI Agent Development</span>
                                     <span class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span>
@@ -1275,7 +1316,7 @@ section[style*="demo-marketing-dot.svg"]::before {
                             </div>
                             <h6 class="fw-600 text-dark-gray mb-10px ls-minus-05px">AI Chatbot Development</h6>
                             <p class="mb-20px">Intelligent conversational assistants for websites, applications and business platforms that support customer service, answer questions, assist sales teams and help employees access information faster.</p>
-                            <a href="ai-chatbot-developemt.html" class="btn btn-link btn-hover-animation-switch text-dark-gray p-0 fw-600">
+                            <a href="ai-chatbot-development.html" class="btn btn-link btn-hover-animation-switch text-dark-gray p-0 fw-600">
                                 <span>
                                     <span class="btn-text">Explore AI Chatbot Development</span>
                                     <span class="btn-icon"><i class="feather icon-feather-arrow-right"></i></span>
@@ -1534,9 +1575,9 @@ section[style*="demo-marketing-dot.svg"]::before {
                     <!-- Left Side Image Layout -->
                     <div class="col-lg-6 col-md-10 position-relative md-mb-50px"> 
                         <figure class="position-relative m-0 text-center" data-anime='{ "effect": "slide", "color": "#eef7ea", "direction":"rl", "easing": "easeOutQuad", "delay":50}'>
-                            <img loading="lazy" decoding="async" src="images/home/home-page-4.opt.webp" class="border-radius-6px w-100" alt="">
+                            <img loading="lazy" decoding="async" src="images/home/home-page-4.opt.webp" srcset="images/home/home-page-4-480w.webp 480w, images/home/home-page-4-640w.webp 640w, images/home/home-page-4.opt.webp 1280w" sizes="(max-width: 575px) 93vw, (max-width: 767px) 90vw, (max-width: 991px) 76vw, (max-width: 1199px) 47vw, (max-width: 1399px) 46vw, 592px" width="1280" height="1164" class="border-radius-6px w-100" alt="">
                             <figcaption class="position-absolute bottom-60px right-0px" data-anime='{ "translateY": [-50, 0], "opacity": [0,1], "duration": 800, "delay": 1000, "staggervalue": 300, "easing": "easeOutQuad" }'> 
-                                <img loading="lazy" decoding="async" src="images/about-2.png" class="animation-float box-shadow-quadruple-large border-radius-6px" alt="">
+                                <img loading="lazy" decoding="async" src="images/about-2.webp" width="266" height="141" class="animation-float box-shadow-quadruple-large border-radius-6px" alt="">
                             </figcaption>
                         </figure>
                     </div>
@@ -2451,7 +2492,7 @@ section[style*="demo-marketing-dot.svg"]::before {
                 </div>
                 <div class="feature-box-content last-paragraph-no-margin">
                     <span class="text-white fs-18 lh-22 mb-5px d-block">Have a project in mind?</span>
-                    <h6 class="d-inline-block fw-600 mb-0 text-nowrap"><a href="mailto:adsofttechnologies2020@gmail.com" class="text-dark-gray text-decoration-line-bottom-medium text-white-hover">adsofttechnologies2020@gmail.com</a></h6> 
+                    <h6 class="d-inline-block fw-600 mb-0 text-nowrap"><a href="mailto:info@adsofttechnologies.com" class="text-dark-gray text-decoration-line-bottom-medium text-white-hover">info@adsofttechnologies.com</a></h6> 
                 </div>
             </div>
         </div>
@@ -2510,6 +2551,7 @@ section[style*="demo-marketing-dot.svg"]::before {
             <div class="col-lg-3 col-md-6 col-sm-6 last-paragraph-no-margin">
                 <span class="fs-16 fw-500 d-block text-white mb-15px">Contact Us</span> 
                 <p class="w-90 lg-w-95 xs-w-60 xs-mx-auto mb-15px">2nd Floor, Puthenpurackal (H), Puthenpurackal Lane, Judgimukku, Thrikkakkara, Ernakulam, Kerala</p>
+                <p class="mb-15px lh-28"><a href="tel:+917012822057" class="text-white">+91 7012822057</a><br><a href="mailto:info@adsofttechnologies.com" class="text-white">info@adsofttechnologies.com</a></p>
                 <a href="contact.html" class="btn btn-small btn-base-color text-white btn-round-edge btn-hover-animation-switch">
                     <span class="text-white">
                         <span class="btn-text text-white">Send Message</span>

@@ -52,19 +52,28 @@
   }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });   /* threshold 0: tall blocks can never get stuck hidden */
 
   function init() {
-    var vh = window.innerHeight || 800;
     var items = collect();
+    if (!items.length) return;
     var groups = new Map();
-    items.forEach(function (el) {
-      var rect = el.getBoundingClientRect();
-      if (rect.top < vh * 0.9 && rect.bottom > 0) return;     /* already on screen: leave as is, no flash */
-      var key = el.parentElement;
-      var n = groups.get(key) || 0;
-      groups.set(key, n + 1);
-      el.style.setProperty('--i', Math.min(n, 5));           /* stagger siblings, capped */
-      el.setAttribute('data-reveal', '');
-      io.observe(el);
-    });
+    /* Which items start on screen? An IntersectionObserver answers with the browser's normal
+       first layout. Calling getBoundingClientRect here instead forced an early synchronous
+       layout of the whole page, including the content-visibility sections below the fold:
+       one long blocking task on phones (Lighthouse "Forced reflow" / Total Blocking Time).
+       "On screen" is the same as before: top above 90% of the screen height, bottom below its top. */
+    var first = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        var el = e.target;
+        first.unobserve(el);
+        if (e.isIntersecting) return;                         /* already on screen: leave as is, no flash */
+        var key = el.parentElement;
+        var n = groups.get(key) || 0;
+        groups.set(key, n + 1);
+        el.style.setProperty('--i', Math.min(n, 5));         /* stagger siblings, capped */
+        el.setAttribute('data-reveal', '');
+        io.observe(el);
+      });
+    }, { threshold: 0, rootMargin: '0px 0px -10% 0px' });
+    items.forEach(function (el) { first.observe(el); });
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

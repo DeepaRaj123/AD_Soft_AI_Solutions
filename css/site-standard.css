@@ -74,6 +74,10 @@ body textarea, body select, body label, body span, body li, body td, body th {
   --alt-font: "Poppins", "Poppins Fallback", sans-serif;
   --primary-font: "Poppins", "Poppins Fallback", sans-serif;
 
+  /* body text grey: the template's #717580 is 4.3:1 on the light-grey sections (#f7f7f7);
+     this is visually the same and passes the 4.5:1 readability minimum (Lighthouse contrast) */
+  --medium-gray: #6a6e78;
+
   /* brand colours */
   --brand: #559643;
   --brand-dark: #3f7431;
@@ -888,14 +892,14 @@ html body h1[data-final] > .type-layer { grid-area: 1 / 1; }
        Sections below the first screen are laid out and painted only when they come
        near the viewport (the browser keeps their last size, so scrolling stays smooth).
    ========================================================= */
-html body > section ~ section,
-html body > footer {
+/* Footer and sections holding an .overlap-section are left out: content-visibility
+   adds paint containment, which clips the overlap card pulled up by negative margin. */
+html body > section ~ section:not(:has(.overlap-section)) {
   content-visibility: auto;
   contain-intrinsic-size: auto 800px;
 }
 @media (max-width: 767px) {
-  html body > section ~ section,
-  html body > footer { contain-intrinsic-size: auto 1300px; }
+  html body > section ~ section:not(:has(.overlap-section)) { contain-intrinsic-size: auto 1300px; }
 }
 
 /* =========================================================
@@ -999,4 +1003,14 @@ html body h1[data-final] .type-layer > :is(.blinking-cursor, .blink) {
   white-space: nowrap;
   position: relative;
   left: 1px;
+}
+
+/* =========================================================
+   22. FOOTER PHONE / EMAIL: comfortable tap size on phones (Lighthouse "touch targets")
+   ========================================================= */
+html body footer p.lh-28 > a[href^="tel:"],
+html body footer p.lh-28 > a[href^="mailto:"] {
+  display: inline-block;
+  min-height: 24px;
+  line-height: 24px;
 }

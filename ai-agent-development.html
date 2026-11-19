@@ -3,12 +3,29 @@
 
 <head>
      <!-- Google tag (gtag.js) -->
-        <script>/* gtag.js loads after the page has loaded (faster first paint); queued events are kept */window.addEventListener("load",function(){setTimeout(function(){var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id=G-XHQDJE0KPP";document.head.appendChild(s);},1500);});</script>
+        <script>/* gtag.js loads on the first scroll/touch/mouse/key, or 5s after the page has loaded, whichever comes first, so it never competes with the first screen; queued events are kept */(function(){var d=0,e=["scroll","touchstart","mousemove","keydown","click"];function l(){if(d)return;d=1;e.forEach(function(n){removeEventListener(n,l)});var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id=G-XHQDJE0KPP";document.head.appendChild(s);}e.forEach(function(n){addEventListener(n,l,{passive:true})});addEventListener("load",function(){setTimeout(l,5000)});})();</script>
         <script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-XHQDJE0KPP');
+        </script>
+        <!-- Microsoft Clarity (project xcgek7he0d). Same tag as Clarity provides; its script is fetched on the first
+             scroll/touch/mouse/key or 5 s after the page has loaded (like gtag), so it never slows the first screen.
+             clarity() calls made before that are queued and sent once it loads. -->
+        <script type="text/javascript">
+            (function(c,l,a,r,i){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                var done=0,ev=["scroll","touchstart","mousemove","keydown","click"];
+                function load(){
+                    if(done)return; done=1;
+                    ev.forEach(function(n){c.removeEventListener(n,load)});
+                    var t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                    var y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+                }
+                ev.forEach(function(n){c.addEventListener(n,load,{passive:true})});
+                c.addEventListener("load",function(){setTimeout(load,5000)});
+            })(window, document, "clarity", "script", "xcgek7he0d");
         </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -19,14 +36,14 @@
     <meta name="keywords" content="AI agent development Kerala, AI agent development services, AI agents Kerala, AI agent company Kerala, custom AI agents, autonomous AI agents, intelligent AI agents, business AI agents, AI workflow agents, AI automation agents, AI assistant development, AI agent integration, multi-agent systems, generative AI agents, AI agents for businesses, customer support AI agents, AI task automation, AI tools integration, custom AI solutions, AI software development, AD Soft Technologies">
     <meta name="author" content="AD Soft Technologies">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://www.adsofttechnologies.com/ai-agent-developemnt">
+    <link rel="canonical" href="https://www.adsofttechnologies.com/ai-agent-development">
 
     <!-- OPEN GRAPH (OG) / SOCIAL MEDIA TAGS -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="AD Soft Technologies">
     <meta property="og:title" content="AI Agent Development Services in Kerala | AD Soft Technologies">
     <meta property="og:description" content="Build task-oriented AI agents for business workflows with AD Soft Technologies in Kerala. Explore agent development, tool integration and business automation.">
-    <meta property="og:url" content="https://www.adsofttechnologies.com/ai-agent-developemnt">
+    <meta property="og:url" content="https://www.adsofttechnologies.com/ai-agent-development">
     <meta property="og:image" content="https://www.adsofttechnologies.com/images/logo.png">
     <meta property="og:locale" content="en_US">
 
@@ -1500,8 +1517,8 @@
     class="fa-solid fa-angle-down dropdown-toggle" id="dAI" role="button" data-bs-toggle="dropdown"
     aria-expanded="false"></i>
 <ul class="dropdown-menu ai-dropdown" aria-labelledby="dAI">
-  <li><a href="ai-agent-developemnt.html"><i class="fa-solid fa-robot"></i>AI Agent Development</a></li>
-  <li><a href="ai-chatbot-developemt.html"><i class="fa-solid fa-comment-dots"></i>AI Chatbot Development</a></li>
+  <li><a href="ai-agent-development.html"><i class="fa-solid fa-robot"></i>AI Agent Development</a></li>
+  <li><a href="ai-chatbot-development.html"><i class="fa-solid fa-comment-dots"></i>AI Chatbot Development</a></li>
   <li><a href="ai-automation.html"><i class="fa-solid fa-bolt"></i>AI Automation</a></li>
   <li><a href="ai-integration.html"><i class="fa-solid fa-diagram-project"></i>AI Integration</a></li>
   <li><a href="ai-adoption-and-consulting.html"><i class="fa-solid fa-chart-line"></i>AI Adoption &amp; Consulting</a></li>
@@ -1637,7 +1654,7 @@
                             <div class="ig2-dots"></div>
                             <div class="ig2-ring"></div>
                             <div class="ig2-back"></div>
-                            <div class="ig2-frame"><img loading="lazy" decoding="async" src="images/ai-solution/ai-agent-developemnt/ai-agent-developemnt.opt.webp" alt="AI agent development"
+                            <div class="ig2-frame"><img loading="lazy" decoding="async" src="images/ai-solution/ai-agent-developemnt/ai-agent-developemnt.opt.webp" srcset="images/ai-solution/ai-agent-developemnt/ai-agent-developemnt-480w.webp 480w, images/ai-solution/ai-agent-developemnt/ai-agent-developemnt-640w.webp 640w, images/ai-solution/ai-agent-developemnt/ai-agent-developemnt.opt.webp 1280w" sizes="(max-width: 575px) 75vw, (max-width: 767px) 73vw, (max-width: 991px) 56vw, (max-width: 1199px) 38vw, (max-width: 1399px) 37vw, 430px" width="1280" height="1047" alt="AI agent development"
                                     onerror="this.parentNode.classList.add('noimg')">
                                 <div class="ig2-ph"><i class="bi bi-image"></i>
                                 <small>images/ai-solution/ai-agent-development/ai-agent-development.webp</small></div>
@@ -2516,7 +2533,7 @@
 </div>
                 <div class="col-lg-3 col-md-6"><span class="fs-16 fw-500 d-block text-white mb-15px">Contact Us</span>
                     <p>2nd Floor, Puthenpurackal (H), Puthenpurackal Lane, Judgimukku, Thrikkakkara, Ernakulam, Kerala
-                    </p><a href="mailto:adsofttechnologies2020@gmail.com" class="text-white">adsofttechnologies2020@gmail.com</a>
+                    </p><p class="mb-0 lh-28"><a href="tel:+917012822057" class="text-white">+91 7012822057</a><br><a href="mailto:info@adsofttechnologies.com" class="text-white">info@adsofttechnologies.com</a></p>
                 </div>
             </div>
             <div class="row footer-bottom border-top border-color-transparent-white-light pt-30px g-0">

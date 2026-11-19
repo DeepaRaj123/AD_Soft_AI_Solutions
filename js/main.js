@@ -367,8 +367,8 @@
         'software-modification-modernization'
     ];
     var aiPages = [
-        'ai-agent-developemnt',
-        'ai-chatbot-developemt',
+        'ai-agent-development',
+        'ai-chatbot-development',
         'ai-automation',
         'ai-integration',
         'ai-adoption-and-consulting'
@@ -2734,8 +2734,9 @@
                     init: function () {
                         let slides = this.slides;
                         let activeIndex = this.activeIndex,
-                                current_slide = this.slides[activeIndex],
-                                anime_el = current_slide.querySelectorAll('[data-anime]'),
+                                current_slide = this.slides[activeIndex];
+                        if (!current_slide) return;   // slide not created yet (loop/breakpoint setup): nothing to animate
+                        let anime_el = current_slide.querySelectorAll('[data-anime]'),
                                 fancy_el = current_slide.querySelectorAll('[data-fancy-text]');
 
                         if (getWindowWidth() > animeBreakPoint) {
@@ -2766,8 +2767,9 @@
                         // Get active slide
                         let slides = this.slides;
                         let activeIndex = this.activeIndex,
-                                current_slide = this.slides[activeIndex],
-                                anime_el = current_slide.querySelectorAll('[data-anime]'),
+                                current_slide = this.slides[activeIndex];
+                        if (!current_slide) return;   // slide not created yet (loop/breakpoint setup): nothing to animate
+                        let anime_el = current_slide.querySelectorAll('[data-anime]'),
                                 fancy_el = current_slide.querySelectorAll('[data-fancy-text]');
 
                         if (getWindowWidth() > animeBreakPoint) {
@@ -4135,24 +4137,41 @@ function initMap() {
 document.addEventListener("DOMContentLoaded", function() {
                 const text = "AI-Powered Software Development &\nBusiness Automation Company in Kerala";
                 let index = 0;
-                const speed = 60; 
-                
+                const speed = 25; // ms per letter: the whole headline is typed in about 2 s (Speed Index)
+                const target = document.getElementById("typing-text");
+                if (!target) return;
+
                 // The whole sentence is laid out from the start; the part not typed yet is invisible.
                 // Words never jump to the next line while typing, so the page does not shift (CLS).
-                const html = s => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/\n/g, "<br>");
+                // Each step puts in fresh nodes (same result as the old innerHTML version, so the
+                // moving caret is never reported as a layout shift), but builds them directly
+                // instead of re-parsing an HTML string on every step.
+                const lines = s => {                       // text with "\n" -> text nodes and <br>
+                    const frag = document.createDocumentFragment();
+                    s.split("\n").forEach((part, i) => {
+                        if (i) frag.appendChild(document.createElement("br"));
+                        if (part) frag.appendChild(document.createTextNode(part));
+                    });
+                    return frag;
+                };
+                const span = (cls, content) => {
+                    const el = document.createElement("span");
+                    el.className = cls;
+                    el.setAttribute("aria-hidden", "true");
+                    el.appendChild(content);
+                    return el;
+                };
+
                 function typeWriter() {
-                    const target = document.getElementById("typing-text");
-                    if (!target) return;
-                    if (index <= text.length) {
-                        target.innerHTML = html(text.slice(0, index)) +
-                            '<span class="type-caret" aria-hidden="true">•</span>' +
-                            '<span class="type-rest" aria-hidden="true">' + html(text.slice(index)) + '</span>';
-                        index++;
-                        setTimeout(typeWriter, speed);
-                    }
+                    target.replaceChildren(
+                        lines(text.slice(0, index)),
+                        span("type-caret", document.createTextNode("•")),
+                        span("type-rest", lines(text.slice(index)))
+                    );
+                    if (index++ < text.length) setTimeout(typeWriter, speed);
                 }
-                
-                setTimeout(typeWriter, 500); 
+
+                setTimeout(typeWriter, 200);
             });
 
 (function () {

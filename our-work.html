@@ -2,12 +2,29 @@
 <html class="no-js" lang="en">
     <head>
          <!-- Google tag (gtag.js) -->
-        <script>/* gtag.js loads after the page has loaded (faster first paint); queued events are kept */window.addEventListener("load",function(){setTimeout(function(){var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id=G-XHQDJE0KPP";document.head.appendChild(s);},1500);});</script>
+        <script>/* gtag.js loads on the first scroll/touch/mouse/key, or 5s after the page has loaded, whichever comes first, so it never competes with the first screen; queued events are kept */(function(){var d=0,e=["scroll","touchstart","mousemove","keydown","click"];function l(){if(d)return;d=1;e.forEach(function(n){removeEventListener(n,l)});var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id=G-XHQDJE0KPP";document.head.appendChild(s);}e.forEach(function(n){addEventListener(n,l,{passive:true})});addEventListener("load",function(){setTimeout(l,5000)});})();</script>
         <script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-XHQDJE0KPP');
+        </script>
+        <!-- Microsoft Clarity (project xcgek7he0d). Same tag as Clarity provides; its script is fetched on the first
+             scroll/touch/mouse/key or 5 s after the page has loaded (like gtag), so it never slows the first screen.
+             clarity() calls made before that are queued and sent once it loads. -->
+        <script type="text/javascript">
+            (function(c,l,a,r,i){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                var done=0,ev=["scroll","touchstart","mousemove","keydown","click"];
+                function load(){
+                    if(done)return; done=1;
+                    ev.forEach(function(n){c.removeEventListener(n,load)});
+                    var t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                    var y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+                }
+                ev.forEach(function(n){c.addEventListener(n,load,{passive:true})});
+                c.addEventListener("load",function(){setTimeout(load,5000)});
+            })(window, document, "clarity", "script", "xcgek7he0d");
         </script>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -182,8 +199,8 @@
                                 <li class="nav-item"><a href="about.html" class="nav-link text-nowrap">About Us</a></li>
                                 <li class="nav-item dropdown simple-dropdown"><a href="ai-solution.html" class="nav-link text-nowrap">AI Solutions</a><i class="fa-solid fa-angle-down dropdown-toggle" id="dAI" role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
                                     <ul class="dropdown-menu ai-dropdown" aria-labelledby="dAI">
-                                        <li><a href="ai-agent-developemnt.html"><i class="fa-solid fa-robot"></i>AI Agent Development</a></li>
-                                        <li><a href="ai-chatbot-developemt.html"><i class="fa-solid fa-comment-dots"></i>AI Chatbot Development</a></li>
+                                        <li><a href="ai-agent-development.html"><i class="fa-solid fa-robot"></i>AI Agent Development</a></li>
+                                        <li><a href="ai-chatbot-development.html"><i class="fa-solid fa-comment-dots"></i>AI Chatbot Development</a></li>
                                         <li><a href="ai-automation.html"><i class="fa-solid fa-bolt"></i>AI Automation</a></li>
                                         <li><a href="ai-integration.html"><i class="fa-solid fa-diagram-project"></i>AI Integration</a></li>
                                         <li><a href="ai-adoption-and-consulting.html"><i class="fa-solid fa-chart-line"></i>AI Adoption &amp; Consulting</a></li>
@@ -247,7 +264,7 @@
                     </div>
                 </div>
             </div>
-            <div class="logo-wall-wrap" aria-hidden="true"><div class="logo-wall"><div class="logo-col"><div class="logo-track"><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr1.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr21.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr7.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr10.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr13.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr16.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr19.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr1.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr21.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr7.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr10.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr13.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr16.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr19.opt.webp" alt=""></div></div></div><div class="logo-col rev"><div class="logo-track"><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr2.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr5.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr11.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr14.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr17.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr2.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr5.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr11.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr14.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr17.webp" alt=""></div></div></div><div class="logo-col"><div class="logo-track"><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr3.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr6.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr9.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr12.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr15.opt.webp" alt=""></div></div></div></div>
+            <div class="logo-wall-wrap" aria-hidden="true"><div class="logo-wall"><div class="logo-col"><div class="logo-track"><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr1.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr21.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr7.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr10.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr13.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr16.opt.webp" width="360" height="116" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr19.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr1.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr21.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr7.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr10.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr13.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr16.opt.webp" width="360" height="116" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr19.opt.webp" alt=""></div></div></div><div class="logo-col rev"><div class="logo-track"><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr2.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr5.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr11.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr14.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr17.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr2.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr5.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr11.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr14.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr17.webp" alt=""></div></div></div><div class="logo-col"><div class="logo-track"><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr3.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr6.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr9.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr12.opt.webp" alt=""></div><div class="logo-tile"><img loading="lazy" decoding="async" src="images/pr15.opt.webp" alt=""></div></div></div></div>
                        
             </div>
         </section>
@@ -385,7 +402,7 @@
                         </span>
                     </a>
                     <a class="work-card" href="https://elitecatering.adsofttechnologies.com/" target="_blank" rel="noopener" data-cat="business" aria-label="Elite Catering (opens website)">
-                        <span class="work-logo"><img src="images/pr16.opt.webp" alt="Elite Catering logo" loading="lazy"></span>
+                        <span class="work-logo"><img src="images/pr16.opt.webp" width="360" height="116" alt="Elite Catering logo" loading="lazy"></span>
                         <span class="work-meta">
                             <span class="work-name">Elite Catering</span>
                             <span class="work-tag">Catering & Events</span>
@@ -417,7 +434,7 @@
                         </span>
                     </a>
                     <a class="work-card" href="https://www.spicerootsidukki.com/" target="_blank" rel="noopener" data-cat="retail" aria-label="Spice Roots Idukki (opens website)">
-                        <span class="work-logo"><img src="images/pr20.webp" alt="Spice Roots Idukki logo" loading="lazy"></span>
+                        <span class="work-logo"><img src="images/pr20.webp" width="490" height="169" alt="Spice Roots Idukki logo" loading="lazy"></span>
                         <span class="work-meta">
                             <span class="work-name">Spice Roots Idukki</span>
                             <span class="work-tag">Retail</span>
@@ -451,7 +468,7 @@
                             </div>
                             <div class="feature-box-content last-paragraph-no-margin">
                                 <span class="text-white fs-18 lh-22 mb-5px d-block">Have a project in mind?</span>
-                                <h6 class="d-inline-block fw-600 mb-0 text-nowrap"><a href="mailto:adsofttechnologies2020@gmail.com" class="text-dark-gray text-decoration-line-bottom-medium text-white-hover">adsofttechnologies2020@gmail.com</a></h6>
+                                <h6 class="d-inline-block fw-600 mb-0 text-nowrap"><a href="mailto:info@adsofttechnologies.com" class="text-dark-gray text-decoration-line-bottom-medium text-white-hover">info@adsofttechnologies.com</a></h6>
                             </div>
                         </div>
                     </div>
@@ -498,6 +515,7 @@
                     <div class="col-lg-3 col-md-6 col-sm-6 last-paragraph-no-margin">
                         <span class="fs-16 fw-500 d-block text-white mb-15px">Contact Us</span>
                         <p class="w-90 lg-w-95 xs-w-60 xs-mx-auto mb-15px">2nd Floor, Puthenpurackal (H), Puthenpurackal Lane, Judgimukku, Thrikkakkara, Ernakulam, Kerala</p>
+                        <p class="mb-15px lh-28"><a href="tel:+917012822057" class="text-white">+91 7012822057</a><br><a href="mailto:info@adsofttechnologies.com" class="text-white">info@adsofttechnologies.com</a></p>
                         <a href="contact.html" class="btn btn-small btn-base-color text-white btn-round-edge btn-hover-animation-switch">
                             <span class="text-white">
                                 <span class="btn-text text-white">Send Message</span>

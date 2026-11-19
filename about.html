@@ -2,12 +2,29 @@
 <html class="no-js" lang="en">
 <head>
  <!-- Google tag (gtag.js) -->
-        <script>/* gtag.js loads after the page has loaded (faster first paint); queued events are kept */window.addEventListener("load",function(){setTimeout(function(){var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id=G-XHQDJE0KPP";document.head.appendChild(s);},1500);});</script>
+        <script>/* gtag.js loads on the first scroll/touch/mouse/key, or 5s after the page has loaded, whichever comes first, so it never competes with the first screen; queued events are kept */(function(){var d=0,e=["scroll","touchstart","mousemove","keydown","click"];function l(){if(d)return;d=1;e.forEach(function(n){removeEventListener(n,l)});var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id=G-XHQDJE0KPP";document.head.appendChild(s);}e.forEach(function(n){addEventListener(n,l,{passive:true})});addEventListener("load",function(){setTimeout(l,5000)});})();</script>
         <script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-XHQDJE0KPP');
+        </script>
+        <!-- Microsoft Clarity (project xcgek7he0d). Same tag as Clarity provides; its script is fetched on the first
+             scroll/touch/mouse/key or 5 s after the page has loaded (like gtag), so it never slows the first screen.
+             clarity() calls made before that are queued and sent once it loads. -->
+        <script type="text/javascript">
+            (function(c,l,a,r,i){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                var done=0,ev=["scroll","touchstart","mousemove","keydown","click"];
+                function load(){
+                    if(done)return; done=1;
+                    ev.forEach(function(n){c.removeEventListener(n,load)});
+                    var t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                    var y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+                }
+                ev.forEach(function(n){c.addEventListener(n,load,{passive:true})});
+                c.addEventListener("load",function(){setTimeout(load,5000)});
+            })(window, document, "clarity", "script", "xcgek7he0d");
         </script>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -130,8 +147,8 @@ section[style*="demo-marketing-dot.svg"]::before { content:""; position:absolute
 <li class="nav-item active"><a href="about.html" class="nav-link text-nowrap">About Us</a></li>
 <li class="nav-item dropdown simple-dropdown"><a href="ai-solution.html" class="nav-link text-nowrap">AI Solutions</a><i class="fa-solid fa-angle-down dropdown-toggle" id="dAI" role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
 <ul class="dropdown-menu ai-dropdown" aria-labelledby="dAI">
-<li><a href="ai-agent-developemnt.html"><i class="fa-solid fa-robot"></i>AI Agent Development</a></li>
-<li><a href="ai-chatbot-developemt"><i class="fa-solid fa-comment-dots"></i>AI Chatbot Development</a></li>
+<li><a href="ai-agent-development.html"><i class="fa-solid fa-robot"></i>AI Agent Development</a></li>
+<li><a href="ai-chatbot-development"><i class="fa-solid fa-comment-dots"></i>AI Chatbot Development</a></li>
 <li><a href="ai-automation.html"><i class="fa-solid fa-bolt"></i>AI Automation</a></li>
 <li><a href="ai-integration.html"><i class="fa-solid fa-diagram-project"></i>AI Integration</a></li>
 <li><a href="ai-adoption-and-consulting.html"><i class="fa-solid fa-chart-line"></i>AI Adoption &amp; Consulting</a></li>
@@ -183,7 +200,7 @@ section[style*="demo-marketing-dot.svg"]::before { content:""; position:absolute
 </div>
 </div>
 <div class="col-xl-5 col-lg-5 d-none d-lg-block position-relative z-index-1">
-<picture><source media="(max-width: 767px)" srcset="images/Header-1-transparent-560.webp"><img src="images/Header-1-transparent.opt.webp" class="w-100 border-radius-6px animation-float" alt="AD Soft Technologies" data-anime='{ "opacity": [0, 1], "translateX": [100, 0], "duration": 1000, "delay": 200, "easing": "easeOutQuad" }'></picture>
+<picture><source media="(max-width: 767px)" srcset="images/Header-1-transparent-560.webp"><img src="images/Header-1-transparent.opt.webp" width="1024" height="1280" class="w-100 border-radius-6px animation-float" alt="AD Soft Technologies" data-anime='{ "opacity": [0, 1], "translateX": [100, 0], "duration": 1000, "delay": 200, "easing": "easeOutQuad" }'></picture>
 </div>
 </div>
 </div>
@@ -198,9 +215,9 @@ section[style*="demo-marketing-dot.svg"]::before { content:""; position:absolute
 <div class="eq-wrap">
 <figure class="position-relative m-0 d-inline-block" data-anime='{ "effect": "slide", "color": "#B5D65A", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
 
-<img loading="lazy" decoding="async" src="images/about/about-page-1.opt.webp" class="eq-main border-radius-6px" alt="AD Soft Technologies">
+<img loading="lazy" decoding="async" src="images/about/about-page-1.opt.webp" srcset="images/about/about-page-1-480w.webp 480w, images/about/about-page-1-640w.webp 640w, images/about/about-page-1.opt.webp 1280w" sizes="(max-width: 575px) 93vw, (max-width: 767px) 90vw, (max-width: 991px) 76vw, (max-width: 1199px) 47vw, (max-width: 1399px) 46vw, 592px" width="1280" height="1164" class="eq-main border-radius-6px" alt="AD Soft Technologies">
 </figure>
-<img loading="lazy" decoding="async" src="images/about/about-page-float-1.opt.webp" class="eq-float animation-float box-shadow-quadruple-large border-radius-6px" alt="">
+<img loading="lazy" decoding="async" src="images/about/about-page-float-1.opt.webp" srcset="images/about/about-page-float-1-160w.webp 160w, images/about/about-page-float-1-240w.webp 240w, images/about/about-page-float-1-320w.webp 320w, images/about/about-page-float-1-480w.webp 480w, images/about/about-page-float-1-640w.webp 640w, images/about/about-page-float-1.opt.webp 1280w" sizes="(max-width: 575px) 44vw, (max-width: 767px) 39vw, (max-width: 991px) 33vw, (max-width: 1199px) 21vw, (max-width: 1399px) 20vw, 249px" width="1280" height="960" class="eq-float animation-float box-shadow-quadruple-large border-radius-6px" alt="">
 </div>
 </div>
 <div class="col-lg-5 offset-lg-1 col-md-10 d-flex flex-column justify-content-center" data-anime='{ "el": "childs", "translateX": [50, 0], "opacity": [0,1], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
@@ -273,7 +290,7 @@ section[style*="demo-marketing-dot.svg"]::before { content:""; position:absolute
 <div class="eq-wrap">
 <figure class="position-relative m-0 d-inline-block" data-anime='{ "effect": "slide", "color": "#B5D65A", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
 
-<img loading="lazy" decoding="async" src="images/about/about-page-2.opt.webp" class="eq-main border-radius-6px" alt="AI and AI integration">
+<img loading="lazy" decoding="async" src="images/about/about-page-2.opt.webp" srcset="images/about/about-page-2-320w.webp 320w, images/about/about-page-2-480w.webp 480w, images/about/about-page-2-640w.webp 640w, images/about/about-page-2.opt.webp 1280w" sizes="(max-width: 575px) 93vw, (max-width: 767px) 90vw, (max-width: 991px) 76vw, (max-width: 1199px) 47vw, (max-width: 1399px) 46vw, 592px" width="1280" height="1164" class="eq-main border-radius-6px" alt="AI and AI integration">
 </figure>
 <div class="position-absolute d-flex align-items-center bg-white border-radius-6px box-shadow-large ps-20px pe-25px pt-10px pb-10px" style="left:20px;bottom:20px;"><i class="bi bi-robot icon-medium text-base-color me-12px" style="margin-right:12px"></i><span class="fw-700 text-dark-gray fs-15">AI Solutions</span></div>
 </div>
@@ -285,7 +302,7 @@ section[style*="demo-marketing-dot.svg"]::before { content:""; position:absolute
 <p class="mb-15px">Our approach focuses on identifying suitable use cases and connecting AI capabilities with relevant business systems and workflows. Depending on the requirement, solutions may support information retrieval, customer interactions, document processing, workflow assistance and other defined tasks.</p>
 <p class="mb-20px">We also help businesses evaluate AI adoption opportunities and understand the requirements involved in implementing AI responsibly.</p>
 <span class="fw-700 text-dark-gray d-block mb-10px">Explore:</span>
-<div><a href="ai-agent-developemnt.html" class="d-inline-block border border-color-extra-medium-gray border-radius-30px ps-15px pe-15px pt-5px pb-5px fs-14 fw-600 text-dark-gray mb-10px me-5px">AI Agent Development</a><a href="ai-chatbot-developemt.html" class="d-inline-block border border-color-extra-medium-gray border-radius-30px ps-15px pe-15px pt-5px pb-5px fs-14 fw-600 text-dark-gray mb-10px me-5px">AI Chatbot Development</a><a href="ai-automation.html" class="d-inline-block border border-color-extra-medium-gray border-radius-30px ps-15px pe-15px pt-5px pb-5px fs-14 fw-600 text-dark-gray mb-10px me-5px">AI Automation</a><a href="ai-integration.html" class="d-inline-block border border-color-extra-medium-gray border-radius-30px ps-15px pe-15px pt-5px pb-5px fs-14 fw-600 text-dark-gray mb-10px me-5px">AI Integration</a><a href="ai-adoption-and-consulting.html" class="d-inline-block border border-color-extra-medium-gray border-radius-30px ps-15px pe-15px pt-5px pb-5px fs-14 fw-600 text-dark-gray mb-10px me-5px">AI Adoption &amp; Consulting</a></div>
+<div><a href="ai-agent-development.html" class="d-inline-block border border-color-extra-medium-gray border-radius-30px ps-15px pe-15px pt-5px pb-5px fs-14 fw-600 text-dark-gray mb-10px me-5px">AI Agent Development</a><a href="ai-chatbot-development.html" class="d-inline-block border border-color-extra-medium-gray border-radius-30px ps-15px pe-15px pt-5px pb-5px fs-14 fw-600 text-dark-gray mb-10px me-5px">AI Chatbot Development</a><a href="ai-automation.html" class="d-inline-block border border-color-extra-medium-gray border-radius-30px ps-15px pe-15px pt-5px pb-5px fs-14 fw-600 text-dark-gray mb-10px me-5px">AI Automation</a><a href="ai-integration.html" class="d-inline-block border border-color-extra-medium-gray border-radius-30px ps-15px pe-15px pt-5px pb-5px fs-14 fw-600 text-dark-gray mb-10px me-5px">AI Integration</a><a href="ai-adoption-and-consulting.html" class="d-inline-block border border-color-extra-medium-gray border-radius-30px ps-15px pe-15px pt-5px pb-5px fs-14 fw-600 text-dark-gray mb-10px me-5px">AI Adoption &amp; Consulting</a></div>
 </div>
 </div>
 <div class="row align-items-stretch justify-content-center mb-7 md-mb-50px">
@@ -293,7 +310,7 @@ section[style*="demo-marketing-dot.svg"]::before { content:""; position:absolute
 <div class="eq-wrap">
 <figure class="position-relative m-0 d-inline-block" data-anime='{ "effect": "slide", "color": "#B5D65A", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
 
-<img loading="lazy" decoding="async" src="images/about/about-page-3.opt.webp" class="eq-main border-radius-6px" alt="Software development">
+<img loading="lazy" decoding="async" src="images/about/about-page-3.opt.webp" srcset="images/about/about-page-3-480w.webp 480w, images/about/about-page-3-640w.webp 640w, images/about/about-page-3.opt.webp 1280w" sizes="(max-width: 575px) 93vw, (max-width: 767px) 90vw, (max-width: 991px) 76vw, (max-width: 1199px) 47vw, (max-width: 1399px) 46vw, 592px" width="1280" height="1164" class="eq-main border-radius-6px" alt="Software development">
 </figure>
 <div class="position-absolute d-flex align-items-center bg-white border-radius-6px box-shadow-large ps-20px pe-25px pt-10px pb-10px" style="left:20px;bottom:20px;"><i class="bi bi-code-slash icon-medium text-base-color me-12px" style="margin-right:12px"></i><span class="fw-700 text-dark-gray fs-15">Software Development</span></div>
 </div>
@@ -315,7 +332,7 @@ section[style*="demo-marketing-dot.svg"]::before { content:""; position:absolute
 <div class="eq-wrap">
 <figure class="position-relative m-0 d-inline-block" data-anime='{ "effect": "slide", "color": "#B5D65A", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
 
-<img loading="lazy" decoding="async" src="images/about/about-page-4.opt.webp" class="eq-main border-radius-6px" alt="Business automation">
+<img loading="lazy" decoding="async" src="images/about/about-page-4.opt.webp" srcset="images/about/about-page-4-320w.webp 320w, images/about/about-page-4-480w.webp 480w, images/about/about-page-4-640w.webp 640w, images/about/about-page-4.opt.webp 1280w" sizes="(max-width: 575px) 93vw, (max-width: 767px) 90vw, (max-width: 991px) 76vw, (max-width: 1199px) 47vw, (max-width: 1399px) 46vw, 592px" width="1280" height="1164" class="eq-main border-radius-6px" alt="Business automation">
 </figure>
 <div class="position-absolute d-flex align-items-center bg-white border-radius-6px box-shadow-large ps-20px pe-25px pt-10px pb-10px" style="left:20px;bottom:20px;"><i class="bi bi-gear-wide-connected icon-medium text-base-color me-12px" style="margin-right:12px"></i><span class="fw-700 text-dark-gray fs-15">Business Solutions</span></div>
 </div>
@@ -334,7 +351,7 @@ section[style*="demo-marketing-dot.svg"]::before { content:""; position:absolute
 <div class="eq-wrap">
 <figure class="position-relative m-0 d-inline-block" data-anime='{ "effect": "slide", "color": "#B5D65A", "direction":"lr", "easing": "easeOutQuad", "delay":50}'>
 
-<img loading="lazy" decoding="async" src="images/about/about-page-5.opt.webp" class="eq-main border-radius-6px" alt="Branding">
+<img loading="lazy" decoding="async" src="images/about/about-page-5.opt.webp" width="1280" height="1164" class="eq-main border-radius-6px" alt="Branding">
 </figure>
 <div class="position-absolute d-flex align-items-center bg-white border-radius-6px box-shadow-large ps-20px pe-25px pt-10px pb-10px" style="left:20px;bottom:20px;"><i class="bi bi-palette icon-medium text-base-color me-12px" style="margin-right:12px"></i><span class="fw-700 text-dark-gray fs-15">Branding</span></div>
 </div>
@@ -401,8 +418,8 @@ section[style*="demo-marketing-dot.svg"]::before { content:""; position:absolute
 <div class="col-lg-6 col-md-10 md-mb-40px" data-anime='{ "opacity": [0,1], "translateY": [30, 0], "duration": 900, "easing": "easeOutQuad" }'>
 <div class="eq-wrap">
   
-<img loading="lazy" decoding="async" src="images/about/about-page-6.opt.webp" class="eq-main border-radius-6px" alt="Our experience">
-<img loading="lazy" decoding="async" src="images/about/about-page-float-2.opt.webp" class="eq-float animation-float box-shadow-quadruple-large border-radius-6px" alt="">
+<img loading="lazy" decoding="async" src="images/about/about-page-6.opt.webp" srcset="images/about/about-page-6-320w.webp 320w, images/about/about-page-6-480w.webp 480w, images/about/about-page-6-640w.webp 640w, images/about/about-page-6.opt.webp 1280w" sizes="(max-width: 575px) 93vw, (max-width: 767px) 90vw, (max-width: 991px) 76vw, (max-width: 1199px) 47vw, (max-width: 1399px) 46vw, 592px" width="1280" height="1164" class="eq-main border-radius-6px" alt="Our experience">
+<img loading="lazy" decoding="async" src="images/about/about-page-float-2.opt.webp" srcset="images/about/about-page-float-2-160w.webp 160w, images/about/about-page-float-2-240w.webp 240w, images/about/about-page-float-2-320w.webp 320w, images/about/about-page-float-2-480w.webp 480w, images/about/about-page-float-2-640w.webp 640w, images/about/about-page-float-2.opt.webp 1280w" sizes="(max-width: 575px) 44vw, (max-width: 767px) 39vw, (max-width: 991px) 33vw, (max-width: 1199px) 21vw, (max-width: 1399px) 20vw, 249px" width="1280" height="960" class="eq-float animation-float box-shadow-quadruple-large border-radius-6px" alt="">
 </div>
 </div>
 <div class="col-lg-5 offset-lg-1 col-md-10 d-flex flex-column justify-content-center" data-anime='{ "el": "childs", "translateX": [50, 0], "opacity": [0,1], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
@@ -490,7 +507,7 @@ section[style*="demo-marketing-dot.svg"]::before { content:""; position:absolute
 </div>
 <div class="row justify-content-center mb-40px" data-anime='{ "opacity": [0,1], "translateY": [30, 0], "duration": 1000, "easing": "easeOutQuad" }'>
 <div class="col-12"><div class="bg-white border-radius-6px box-shadow-large overflow-hidden d-flex flex-column flex-md-row">
-<img loading="lazy" decoding="async" class="team-photo lead" src="images/team/founder.opt.webp" alt="Akhil Kumar, Founder and CEO">
+<img loading="lazy" decoding="async" class="team-photo lead" src="images/team/founder.opt.webp" srcset="images/team/founder-320w.webp 320w, images/team/founder-480w.webp 480w, images/team/founder-640w.webp 640w, images/team/founder-768w.webp 768w, images/team/founder.opt.webp 1280w" sizes="(max-width: 575px) 93vw, (max-width: 767px) 90vw, (max-width: 991px) 34vw, (max-width: 1399px) 35vw, 437px" width="1280" height="853" alt="Akhil Kumar, Founder and CEO">
 <div class="p-50px lg-p-40px sm-p-30px d-flex flex-column justify-content-center">
 <h4 class="fw-800 text-dark-gray mb-5px ls-minus-1px">Akhil Kumar</h4>
 <span class="text-base-color fw-600 fs-18 d-block mb-20px">Founder &amp; CEO</span>
@@ -499,7 +516,7 @@ section[style*="demo-marketing-dot.svg"]::before { content:""; position:absolute
 </div>
 <div class="row justify-content-center mb-40px" data-anime='{ "opacity": [0,1], "translateY": [30, 0], "duration": 1000, "easing": "easeOutQuad" }'>
 <div class="col-12"><div class="bg-white border-radius-6px box-shadow-large overflow-hidden d-flex flex-column flex-md-row-reverse">
-<img loading="lazy" decoding="async" class="team-photo lead" src="images/team/Midhul.opt.webp" alt="Midhul Jacob Mathew, Associate Director">
+<img loading="lazy" decoding="async" class="team-photo lead" src="images/team/Midhul.opt.webp" width="735" height="735" alt="Midhul Jacob Mathew, Associate Director">
 <div class="p-50px lg-p-40px sm-p-30px d-flex flex-column justify-content-center">
 <h4 class="fw-800 text-dark-gray mb-5px ls-minus-1px">Midhul Jacob Mathew</h4>
 <span class="text-base-color fw-600 fs-18 d-block mb-20px">Associate Director</span>
@@ -508,7 +525,7 @@ section[style*="demo-marketing-dot.svg"]::before { content:""; position:absolute
 </div>
 <div class="row row-cols-1 row-cols-lg-2 justify-content-center" data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 1000, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
 <div class="col mb-30px"><div class="bg-white border-radius-6px box-shadow-large overflow-hidden h-100 d-flex flex-column flex-md-row">
-<img loading="lazy" decoding="async" class="team-photo" src="images/team/Prasanna.opt.webp" alt="Prasanna N">
+<img loading="lazy" decoding="async" class="team-photo" src="images/team/Prasanna.opt.webp" srcset="images/team/Prasanna-240w.webp 240w, images/team/Prasanna-320w.webp 320w, images/team/Prasanna-480w.webp 480w, images/team/Prasanna-640w.webp 640w, images/team/Prasanna-768w.webp 768w, images/team/Prasanna.opt.webp 1089w" sizes="(max-width: 575px) 93vw, (max-width: 767px) 90vw, (max-width: 991px) 39vw, (max-width: 1199px) 21vw, (max-width: 1399px) 20vw, 249px" width="1089" height="1280" alt="Prasanna N">
 <div class="p-35px d-flex flex-column justify-content-center">
 <h5 class="fw-700 text-dark-gray mb-5px ls-minus-05px">Prasanna N</h5>
 <span class="text-base-color fw-600 d-block mb-10px">Software Engineer Intern</span>
@@ -516,7 +533,7 @@ section[style*="demo-marketing-dot.svg"]::before { content:""; position:absolute
 <p class="mb-0">Passionate about building efficient and user-centric web applications. Committed to leveraging modern technologies to deliver impactful digital solutions.</p>
 </div></div></div>
 <div class="col mb-30px"><div class="bg-white border-radius-6px box-shadow-large overflow-hidden h-100 d-flex flex-column flex-md-row">
-<img loading="lazy" decoding="async" class="team-photo" src="images/team/boobathi.webp" alt="J. Boopathiraj">
+<img loading="lazy" decoding="async" class="team-photo" src="images/team/boobathi.webp" width="960" height="890" alt="J. Boopathiraj">
 <div class="p-35px d-flex flex-column justify-content-center">
 <h5 class="fw-700 text-dark-gray mb-5px ls-minus-05px">J. Boopathiraj</h5>
 <span class="text-base-color fw-600 d-block mb-10px">Software Engineer Intern</span>
@@ -642,7 +659,7 @@ section[style*="demo-marketing-dot.svg"]::before { content:""; position:absolute
 <div class="feature-box-icon feature-box-icon-rounded w-80px h-80px rounded-circle bg-dark-gray-transparent-light me-25px lg-me-20px"><i class="bi bi-envelope icon-very-medium text-white"></i></div>
 <div class="feature-box-content last-paragraph-no-margin">
 <span class="text-white fs-18 lh-22 mb-5px d-block">Have a project in mind?</span>
-<h6 class="d-inline-block fw-600 mb-0 text-nowrap"><a href="mailto:adsofttechnologies2020@gmail.com" class="text-dark-gray text-decoration-line-bottom-medium text-white-hover">adsofttechnologies2020@gmail.com</a></h6>
+<h6 class="d-inline-block fw-600 mb-0 text-nowrap"><a href="mailto:info@adsofttechnologies.com" class="text-dark-gray text-decoration-line-bottom-medium text-white-hover">info@adsofttechnologies.com</a></h6>
 </div>
 </div>
 </div>
@@ -689,6 +706,7 @@ section[style*="demo-marketing-dot.svg"]::before { content:""; position:absolute
 <div class="col-lg-3 col-md-6 col-sm-6 last-paragraph-no-margin">
 <span class="fs-16 fw-500 d-block text-white mb-15px">Contact Us</span>
 <p class="w-90 lg-w-95 xs-w-60 xs-mx-auto mb-15px">2nd Floor, Puthenpurackal (H), Puthenpurackal Lane, Judgimukku, Thrikkakkara, Ernakulam, Kerala</p>
+<p class="mb-15px lh-28"><a href="tel:+917012822057" class="text-white">+91 7012822057</a><br><a href="mailto:info@adsofttechnologies.com" class="text-white">info@adsofttechnologies.com</a></p>
 <a href="contact.html" class="btn btn-small btn-base-color text-white btn-round-edge btn-hover-animation-switch">
 <span class="text-white"><span class="btn-text text-white">Send Message</span><span class="btn-icon text-white"><i class="feather icon-feather-arrow-right"></i></span><span class="btn-icon text-white"><i class="feather icon-feather-arrow-right"></i></span></span>
 </a>
