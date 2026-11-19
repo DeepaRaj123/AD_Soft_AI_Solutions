@@ -315,7 +315,7 @@
         if (getWindowWidth() >= menuBreakPoint) {
             if (_this.hasClass('open') && _this[0] == $(e.target).parent()[0]) {
                 let href = $(_this).find('.nav-link').attr('href');
-                if (href != 'undefined' && href.indexOf('javascript') === -1 && typeof undefined !== typeof href && href != '#') {
+                if (typeof href === 'string' && href !== '' && href.indexOf('javascript') === -1 && href != '#') {
                     window.location.href = href;
                 }
             }
@@ -3934,6 +3934,47 @@ window.addEventListener('click', function (event) {
     toggle.setAttribute('aria-expanded', 'true');
   }
 }, true);
+
+// Menu labels without their own page ("Software Development", "Business Solutions") are not links:
+// clicking them only opens their dropdown and the current URL stays as it is (no "#" added).
+// Any open desktop dropdown closes as soon as the page scrolls.
+(function () {
+  var DESKTOP = 1200;
+
+  function closeNavDropdowns() {
+    document.querySelectorAll('.navbar-nav .dropdown.open, .navbar-nav .dropdown-menu.show, .navbar-nav .dropdown-toggle.show').forEach(function (el) {
+      el.classList.remove('open', 'show', 'menu-left');
+    });
+    document.querySelectorAll('.navbar-nav .dropdown-toggle[aria-expanded="true"]').forEach(function (t) {
+      t.setAttribute('aria-expanded', 'false');
+    });
+  }
+
+  document.addEventListener('click', function (event) {
+    if (window.innerWidth < DESKTOP || !event.target.closest) return;
+    var label = event.target.closest('.simple-dropdown > .nav-menu-label');
+    if (!label) return;
+    event.preventDefault();
+    var dropdown = label.parentElement;
+    document.querySelectorAll('.navbar-nav .dropdown.open').forEach(function (item) {
+      if (item !== dropdown) item.classList.remove('open');
+    });
+    dropdown.classList.add('open');
+  });
+
+  // Keyboard: Enter / Space on the label behaves like a click.
+  document.addEventListener('keydown', function (event) {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    var label = event.target.closest && event.target.closest('.simple-dropdown > .nav-menu-label');
+    if (!label) return;
+    event.preventDefault();
+    label.click();
+  });
+
+  window.addEventListener('scroll', function () {
+    if (window.innerWidth >= DESKTOP) closeNavDropdowns();
+  }, { passive: true });
+})();
 
 /* ===================================
  Google map
